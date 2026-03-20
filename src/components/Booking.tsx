@@ -117,7 +117,10 @@ const Booking = () => {
             <textarea
               rows={4}
               required
-              placeholder={t("Opisz, jaki remont lub naprawa są potrzebne", "Describe the repair you need")}
+              placeholder={t(
+                "Opisz, jaki remont lub naprawa są potrzebne",
+                "Describe the repair you need"
+              )}
               className={inputClass + " resize-none"}
             />
           )}
@@ -167,6 +170,27 @@ const Booking = () => {
             placeholder={t("Uwagi (opcjonalnie)", "Notes (optional)")}
             className={inputClass + " resize-none"}
           />
+
+          <label className="flex items-start gap-3 border border-border bg-background px-4 py-4">
+            <input
+              type="checkbox"
+              required
+              className="mt-1 h-4 w-4 border-border bg-background accent-[hsl(8_100%_40%)]"
+            />
+            <span className="font-inter text-[13px] leading-relaxed text-muted-foreground">
+              {t(
+                "Wyrażam zgodę na przetwarzanie moich danych osobowych przez Nexar Garage Sp. z o.o. w celu kontaktu i obsługi zgłoszenia serwisowego zgodnie z informacją RODO.",
+                "I consent to Nexar Garage Sp. z o.o. processing my personal data for contact and service booking purposes in line with the privacy notice."
+              )}
+            </span>
+          </label>
+
+          <p className="font-inter text-[12px] leading-relaxed text-muted-foreground/80">
+            {t(
+              "Administratorem danych jest Nexar Garage Sp. z o.o. Dane z formularza wykorzystujemy wyłącznie do kontaktu i ustalenia terminu wizyty.",
+              "The data controller is Nexar Garage Sp. z o.o. We use the form data only to contact you and arrange the appointment."
+            )}
+          </p>
 
           <button
             type="submit"

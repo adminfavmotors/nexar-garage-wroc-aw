@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useLang } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useCookieConsent } from "@/contexts/CookieConsentContext";
 
 const mapAddress = "ul. Świdnicka 18, 50-068 Wrocław";
 const mapQuery = "https://maps.google.com/?hl=pl&q=ul.+%C5%9Awidnicka+18,+Wroc%C5%82aw";
@@ -9,6 +10,7 @@ const mapEmbedSrc =
 
 const Contact = () => {
   const { t } = useLang();
+  const { allowThirdPartyContent, acceptAll } = useCookieConsent();
   const ref = useScrollReveal();
 
   const contactRows = [
@@ -67,14 +69,37 @@ const Contact = () => {
             </div>
 
             <div className="relative h-[360px] border-b border-border bg-background">
-              <iframe
-                src={mapEmbedSrc}
-                title="Nexar Garage map"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0 h-full w-full border-0 grayscale contrast-125 brightness-[0.85]"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(12,12,12,0.16)_0%,rgba(12,12,12,0.04)_45%,rgba(12,12,12,0.22)_100%)]" />
+              {allowThirdPartyContent ? (
+                <>
+                  <iframe
+                    src={mapEmbedSrc}
+                    title="Nexar Garage map"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute inset-0 h-full w-full border-0 grayscale contrast-125 brightness-[0.85]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(12,12,12,0.16)_0%,rgba(12,12,12,0.04)_45%,rgba(12,12,12,0.22)_100%)]" />
+                </>
+              ) : (
+                <div className="flex h-full flex-col items-center justify-center px-8 text-center">
+                  <p className="font-barlow text-[28px] font-bold uppercase text-foreground">
+                    {t("MAPA WYMAGA ZGODY", "MAP REQUIRES CONSENT")}
+                  </p>
+                  <p className="mt-3 max-w-md font-inter text-[14px] leading-relaxed text-muted-foreground">
+                    {t(
+                      "Aby wyświetlić Google Maps, zaakceptuj dodatkowe pliki cookie dla treści zewnętrznych.",
+                      "To display Google Maps, please accept additional cookies for external content."
+                    )}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={acceptAll}
+                    className="mt-6 border border-primary bg-primary px-5 py-3 font-barlow text-[13px] font-bold uppercase tracking-[0.16em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_12px_24px_rgba(170,37,0,0.22)]"
+                  >
+                    {t("AKCEPTUJ COOKIE I POKAŻ MAPĘ", "ACCEPT COOKIES AND SHOW MAP")}
+                  </button>
+                </div>
+              )}
             </div>
 
             <a
