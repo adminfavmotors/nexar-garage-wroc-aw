@@ -6,9 +6,9 @@ const Hero = () => {
   const ref = useScrollReveal();
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden pt-16 diagonal-lines">
+    <section className="relative flex min-h-screen items-start overflow-hidden pt-16 diagonal-lines">
       <div className="container mx-auto px-6">
-        <div ref={ref} className="max-w-[960px] py-20 lg:py-40">
+        <div ref={ref} className="max-w-[960px] py-10 lg:py-16">
           <p className="animate-fade-up font-inter text-[12px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
             WROCŁAW — EST. 2009
           </p>
