@@ -46,7 +46,7 @@ const Reviews = () => {
   };
 
   return (
-    <section id="opinie" ref={sectionRef} className="border-b border-border py-24 lg:py-32">
+    <section id="opinie" ref={sectionRef} className="border-b border-border pt-20 pb-24 lg:pt-24 lg:pb-32">
       <div className="container mx-auto px-6">
         <div className="flex items-end justify-between">
           <div>

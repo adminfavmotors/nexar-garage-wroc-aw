@@ -29,7 +29,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="kontakt" ref={ref} className="border-b border-border py-24 lg:py-32">
+    <section id="kontakt" ref={ref} className="border-b border-border pt-20 pb-24 lg:pt-24 lg:pb-32">
       <div className="container mx-auto px-6">
         <p className="text-center font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
           — {t("KONTAKT", "CONTACT")} —

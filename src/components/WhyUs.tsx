@@ -36,7 +36,7 @@ const WhyUs = () => {
   const [carModel, setCarModel] = useState("");
 
   return (
-    <section id="o-nas" ref={ref} className="border-b border-border py-24 lg:py-32">
+    <section id="o-nas" ref={ref} className="border-b border-border pt-20 pb-24 lg:pt-24 lg:pb-32">
       <div className="container mx-auto px-6">
         <div className="grid gap-16 lg:grid-cols-2">
           <div>

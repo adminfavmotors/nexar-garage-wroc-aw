@@ -21,7 +21,7 @@ const Booking = () => {
 
   if (submitted) {
     return (
-      <section id="rezerwacja" ref={ref} className="border-b border-border bg-surface py-24 lg:py-32">
+      <section id="rezerwacja" ref={ref} className="border-b border-border bg-surface pt-20 pb-24 lg:pt-24 lg:pb-32">
         <div className="container mx-auto px-6 text-center">
           <h2 className="font-barlow text-[48px] font-extrabold uppercase text-foreground">
             {t("DZIĘKUJEMY", "THANK YOU")}
@@ -38,7 +38,7 @@ const Booking = () => {
   }
 
   return (
-    <section id="rezerwacja" ref={ref} className="border-b border-border bg-surface py-24 lg:py-32">
+    <section id="rezerwacja" ref={ref} className="border-b border-border bg-surface pt-20 pb-24 lg:pt-24 lg:pb-32">
       <div className="container mx-auto px-6">
         <h2 className="text-center font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
           {t("ZAREZERWUJ TERMIN", "BOOK AN APPOINTMENT")}
