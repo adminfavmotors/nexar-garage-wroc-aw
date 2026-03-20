@@ -17,16 +17,17 @@ const Header = () => {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/96 shadow-[0_10px_30px_rgba(0,0,0,0.28)] backdrop-blur-md">
       <div className="container mx-auto flex h-20 items-center justify-between px-6 lg:h-24">
         <a href="#" className="group flex items-center gap-4 font-barlow">
-          <div className="border border-border bg-surface px-4 py-2.5 transition-all duration-300 group-hover:border-primary/70 group-hover:bg-elevated">
-            <span className="block text-[30px] font-extrabold leading-none tracking-[0.04em] text-foreground transition-transform duration-300 group-hover:-translate-y-0.5 lg:text-[34px]">
+          <div className="relative overflow-hidden border border-border/90 bg-surface px-4 py-2.5 transition-all duration-500 ease-out group-hover:border-primary/25 group-hover:bg-[hsl(0_0%_9.5%)] group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_10px_28px_rgba(0,0,0,0.24),0_0_24px_rgba(170,37,0,0.08)]">
+            <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.015)_38%,rgba(170,37,0,0.08)_100%)] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100" />
+            <span className="relative block text-[30px] font-extrabold leading-none tracking-[0.04em] text-foreground transition-transform duration-500 ease-out group-hover:-translate-y-0.5 lg:text-[34px]">
               NEXAR
             </span>
           </div>
           <div className="hidden sm:block">
-            <span className="block font-barlow text-[14px] font-bold uppercase tracking-[0.34em] text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+            <span className="block font-barlow text-[14px] font-bold uppercase tracking-[0.34em] text-muted-foreground transition-colors duration-500 ease-out group-hover:text-foreground/90">
               GARAGE
             </span>
-            <span className="mt-1 block font-inter text-[11px] uppercase tracking-[0.18em] text-muted-foreground/70">
+            <span className="mt-1 block font-inter text-[11px] uppercase tracking-[0.18em] text-muted-foreground/70 transition-colors duration-500 ease-out group-hover:text-muted-foreground/90">
               WROCŁAW SINCE 2009
             </span>
           </div>
