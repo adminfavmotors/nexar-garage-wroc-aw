@@ -7,6 +7,7 @@ const footerNav = [
   { labelPl: "Opinie", labelEn: "Reviews", href: "#opinie" },
   { labelPl: "Kontakt", labelEn: "Contact", href: "#kontakt" },
   { labelPl: "Rezerwacja", labelEn: "Booking", href: "#rezerwacja" },
+  { labelPl: "RODO / Cookie", labelEn: "Privacy / Cookies", href: "/rodo-cookies" },
 ];
 
 const Footer = () => {
@@ -50,20 +51,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 border-t border-border pt-6 lg:grid-cols-[1.4fr_auto] lg:items-start">
-          <div>
-            <p className="font-inter text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-              RODO / COOKIES
-            </p>
-            <p className="mt-3 max-w-3xl font-inter text-[13px] leading-relaxed text-muted-foreground">
-              {t(
-                "Administratorem danych jest Nexar Garage Sp. z o.o. Dane z formularza wykorzystujemy wyłącznie do kontaktu i organizacji wizyty. Strona używa niezbędnych plików cookie, a treści zewnętrzne, takie jak Google Maps, uruchamiamy po zgodzie.",
-                "The data controller is Nexar Garage Sp. z o.o. We use form data only to contact you and arrange the appointment. The site uses essential cookies, and external content such as Google Maps is loaded after consent."
-              )}
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3 lg:items-end">
+        <div className="mt-10 flex flex-col gap-3 border-t border-border pt-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href="/rodo-cookies"
+              className="border border-border px-4 py-3 text-center font-barlow text-[13px] font-bold uppercase tracking-[0.16em] text-foreground transition-all duration-300 hover:bg-elevated"
+            >
+              {t("STRONA RODO / COOKIE", "PRIVACY / COOKIE PAGE")}
+            </a>
             <button
               type="button"
               onClick={openSettings}
@@ -71,14 +66,14 @@ const Footer = () => {
             >
               {t("USTAWIENIA COOKIE", "COOKIE SETTINGS")}
             </button>
-            <p className="font-inter text-[12px] text-muted-foreground/80">
-              {consent === "all"
-                ? t("Status: zaakceptowano wszystkie", "Status: all accepted")
-                : consent === "essential"
-                  ? t("Status: tylko niezbędne", "Status: essential only")
-                  : t("Status: oczekuje na wybór", "Status: waiting for choice")}
-            </p>
           </div>
+          <p className="font-inter text-[12px] text-muted-foreground/80">
+            {consent === "all"
+              ? t("Status: zaakceptowano wszystkie", "Status: all accepted")
+              : consent === "essential"
+                ? t("Status: tylko niezbędne", "Status: essential only")
+                : t("Status: oczekuje na wybór", "Status: waiting for choice")}
+          </p>
         </div>
 
         <div className="mt-10 border-t border-border pt-6">

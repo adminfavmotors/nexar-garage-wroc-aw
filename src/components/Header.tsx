@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useLang } from "@/contexts/LanguageContext";
 
 const navItems = [
-  { labelPl: "USŁUGI", labelEn: "SERVICES", href: "#uslugi" },
-  { labelPl: "O NAS", labelEn: "ABOUT", href: "#o-nas" },
-  { labelPl: "OPINIE", labelEn: "REVIEWS", href: "#opinie" },
-  { labelPl: "KONTAKT", labelEn: "CONTACT", href: "#kontakt" },
+  { labelPl: "USŁUGI", labelEn: "SERVICES", href: "/#uslugi" },
+  { labelPl: "O NAS", labelEn: "ABOUT", href: "/#o-nas" },
+  { labelPl: "OPINIE", labelEn: "REVIEWS", href: "/#opinie" },
+  { labelPl: "KONTAKT", labelEn: "CONTACT", href: "/#kontakt" },
+  { labelPl: "RODO / COOKIE", labelEn: "PRIVACY / COOKIES", href: "/rodo-cookies" },
 ];
 
 const Header = () => {
@@ -16,7 +18,7 @@ const Header = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/96 shadow-[0_10px_30px_rgba(0,0,0,0.28)] backdrop-blur-md">
       <div className="container mx-auto flex h-20 items-center justify-between px-6 lg:h-24">
-        <a href="#" className="group flex items-center gap-4 font-barlow">
+        <Link to="/" className="group flex items-center gap-4 font-barlow">
           <div className="relative overflow-hidden rounded-xl border-2 border-primary bg-surface px-4 py-2.5 shadow-[0_0_0_1px_rgba(255,120,90,0.14),0_10px_24px_rgba(0,0,0,0.24),0_0_26px_rgba(170,37,0,0.18)] transition-all duration-500 ease-out group-hover:border-[hsl(8_100%_58%)] group-hover:bg-[hsl(0_0%_9.5%)] group-hover:shadow-[0_0_0_1px_rgba(255,180,165,0.18),0_16px_34px_rgba(0,0,0,0.3),0_0_18px_rgba(170,37,0,0.26),0_0_48px_rgba(170,37,0,0.28)]">
             <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.018)_36%,rgba(170,37,0,0.14)_100%)] opacity-85 transition-opacity duration-500 ease-out group-hover:opacity-100" />
             <span className="relative block text-[30px] font-extrabold leading-none tracking-[0.04em] text-foreground transition-transform duration-500 ease-out group-hover:-translate-y-0.5 lg:text-[34px]">
@@ -31,7 +33,7 @@ const Header = () => {
               WROCŁAW SINCE 2009
             </span>
           </div>
-        </a>
+        </Link>
 
         <nav aria-label="Główna nawigacja" className="hidden items-center gap-3 xl:flex">
           {navItems.map((item) => (
@@ -68,7 +70,7 @@ const Header = () => {
           </div>
 
           <a
-            href="#kontakt"
+            href="/#kontakt"
             className="inline-flex items-center border border-primary bg-primary px-7 py-3.5 font-barlow text-[15px] font-bold uppercase tracking-[0.16em] text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-[0_12px_24px_rgba(170,37,0,0.22)] active:scale-[0.98]"
           >
             {t("UMÓW WIZYTĘ", "BOOK NOW")}
@@ -122,7 +124,7 @@ const Header = () => {
           </div>
 
           <a
-            href="#kontakt"
+            href="/#kontakt"
             onClick={() => setMobileOpen(false)}
             className="mt-6 block border border-primary bg-primary px-6 py-4 text-center font-barlow text-[15px] font-bold uppercase tracking-[0.16em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 active:scale-[0.98]"
           >

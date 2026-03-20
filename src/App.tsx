@@ -8,6 +8,7 @@ import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
 import CookieBanner from "@/components/CookieBanner";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import PrivacyCookies from "./pages/PrivacyCookies.tsx";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/rodo-cookies" element={<PrivacyCookies />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
