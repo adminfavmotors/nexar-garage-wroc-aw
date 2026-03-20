@@ -1,36 +1,47 @@
 import { useState } from "react";
+import { format } from "date-fns";
+import { enUS, pl } from "date-fns/locale";
+import { CalendarIcon } from "lucide-react";
 import { useLang } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { cn } from "@/lib/utils";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const serviceOptions = [
-  { pl: "Diagnostyka komputerowa", en: "Computer Diagnostics" },
-  { pl: "Serwis i naprawy", en: "Service & Repairs" },
-  { pl: "Wymiana opon", en: "Tyre Service" },
-  { pl: "Elektryk samochodowy", en: "Auto Electrics" },
-  { pl: "Klimatyzacja", en: "Air Conditioning" },
-  { pl: "Geometria kół", en: "Wheel Alignment" },
+  { value: "diagnostics", pl: "Diagnostyka komputerowa", en: "Computer Diagnostics" },
+  { value: "repairs", pl: "Serwis i naprawy", en: "Service & Repairs" },
+  { value: "tyres", pl: "Wymiana opon", en: "Tyre Service" },
+  { value: "electrics", pl: "Elektryk samochodowy", en: "Auto Electrics" },
+  { value: "ac", pl: "Klimatyzacja", en: "Air Conditioning" },
+  { value: "alignment", pl: "Geometria kół", en: "Wheel Alignment" },
+  { value: "other", pl: "Inne", en: "Other" },
 ];
 
 const Booking = () => {
   const { lang, t } = useLang();
   const ref = useScrollReveal();
   const [submitted, setSubmitted] = useState(false);
+  const [service, setService] = useState("");
+  const [date, setDate] = useState<Date | undefined>();
+  const [dateError, setDateError] = useState(false);
 
   const inputClass =
     "w-full border border-border bg-background px-4 py-3 font-inter text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors duration-300 focus:border-accent";
 
   if (submitted) {
     return (
-      <section id="rezerwacja" ref={ref} className="border-b border-border bg-surface pt-12 pb-14 lg:pt-16 lg:pb-20">
+      <section
+        id="rezerwacja"
+        ref={ref}
+        className="border-b border-border bg-surface pt-12 pb-14 lg:pt-16 lg:pb-20"
+      >
         <div className="container mx-auto px-6 text-center">
           <h2 className="font-barlow text-[48px] font-extrabold uppercase text-foreground">
             {t("DZIĘKUJEMY", "THANK YOU")}
           </h2>
           <p className="mt-4 font-inter text-base text-muted-foreground">
-            {t(
-              "Potwierdzimy Twój termin wkrótce.",
-              "We'll confirm your appointment shortly."
-            )}
+            {t("Potwierdzimy Twój termin wkrótce.", "We'll confirm your appointment shortly.")}
           </p>
         </div>
       </section>
@@ -38,7 +49,11 @@ const Booking = () => {
   }
 
   return (
-    <section id="rezerwacja" ref={ref} className="border-b border-border bg-surface pt-12 pb-14 lg:pt-16 lg:pb-20">
+    <section
+      id="rezerwacja"
+      ref={ref}
+      className="border-b border-border bg-surface pt-12 pb-14 lg:pt-16 lg:pb-20"
+    >
       <div className="container mx-auto px-6">
         <h2 className="text-center font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
           {t("ZAREZERWUJ TERMIN", "BOOK AN APPOINTMENT")}
@@ -47,6 +62,10 @@ const Booking = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            if (!date) {
+              setDateError(true);
+              return;
+            }
             setSubmitted(true);
           }}
           className="mx-auto mt-8 flex max-w-[600px] flex-col gap-4 sm:mt-10"
@@ -65,6 +84,7 @@ const Booking = () => {
               className={inputClass}
             />
           </div>
+
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <input
               type="text"
@@ -78,24 +98,76 @@ const Booking = () => {
               className={inputClass}
             />
           </div>
-          <select required className={inputClass}>
+
+          <select
+            required
+            value={service}
+            onChange={(e) => setService(e.target.value)}
+            className={inputClass}
+          >
             <option value="">{t("Wybierz usługę", "Select service")}</option>
-            {serviceOptions.map((opt, i) => (
-              <option key={i} value={opt.pl}>
+            {serviceOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>
                 {lang === "PL" ? opt.pl : opt.en}
               </option>
             ))}
           </select>
-          <input
-            type="date"
-            required
-            className={inputClass}
-          />
+
+          {service === "other" && (
+            <textarea
+              rows={4}
+              required
+              placeholder={t("Opisz, jaki remont lub naprawa są potrzebne", "Describe the repair you need")}
+              className={inputClass + " resize-none"}
+            />
+          )}
+
+          <Popover>
+            <PopoverTrigger asChild>
+              <button
+                type="button"
+                className={cn(
+                  inputClass,
+                  "flex items-center justify-between text-left",
+                  dateError && "border-primary",
+                  !date && "text-muted-foreground"
+                )}
+              >
+                <span>
+                  {date
+                    ? format(date, "PPP", { locale: lang === "PL" ? pl : enUS })
+                    : t("Wybierz datę", "Select date")}
+                </span>
+                <CalendarIcon className="h-4 w-4 shrink-0 text-muted-foreground" />
+              </button>
+            </PopoverTrigger>
+            <PopoverContent align="start" className="w-auto border-border bg-surface p-0">
+              <Calendar
+                mode="single"
+                selected={date}
+                onSelect={(selectedDate) => {
+                  setDate(selectedDate);
+                  if (selectedDate) setDateError(false);
+                }}
+                locale={lang === "PL" ? pl : enUS}
+                disabled={(currentDate) => currentDate < new Date(new Date().setHours(0, 0, 0, 0))}
+                initialFocus
+              />
+            </PopoverContent>
+          </Popover>
+
+          {dateError && (
+            <p className="font-inter text-[13px] text-primary">
+              {t("Wybierz datę wizyty", "Select an appointment date")}
+            </p>
+          )}
+
           <textarea
             rows={4}
             placeholder={t("Uwagi (opcjonalnie)", "Notes (optional)")}
             className={inputClass + " resize-none"}
           />
+
           <button
             type="submit"
             className="w-full bg-primary py-4 font-barlow text-[18px] font-bold uppercase tracking-wider text-primary-foreground transition-opacity duration-300 hover:opacity-90 active:scale-[0.98]"
