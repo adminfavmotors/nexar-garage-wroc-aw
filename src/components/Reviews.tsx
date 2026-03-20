@@ -46,7 +46,7 @@ const Reviews = () => {
   };
 
   return (
-    <section id="opinie" ref={sectionRef} className="border-b border-border pt-20 pb-24 lg:pt-24 lg:pb-32">
+    <section id="opinie" ref={sectionRef} className="border-b border-border pt-16 pb-20 lg:pt-20 lg:pb-24">
       <div className="container mx-auto px-6">
         <div className="flex items-end justify-between">
           <div>
@@ -75,7 +75,7 @@ const Reviews = () => {
 
         <div
           ref={scrollRef}
-          className="mt-12 flex gap-4 overflow-x-auto pb-4 scrollbar-none"
+          className="mt-10 flex gap-4 overflow-x-auto pb-4 scrollbar-none"
           style={{ scrollbarWidth: "none" }}
         >
           {reviews.map((review, i) => (

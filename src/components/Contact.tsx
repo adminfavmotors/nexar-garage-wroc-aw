@@ -29,7 +29,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="kontakt" ref={ref} className="border-b border-border pt-20 pb-24 lg:pt-24 lg:pb-32">
+    <section id="kontakt" ref={ref} className="border-b border-border pt-16 pb-20 lg:pt-20 lg:pb-24">
       <div className="container mx-auto px-6">
         <p className="text-center font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
           — {t("KONTAKT", "CONTACT")} —
@@ -38,7 +38,7 @@ const Contact = () => {
           {t("ZNAJDŹ NAS", "FIND US")}
         </h2>
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-2">
+        <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col gap-6">
             {contactRows.map((row, i) => (
               <div key={i} className="flex items-start gap-4 border-l-2 border-primary pl-4">

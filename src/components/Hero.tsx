@@ -50,7 +50,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="animate-fade-up animate-fade-up-delay-4 mt-auto pb-10 lg:pb-12">
+        <div className="animate-fade-up animate-fade-up-delay-4 mt-auto pb-8 lg:pb-10">
           <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-center gap-3 sm:gap-4">
             {heroBenefits.map((benefit) => (
               <div

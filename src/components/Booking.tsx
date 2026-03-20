@@ -21,7 +21,7 @@ const Booking = () => {
 
   if (submitted) {
     return (
-      <section id="rezerwacja" ref={ref} className="border-b border-border bg-surface pt-20 pb-24 lg:pt-24 lg:pb-32">
+      <section id="rezerwacja" ref={ref} className="border-b border-border bg-surface pt-16 pb-20 lg:pt-20 lg:pb-24">
         <div className="container mx-auto px-6 text-center">
           <h2 className="font-barlow text-[48px] font-extrabold uppercase text-foreground">
             {t("DZIĘKUJEMY", "THANK YOU")}
@@ -38,7 +38,7 @@ const Booking = () => {
   }
 
   return (
-    <section id="rezerwacja" ref={ref} className="border-b border-border bg-surface pt-20 pb-24 lg:pt-24 lg:pb-32">
+    <section id="rezerwacja" ref={ref} className="border-b border-border bg-surface pt-16 pb-20 lg:pt-20 lg:pb-24">
       <div className="container mx-auto px-6">
         <h2 className="text-center font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
           {t("ZAREZERWUJ TERMIN", "BOOK AN APPOINTMENT")}
@@ -49,7 +49,7 @@ const Booking = () => {
             e.preventDefault();
             setSubmitted(true);
           }}
-          className="mx-auto mt-14 flex max-w-[600px] flex-col gap-4"
+          className="mx-auto mt-10 flex max-w-[600px] flex-col gap-4 sm:mt-12"
         >
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <input
