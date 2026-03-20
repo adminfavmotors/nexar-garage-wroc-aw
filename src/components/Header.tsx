@@ -1,66 +1,59 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 const navItems = [
-  { label: "Usługi", href: "#uslugi" },
-  { label: "O nas", href: "#o-nas" },
-  { label: "Opinie", href: "#opinie" },
-  { label: "Kontakt", href: "#kontakt" },
+  { labelPl: "USŁUGI", labelEn: "SERVICES", href: "#uslugi" },
+  { labelPl: "O NAS", labelEn: "ABOUT", href: "#o-nas" },
+  { labelPl: "OPINIE", labelEn: "REVIEWS", href: "#opinie" },
+  { labelPl: "KONTAKT", labelEn: "CONTACT", href: "#kontakt" },
 ];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [lang, setLang] = useState<"PL" | "EN">("PL");
+  const { lang, setLang, t } = useLang();
 
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 border-b border-border"
-      style={{
-        backdropFilter: "blur(12px)",
-        backgroundColor: "rgba(10, 10, 10, 0.85)",
-      }}
+      style={{ backgroundColor: "rgba(12, 12, 12, 0.95)" }}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-6">
-        {/* Logo */}
-        <a href="#" className="flex items-baseline gap-1 font-syne">
-          <span className="text-xl font-bold tracking-tight text-foreground">NEXAR</span>
-          <span className="text-sm font-bold uppercase tracking-[0.15em] text-primary">
+        <a href="#" className="flex items-center gap-3 font-barlow">
+          <span className="text-xl font-extrabold tracking-tight text-foreground">NEXAR</span>
+          <span className="h-4 w-px bg-muted-foreground/50" />
+          <span className="text-sm font-semibold tracking-wider text-muted-foreground">
             GARAGE
           </span>
         </a>
 
-        {/* Desktop Nav */}
         <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="nav-underline text-[13px] font-medium tracking-wide text-muted-foreground transition-colors duration-300 hover:text-foreground"
+              className="font-inter text-[13px] font-medium uppercase tracking-widest text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >
-              {item.label}
+              {lang === "PL" ? item.labelPl : item.labelEn}
             </a>
           ))}
         </nav>
 
-        {/* Right side */}
-        <div className="hidden items-center gap-4 md:flex">
-          <div className="flex items-center overflow-hidden rounded-sm border border-border text-[12px] font-medium">
+        <div className="hidden items-center gap-5 md:flex">
+          <div className="flex items-center gap-1.5 font-inter text-[13px]">
             <button
               onClick={() => setLang("PL")}
-              className={`px-3 py-1.5 transition-colors duration-300 ${
-                lang === "PL"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+              className={`transition-colors duration-300 ${
+                lang === "PL" ? "font-semibold text-foreground" : "font-normal text-muted-foreground/60"
               }`}
             >
               PL
             </button>
+            <span className="text-muted-foreground/40">·</span>
             <button
               onClick={() => setLang("EN")}
-              className={`px-3 py-1.5 transition-colors duration-300 ${
-                lang === "EN"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+              className={`transition-colors duration-300 ${
+                lang === "EN" ? "font-semibold text-foreground" : "font-normal text-muted-foreground/60"
               }`}
             >
               EN
@@ -68,13 +61,12 @@ const Header = () => {
           </div>
           <a
             href="#kontakt"
-            className="rounded-sm border border-foreground px-5 py-2 text-[13px] font-medium text-foreground transition-all duration-300 hover:border-primary hover:text-primary hover-glow"
+            className="bg-primary px-5 py-2 font-barlow text-[13px] font-bold uppercase tracking-wider text-primary-foreground transition-opacity duration-300 hover:opacity-90 active:scale-[0.97]"
           >
-            Umów wizytę
+            {t("UMÓW WIZYTĘ", "BOOK NOW")}
           </a>
         </div>
 
-        {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="text-foreground md:hidden"
@@ -84,48 +76,44 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-border bg-background px-6 pb-6 pt-4 md:hidden">
-          <nav className="flex flex-col gap-4">
+        <div className="fixed inset-0 top-16 z-40 border-t border-border bg-background px-6 pb-8 pt-6 md:hidden">
+          <nav className="flex flex-col gap-6">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="font-barlow text-2xl font-bold uppercase tracking-wider text-foreground transition-colors hover:text-accent"
               >
-                {item.label}
+                {lang === "PL" ? item.labelPl : item.labelEn}
               </a>
             ))}
           </nav>
-          <div className="mt-6 flex items-center gap-4">
-            <div className="flex overflow-hidden rounded-sm border border-border text-[12px] font-medium">
+          <div className="mt-10 flex items-center gap-4">
+            <div className="flex items-center gap-2 font-inter text-sm">
               <button
                 onClick={() => setLang("PL")}
-                className={`px-3 py-1.5 transition-colors ${
-                  lang === "PL" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
-                }`}
+                className={lang === "PL" ? "font-semibold text-foreground" : "text-muted-foreground/60"}
               >
                 PL
               </button>
+              <span className="text-muted-foreground/40">·</span>
               <button
                 onClick={() => setLang("EN")}
-                className={`px-3 py-1.5 transition-colors ${
-                  lang === "EN" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
-                }`}
+                className={lang === "EN" ? "font-semibold text-foreground" : "text-muted-foreground/60"}
               >
                 EN
               </button>
             </div>
-            <a
-              href="#kontakt"
-              onClick={() => setMobileOpen(false)}
-              className="rounded-sm border border-foreground px-5 py-2 text-[13px] font-medium text-foreground"
-            >
-              Umów wizytę
-            </a>
           </div>
+          <a
+            href="#kontakt"
+            onClick={() => setMobileOpen(false)}
+            className="mt-6 block bg-primary px-6 py-3 text-center font-barlow text-sm font-bold uppercase tracking-wider text-primary-foreground"
+          >
+            {t("UMÓW WIZYTĘ", "BOOK NOW")}
+          </a>
         </div>
       )}
     </header>
