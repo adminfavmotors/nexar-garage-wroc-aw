@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom";
 import { useLang } from "@/contexts/LanguageContext";
 import { useCookieConsent } from "@/contexts/CookieConsentContext";
 
 const footerNav = [
-  { labelPl: "Usługi", labelEn: "Services", href: "#uslugi" },
-  { labelPl: "O nas", labelEn: "About", href: "#o-nas" },
-  { labelPl: "Opinie", labelEn: "Reviews", href: "#opinie" },
-  { labelPl: "Kontakt", labelEn: "Contact", href: "#kontakt" },
-  { labelPl: "Rezerwacja", labelEn: "Booking", href: "#rezerwacja" },
-  { labelPl: "RODO / Cookie", labelEn: "Privacy / Cookies", href: "/rodo-cookies" },
+  { labelPl: "Usługi", labelEn: "Services", href: "/#uslugi" },
+  { labelPl: "O nas", labelEn: "About", href: "/#o-nas" },
+  { labelPl: "Opinie", labelEn: "Reviews", href: "/#opinie" },
+  { labelPl: "Kontakt", labelEn: "Contact", href: "/#kontakt" },
+  { labelPl: "Rezerwacja", labelEn: "Booking", href: "/#rezerwacja" },
 ];
 
 const Footer = () => {
@@ -51,22 +51,23 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-border pt-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href="/rodo-cookies"
-              className="border border-border px-4 py-3 text-center font-barlow text-[13px] font-bold uppercase tracking-[0.16em] text-foreground transition-all duration-300 hover:bg-elevated"
+        <div className="mt-10 flex flex-col gap-4 border-t border-border pt-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              to="/rodo-cookies"
+              className="font-inter text-[13px] font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >
-              {t("STRONA RODO / COOKIE", "PRIVACY / COOKIE PAGE")}
-            </a>
+              {t("RODO / COOKIES", "PRIVACY / COOKIES")}
+            </Link>
             <button
               type="button"
               onClick={openSettings}
-              className="border border-border px-4 py-3 font-barlow text-[13px] font-bold uppercase tracking-[0.16em] text-foreground transition-all duration-300 hover:bg-elevated"
+              className="font-inter text-[13px] font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >
-              {t("USTAWIENIA COOKIE", "COOKIE SETTINGS")}
+              {t("Ustawienia cookie", "Cookie settings")}
             </button>
           </div>
+
           <p className="font-inter text-[12px] text-muted-foreground/80">
             {consent === "all"
               ? t("Status: zaakceptowano wszystkie", "Status: all accepted")
