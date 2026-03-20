@@ -17,8 +17,8 @@ const Header = () => {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/96 shadow-[0_10px_30px_rgba(0,0,0,0.28)] backdrop-blur-md">
       <div className="container mx-auto flex h-20 items-center justify-between px-6 lg:h-24">
         <a href="#" className="group flex items-center gap-4 font-barlow">
-          <div className="relative overflow-hidden border border-border/90 bg-surface px-4 py-2.5 transition-all duration-500 ease-out group-hover:border-primary/25 group-hover:bg-[hsl(0_0%_9.5%)] group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_10px_28px_rgba(0,0,0,0.24),0_0_24px_rgba(170,37,0,0.08)]">
-            <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.015)_38%,rgba(170,37,0,0.08)_100%)] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100" />
+          <div className="relative overflow-hidden rounded-xl border-2 border-primary/70 bg-surface px-4 py-2.5 shadow-[0_0_0_1px_rgba(255,120,90,0.08),0_10px_24px_rgba(0,0,0,0.24),0_0_22px_rgba(170,37,0,0.12)] transition-all duration-500 ease-out group-hover:border-primary/90 group-hover:bg-[hsl(0_0%_9.5%)] group-hover:shadow-[0_0_0_1px_rgba(255,160,140,0.12),0_14px_30px_rgba(0,0,0,0.28),0_0_34px_rgba(170,37,0,0.2)]">
+            <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.018)_36%,rgba(170,37,0,0.12)_100%)] opacity-80 transition-opacity duration-500 ease-out group-hover:opacity-100" />
             <span className="relative block text-[30px] font-extrabold leading-none tracking-[0.04em] text-foreground transition-transform duration-500 ease-out group-hover:-translate-y-0.5 lg:text-[34px]">
               NEXAR
             </span>
