@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useLang } from "@/contexts/LanguageContext";
-import { useCookieConsent } from "@/contexts/CookieConsentContext";
 
 const footerNav = [
   { labelPl: "Usługi", labelEn: "Services", href: "/#uslugi", type: "anchor" as const },
@@ -13,12 +12,11 @@ const footerNav = [
 
 const Footer = () => {
   const { lang, t } = useLang();
-  const { consent, openSettings } = useCookieConsent();
 
   return (
     <footer className="border-t border-border py-12">
       <div className="container mx-auto px-6">
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_1.2fr_0.95fr] lg:gap-12">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_1.2fr] lg:gap-12">
           <div>
             <p className="font-inter text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
               NEXAR GARAGE
@@ -62,35 +60,9 @@ const Footer = () => {
               )}
             </div>
           </div>
-
-          <div className="lg:text-right">
-            <p className="font-inter text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-              {t("Płatności i cookie", "Payments and cookies")}
-            </p>
-            <p className="mt-4 font-inter text-[13px] text-muted-foreground">
-              Visa · Mastercard · {t("Gotówka", "Cash")}
-            </p>
-            <div className="mt-4 flex flex-col items-start gap-3 lg:items-end">
-              <button
-                type="button"
-                onClick={openSettings}
-                className="font-inter text-[13px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
-              >
-                {t("Ustawienia cookie", "Cookie settings")}
-              </button>
-            </div>
-          </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 border-t border-border pt-6 lg:flex-row lg:items-center lg:justify-between">
-          <p className="font-inter text-[12px] text-muted-foreground/80">
-            {consent === "all"
-              ? t("Status: zaakceptowano wszystkie", "Status: all accepted")
-              : consent === "essential"
-                ? t("Status: tylko niezbędne", "Status: essential only")
-                : t("Status: oczekuje na wybór", "Status: waiting for choice")}
-          </p>
-
+        <div className="mt-10 border-t border-border pt-6 text-center">
           <p className="font-inter text-[12px] text-muted-foreground/60">
             © 2025 Nexar Garage Sp. z o.o. | NIP: 8992345678
           </p>
