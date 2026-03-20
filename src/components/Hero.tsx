@@ -27,7 +27,7 @@ const Hero = () => {
 
           <div className="animate-fade-up animate-fade-up-delay-2 mt-8 h-px w-full max-w-xs bg-border" />
 
-          <p className="animate-fade-up animate-fade-up-delay-2 mt-6 font-inter text-base text-muted-foreground">
+          <p className="animate-fade-up animate-fade-up-delay-2 mt-6 font-inter text-base font-medium tracking-[0.08em] text-foreground/80 sm:text-lg">
             {t(
               "Diagnostyka. Naprawy. Klimatyzacja. Opony.",
               "Diagnostics. Repairs. Air Conditioning. Tyres."
