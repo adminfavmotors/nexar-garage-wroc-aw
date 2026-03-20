@@ -89,16 +89,16 @@ const Services = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="uslugi" ref={ref} className="border-b border-border pt-16 pb-20 lg:pt-20 lg:pb-24">
+    <section id="uslugi" ref={ref} className="border-b border-border pt-12 pb-14 lg:pt-16 lg:pb-20">
       <div className="container mx-auto px-6">
         <p className="text-center font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
           — {t("NASZE USŁUGI", "OUR SERVICES")} —
         </p>
-        <h2 className="mt-4 text-center font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
+        <h2 className="mt-3 text-center font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
           {t("KOMPLEKSOWA OBSŁUGA", "COMPREHENSIVE SERVICE")}
         </h2>
 
-        <div className="mt-12 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <ServiceCard key={service.num} service={service} lang={lang} t={t} />
           ))}

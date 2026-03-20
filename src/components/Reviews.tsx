@@ -46,14 +46,14 @@ const Reviews = () => {
   };
 
   return (
-    <section id="opinie" ref={sectionRef} className="border-b border-border pt-16 pb-20 lg:pt-20 lg:pb-24">
+    <section id="opinie" ref={sectionRef} className="border-b border-border pt-12 pb-14 lg:pt-16 lg:pb-20">
       <div className="container mx-auto px-6">
         <div className="flex items-end justify-between">
           <div>
             <p className="font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               — {t("OPINIE KLIENTÓW", "CLIENT REVIEWS")} —
             </p>
-            <h2 className="mt-4 font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
+            <h2 className="mt-3 font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
               {t("CO MÓWIĄ KLIENCI", "WHAT CLIENTS SAY")}
             </h2>
           </div>
@@ -75,7 +75,7 @@ const Reviews = () => {
 
         <div
           ref={scrollRef}
-          className="mt-10 flex gap-4 overflow-x-auto pb-4 scrollbar-none"
+          className="mt-8 flex gap-4 overflow-x-auto pb-4 scrollbar-none"
           style={{ scrollbarWidth: "none" }}
         >
           {reviews.map((review, i) => (

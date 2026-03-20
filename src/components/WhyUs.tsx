@@ -36,14 +36,14 @@ const WhyUs = () => {
   const [carModel, setCarModel] = useState("");
 
   return (
-    <section id="o-nas" ref={ref} className="border-b border-border pt-16 pb-20 lg:pt-20 lg:pb-24">
+    <section id="o-nas" ref={ref} className="border-b border-border pt-12 pb-14 lg:pt-16 lg:pb-20">
       <div className="container mx-auto px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-14">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
           <div>
             <h2 className="font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
               {t("DLACZEGO NEXAR?", "WHY NEXAR?")}
             </h2>
-            <div className="mt-10 flex flex-col gap-5">
+            <div className="mt-8 flex flex-col gap-4">
               {reasons.map((reason, i) => (
                 <div key={i} className="border-l-2 border-primary pl-4">
                   <p className="font-inter text-[15px] text-foreground">{reason}</p>

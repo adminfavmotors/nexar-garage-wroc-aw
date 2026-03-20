@@ -12,20 +12,20 @@ const Hero = () => {
   const ref = useScrollReveal();
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-16 diagonal-lines">
-      <div className="container mx-auto flex min-h-[calc(100vh-4rem)] flex-col px-6">
-        <div ref={ref} className="max-w-[960px] py-10 lg:py-16">
+    <section className="relative min-h-[84svh] overflow-hidden pt-16 diagonal-lines lg:min-h-[88svh]">
+      <div className="container mx-auto flex min-h-[calc(84svh-4rem)] flex-col px-6 lg:min-h-[calc(88svh-4rem)]">
+        <div ref={ref} className="max-w-[960px] py-8 lg:py-12">
           <p className="animate-fade-up font-inter text-[12px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
             WROCŁAW — EST. 2009
           </p>
 
-          <h1 className="animate-fade-up animate-fade-up-delay-1 mt-8 font-barlow text-[52px] font-extrabold uppercase leading-[0.95] tracking-tight sm:text-7xl lg:text-[96px]">
+          <h1 className="animate-fade-up animate-fade-up-delay-1 mt-6 font-barlow text-[52px] font-extrabold uppercase leading-[0.95] tracking-tight sm:text-7xl lg:text-[96px]">
             <span className="block text-foreground">{t("PROFESJONALNY", "PROFESSIONAL")}</span>
             <span className="block text-accent">{t("SERWIS SAMOCHODOWY", "CAR SERVICE")}</span>
             <span className="block text-[hsl(0_0%_20%)]">{t("WE WROCŁAWIU.", "IN WROCŁAW.")}</span>
           </h1>
 
-          <div className="animate-fade-up animate-fade-up-delay-2 mt-8 h-px w-full max-w-xs bg-border" />
+          <div className="animate-fade-up animate-fade-up-delay-2 mt-6 h-px w-full max-w-xs bg-border" />
 
           <p className="animate-fade-up animate-fade-up-delay-2 mt-6 font-inter text-base font-medium tracking-[0.08em] text-foreground/80 sm:text-lg">
             {t(
@@ -34,7 +34,7 @@ const Hero = () => {
             )}
           </p>
 
-          <div className="animate-fade-up animate-fade-up-delay-3 mt-10 flex flex-wrap gap-4">
+          <div className="animate-fade-up animate-fade-up-delay-3 mt-8 flex flex-wrap gap-4">
             <a
               href="#kontakt"
               className="inline-flex items-center bg-primary px-7 py-3.5 font-barlow text-[14px] font-bold uppercase tracking-wider text-primary-foreground transition-opacity duration-300 hover:opacity-90 active:scale-[0.97]"
@@ -50,7 +50,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="animate-fade-up animate-fade-up-delay-4 mt-auto pb-8 lg:pb-10">
+        <div className="animate-fade-up animate-fade-up-delay-4 mt-auto pb-6 lg:pb-8">
           <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-center gap-3 sm:gap-4">
             {heroBenefits.map((benefit) => (
               <div
