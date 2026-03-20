@@ -3,8 +3,9 @@ import { useLang } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const mapAddress = "ul. Świdnicka 18, 50-068 Wrocław";
-const mapQuery = "https://maps.google.com/?q=ul.+%C5%9Awidnicka+18,+Wroc%C5%82aw";
-const mapEmbedSrc = "https://www.google.com/maps?q=ul.+%C5%9Awidnicka+18,+Wroc%C5%82aw&z=15&output=embed";
+const mapQuery = "https://maps.google.com/?hl=pl&q=ul.+%C5%9Awidnicka+18,+Wroc%C5%82aw";
+const mapEmbedSrc =
+  "https://www.google.com/maps?hl=pl&q=ul.+%C5%9Awidnicka+18,+Wroc%C5%82aw&z=15&output=embed";
 
 const Contact = () => {
   const { t } = useLang();
