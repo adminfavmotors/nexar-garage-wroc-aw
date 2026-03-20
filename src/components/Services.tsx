@@ -64,7 +64,7 @@ const ServiceCard = ({
       onMouseLeave={() => setHovered(false)}
       className="group flex flex-col border border-border bg-surface p-8 transition-colors duration-300 hover:border-accent"
     >
-      <span className="font-barlow text-[13px] font-bold text-[hsl(0_0%_20%)]">
+      <span className="font-barlow text-[13px] font-bold text-[hsl(0_0%_34%)]">
         {service.num}
       </span>
       <h3 className="mt-4 font-barlow text-[22px] font-bold text-foreground">

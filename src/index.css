@@ -6,47 +6,47 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4.7%;
-    --foreground: 0 0% 94.1%;
+    --background: 210 8% 7%;
+    --foreground: 0 0% 95.5%;
 
-    --card: 0 0% 7.8%;
-    --card-foreground: 0 0% 94.1%;
+    --card: 210 7% 10%;
+    --card-foreground: 0 0% 95.5%;
 
-    --popover: 0 0% 7.8%;
-    --popover-foreground: 0 0% 94.1%;
+    --popover: 210 7% 10%;
+    --popover-foreground: 0 0% 95.5%;
 
     --primary: 8 100% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 11%;
-    --secondary-foreground: 0 0% 94.1%;
+    --secondary: 210 6% 13%;
+    --secondary-foreground: 0 0% 95.5%;
 
-    --muted: 0 0% 11%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 210 6% 13%;
+    --muted-foreground: 0 0% 56%;
 
-    --accent: 0 0% 87.8%;
-    --accent-foreground: 0 0% 4.7%;
+    --accent: 0 0% 91%;
+    --accent-foreground: 210 8% 7%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 13.3%;
-    --input: 0 0% 13.3%;
-    --ring: 0 0% 87.8%;
+    --border: 210 6% 18%;
+    --input: 210 6% 18%;
+    --ring: 0 0% 91%;
 
     --radius: 0px;
 
-    --elevated: 0 0% 11%;
-    --surface: 0 0% 7.8%;
+    --elevated: 210 6% 13%;
+    --surface: 210 7% 10%;
 
-    --sidebar-background: 0 0% 7.8%;
-    --sidebar-foreground: 0 0% 94.1%;
+    --sidebar-background: 210 7% 10%;
+    --sidebar-foreground: 0 0% 95.5%;
     --sidebar-primary: 8 100% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 11%;
-    --sidebar-accent-foreground: 0 0% 94.1%;
-    --sidebar-border: 0 0% 13.3%;
-    --sidebar-ring: 0 0% 87.8%;
+    --sidebar-accent: 210 6% 13%;
+    --sidebar-accent-foreground: 0 0% 95.5%;
+    --sidebar-border: 210 6% 18%;
+    --sidebar-ring: 0 0% 91%;
   }
 }
 
@@ -56,6 +56,10 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at top center, rgba(255, 255, 255, 0.05) 0%, transparent 34%),
+      linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(210 8% 7%) 44%, hsl(210 9% 11%) 100%);
+    background-attachment: fixed;
     font-family: 'Inter', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -77,13 +81,15 @@
     background-color: hsl(var(--surface));
   }
   .diagonal-lines {
-    background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 40px,
-      hsl(0 0% 8.6%) 40px,
-      hsl(0 0% 8.6%) 41px
-    );
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(28, 32, 36, 0.24) 100%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        hsl(210 8% 12%) 40px,
+        hsl(210 8% 12%) 41px
+      );
   }
 }
 
