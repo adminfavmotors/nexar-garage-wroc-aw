@@ -3,11 +3,12 @@ import { useLang } from "@/contexts/LanguageContext";
 import { useCookieConsent } from "@/contexts/CookieConsentContext";
 
 const footerNav = [
-  { labelPl: "Usługi", labelEn: "Services", href: "/#uslugi" },
-  { labelPl: "O nas", labelEn: "About", href: "/#o-nas" },
-  { labelPl: "Opinie", labelEn: "Reviews", href: "/#opinie" },
-  { labelPl: "Kontakt", labelEn: "Contact", href: "/#kontakt" },
-  { labelPl: "Rezerwacja", labelEn: "Booking", href: "/#rezerwacja" },
+  { labelPl: "Usługi", labelEn: "Services", href: "/#uslugi", type: "anchor" as const },
+  { labelPl: "O nas", labelEn: "About", href: "/#o-nas", type: "anchor" as const },
+  { labelPl: "Opinie", labelEn: "Reviews", href: "/#opinie", type: "anchor" as const },
+  { labelPl: "Kontakt", labelEn: "Contact", href: "/#kontakt", type: "anchor" as const },
+  { labelPl: "Rezerwacja", labelEn: "Booking", href: "/#rezerwacja", type: "anchor" as const },
+  { labelPl: "RODO / COOKIES", labelEn: "PRIVACY / COOKIES", href: "/rodo-cookies", type: "route" as const },
 ];
 
 const Footer = () => {
@@ -33,15 +34,32 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 lg:justify-center lg:pt-1">
-            {footerNav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="font-inter text-[13px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
-              >
-                {lang === "PL" ? item.labelPl : item.labelEn}
-              </a>
-            ))}
+            {footerNav.map((item) =>
+              item.type === "route" ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="font-inter text-[13px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
+                >
+                  {lang === "PL" ? item.labelPl : item.labelEn}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="font-inter text-[13px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
+                >
+                  {lang === "PL" ? item.labelPl : item.labelEn}
+                </a>
+              )
+            )}
+            <button
+              type="button"
+              onClick={openSettings}
+              className="font-inter text-[13px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
+            >
+              {t("Ustawienia cookie", "Cookie settings")}
+            </button>
           </div>
 
           <div className="lg:text-right">
@@ -52,22 +70,6 @@ const Footer = () => {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 border-t border-border pt-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              to="/rodo-cookies"
-              className="font-inter text-[13px] font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
-            >
-              {t("RODO / COOKIES", "PRIVACY / COOKIES")}
-            </Link>
-            <button
-              type="button"
-              onClick={openSettings}
-              className="font-inter text-[13px] font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
-            >
-              {t("Ustawienia cookie", "Cookie settings")}
-            </button>
-          </div>
-
           <p className="font-inter text-[12px] text-muted-foreground/80">
             {consent === "all"
               ? t("Status: zaakceptowano wszystkie", "Status: all accepted")
@@ -75,9 +77,7 @@ const Footer = () => {
                 ? t("Status: tylko niezbędne", "Status: essential only")
                 : t("Status: oczekuje na wybór", "Status: waiting for choice")}
           </p>
-        </div>
 
-        <div className="mt-10 border-t border-border pt-6">
           <p className="font-inter text-[12px] text-muted-foreground/60">
             © 2025 Nexar Garage Sp. z o.o. | NIP: 8992345678
           </p>

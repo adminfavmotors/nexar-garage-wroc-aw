@@ -4,11 +4,10 @@ import { Menu, X } from "lucide-react";
 import { useLang } from "@/contexts/LanguageContext";
 
 const navItems = [
-  { labelPl: "USŁUGI", labelEn: "SERVICES", href: "/#uslugi", type: "anchor" as const },
-  { labelPl: "O NAS", labelEn: "ABOUT", href: "/#o-nas", type: "anchor" as const },
-  { labelPl: "OPINIE", labelEn: "REVIEWS", href: "/#opinie", type: "anchor" as const },
-  { labelPl: "KONTAKT", labelEn: "CONTACT", href: "/#kontakt", type: "anchor" as const },
-  { labelPl: "RODO / COOKIE", labelEn: "PRIVACY / COOKIES", href: "/rodo-cookies", type: "route" as const },
+  { labelPl: "USŁUGI", labelEn: "SERVICES", href: "/#uslugi" },
+  { labelPl: "O NAS", labelEn: "ABOUT", href: "/#o-nas" },
+  { labelPl: "OPINIE", labelEn: "REVIEWS", href: "/#opinie" },
+  { labelPl: "KONTAKT", labelEn: "CONTACT", href: "/#kontakt" },
 ];
 
 const Header = () => {
@@ -36,27 +35,16 @@ const Header = () => {
         </Link>
 
         <nav aria-label="Główna nawigacja" className="hidden items-center gap-3 xl:flex">
-          {navItems.map((item) =>
-            item.type === "route" ? (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="group inline-flex items-center border border-transparent px-4 py-3 font-inter text-[14px] font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:bg-surface hover:text-foreground"
-              >
-                <span>{lang === "PL" ? item.labelPl : item.labelEn}</span>
-                <span className="ml-3 h-px w-0 bg-primary transition-all duration-300 group-hover:w-5" />
-              </Link>
-            ) : (
-              <a
-                key={item.href}
-                href={item.href}
-                className="group inline-flex items-center border border-transparent px-4 py-3 font-inter text-[14px] font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:bg-surface hover:text-foreground"
-              >
-                <span>{lang === "PL" ? item.labelPl : item.labelEn}</span>
-                <span className="ml-3 h-px w-0 bg-primary transition-all duration-300 group-hover:w-5" />
-              </a>
-            )
-          )}
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="group inline-flex items-center border border-transparent px-4 py-3 font-inter text-[14px] font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:bg-surface hover:text-foreground"
+            >
+              <span>{lang === "PL" ? item.labelPl : item.labelEn}</span>
+              <span className="ml-3 h-px w-0 bg-primary transition-all duration-300 group-hover:w-5" />
+            </a>
+          ))}
         </nav>
 
         <div className="hidden items-center gap-4 xl:flex">
@@ -100,27 +88,16 @@ const Header = () => {
       {mobileOpen && (
         <div className="fixed inset-x-0 top-20 z-40 border-t border-border bg-background/98 px-6 pb-8 pt-6 backdrop-blur-md lg:top-24 xl:hidden">
           <nav aria-label="Główna nawigacja" className="flex flex-col gap-4">
-            {navItems.map((item) =>
-              item.type === "route" ? (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="border border-border bg-surface px-4 py-4 font-barlow text-[28px] font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 hover:translate-x-1 hover:border-primary/70 hover:bg-elevated"
-                >
-                  {lang === "PL" ? item.labelPl : item.labelEn}
-                </Link>
-              ) : (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="border border-border bg-surface px-4 py-4 font-barlow text-[28px] font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 hover:translate-x-1 hover:border-primary/70 hover:bg-elevated"
-                >
-                  {lang === "PL" ? item.labelPl : item.labelEn}
-                </a>
-              )
-            )}
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="border border-border bg-surface px-4 py-4 font-barlow text-[28px] font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 hover:translate-x-1 hover:border-primary/70 hover:bg-elevated"
+              >
+                {lang === "PL" ? item.labelPl : item.labelEn}
+              </a>
+            ))}
           </nav>
 
           <div className="mt-8 flex items-center gap-4">
