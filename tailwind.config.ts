@@ -14,9 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        syne: ["Syne", "sans-serif"],
+        barlow: ["Barlow Condensed", "sans-serif"],
         inter: ["Inter", "sans-serif"],
-        "syne-mono": ["Syne Mono", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -53,6 +52,7 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         elevated: "hsl(var(--elevated))",
+        surface: "hsl(var(--surface))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
