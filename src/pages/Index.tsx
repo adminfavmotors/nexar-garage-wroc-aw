@@ -7,18 +7,22 @@ import Reviews from "@/components/Reviews";
 import Booking from "@/components/Booking";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo />
       <Header />
-      <Hero />
-      <StatsBar />
-      <Services />
-      <WhyUs />
-      <Reviews />
-      <Booking />
-      <Contact />
+      <main>
+        <Hero />
+        <StatsBar />
+        <Services />
+        <WhyUs />
+        <Reviews />
+        <Booking />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

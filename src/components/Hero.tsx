@@ -12,7 +12,7 @@ const Hero = () => {
   const ref = useScrollReveal();
 
   return (
-    <section className="relative min-h-[84svh] overflow-hidden pt-20 diagonal-lines lg:min-h-[88svh] lg:pt-24">
+    <section id="home" className="relative min-h-[84svh] overflow-hidden pt-20 diagonal-lines lg:min-h-[88svh] lg:pt-24">
       <div className="container mx-auto flex min-h-[calc(84svh-5rem)] flex-col px-6 lg:min-h-[calc(88svh-6rem)]">
         <div ref={ref} className="max-w-[960px] py-8 lg:py-12">
           <p className="animate-fade-up font-inter text-[12px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
