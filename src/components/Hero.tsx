@@ -1,28 +1,28 @@
 import { useLang } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const heroBenefits = [
+  { pl: "Gwarancja 12 mies.", en: "12-month warranty" },
+  { pl: "Bezpłatna wycena", en: "Free estimate" },
+  { pl: "Oryginalne części", en: "OEM parts" },
+];
+
 const Hero = () => {
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const ref = useScrollReveal();
 
   return (
-    <section className="relative flex min-h-screen items-start overflow-hidden pt-16 diagonal-lines">
-      <div className="container mx-auto px-6">
+    <section className="relative min-h-screen overflow-hidden pt-16 diagonal-lines">
+      <div className="container mx-auto flex min-h-[calc(100vh-4rem)] flex-col px-6">
         <div ref={ref} className="max-w-[960px] py-10 lg:py-16">
           <p className="animate-fade-up font-inter text-[12px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
             WROCŁAW — EST. 2009
           </p>
 
           <h1 className="animate-fade-up animate-fade-up-delay-1 mt-8 font-barlow text-[52px] font-extrabold uppercase leading-[0.95] tracking-tight sm:text-7xl lg:text-[96px]">
-            <span className="block text-foreground">
-              {t("PROFESJONALNY", "PROFESSIONAL")}
-            </span>
-            <span className="block text-accent">
-              {t("SERWIS SAMOCHODOWY", "CAR SERVICE")}
-            </span>
-            <span className="block text-[hsl(0_0%_20%)]">
-              {t("WE WROCŁAWIU.", "IN WROCŁAW.")}
-            </span>
+            <span className="block text-foreground">{t("PROFESJONALNY", "PROFESSIONAL")}</span>
+            <span className="block text-accent">{t("SERWIS SAMOCHODOWY", "CAR SERVICE")}</span>
+            <span className="block text-[hsl(0_0%_20%)]">{t("WE WROCŁAWIU.", "IN WROCŁAW.")}</span>
           </h1>
 
           <div className="animate-fade-up animate-fade-up-delay-2 mt-8 h-px w-full max-w-xs bg-border" />
@@ -48,13 +48,19 @@ const Hero = () => {
               {t("NASZE USŁUGI", "OUR SERVICES")}
             </a>
           </div>
+        </div>
 
-          <div className="animate-fade-up animate-fade-up-delay-4 mt-10 flex flex-wrap gap-x-4 gap-y-2 font-inter text-[13px] text-[hsl(0_0%_33%)]">
-            <span>✓ {t("Gwarancja 12 mies.", "12-month warranty")}</span>
-            <span className="text-[hsl(0_0%_20%)]">·</span>
-            <span>✓ {t("Bezpłatna wycena", "Free estimate")}</span>
-            <span className="text-[hsl(0_0%_20%)]">·</span>
-            <span>✓ {t("Oryginalne części", "OEM parts")}</span>
+        <div className="animate-fade-up animate-fade-up-delay-4 mt-auto pb-10 lg:pb-12">
+          <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-center gap-3 sm:gap-4">
+            {heroBenefits.map((benefit) => (
+              <div
+                key={benefit.en}
+                className="inline-flex min-w-[220px] items-center justify-center border border-border bg-surface px-5 py-3 text-center font-inter text-[13px] font-medium text-foreground sm:text-[14px]"
+              >
+                <span className="mr-2 text-primary">✓</span>
+                <span>{lang === "PL" ? benefit.pl : benefit.en}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
