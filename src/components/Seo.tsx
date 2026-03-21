@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const siteUrl = "https://www.nexargarage.pl";
+export const siteUrl = "https://www.nexargarage.pl";
 const defaultImage = `${siteUrl}/og-image.jpg`;
 
 export const homeAutoRepairSchema = {
@@ -42,12 +42,6 @@ export const homeAutoRepairSchema = {
       closes: "14:00",
     },
   ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "6200",
-    bestRating: "5",
-  },
 };
 
 type SeoProps = {
