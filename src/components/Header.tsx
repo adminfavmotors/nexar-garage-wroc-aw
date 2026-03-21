@@ -4,10 +4,10 @@ import { Menu, X } from "lucide-react";
 import { useLang } from "@/contexts/LanguageContext";
 
 const navItems = [
-  { labelPl: "USŁUGI", labelEn: "SERVICES", href: "/#uslugi" },
-  { labelPl: "O NAS", labelEn: "ABOUT", href: "/#o-nas" },
-  { labelPl: "OPINIE", labelEn: "REVIEWS", href: "/#opinie" },
-  { labelPl: "KONTAKT", labelEn: "CONTACT", href: "/#kontakt" },
+  { labelPl: "USŁUGI", labelEn: "SERVICES", href: "/uslugi", type: "route" as const },
+  { labelPl: "O NAS", labelEn: "ABOUT", href: "/#o-nas", type: "anchor" as const },
+  { labelPl: "OPINIE", labelEn: "REVIEWS", href: "/#opinie", type: "anchor" as const },
+  { labelPl: "KONTAKT", labelEn: "CONTACT", href: "/#kontakt", type: "anchor" as const },
 ];
 
 const Header = () => {
@@ -36,14 +36,25 @@ const Header = () => {
 
         <nav aria-label="Główna nawigacja" className="hidden items-center gap-3 xl:flex">
           {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="group inline-flex items-center border border-transparent px-4 py-3 font-inter text-[14px] font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:bg-surface hover:text-foreground"
-            >
-              <span>{lang === "PL" ? item.labelPl : item.labelEn}</span>
-              <span className="ml-3 h-px w-0 bg-primary transition-all duration-300 group-hover:w-5" />
-            </a>
+            item.type === "route" ? (
+              <Link
+                key={item.href}
+                to={item.href}
+                className="group inline-flex items-center border border-transparent px-4 py-3 font-inter text-[14px] font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:bg-surface hover:text-foreground"
+              >
+                <span>{lang === "PL" ? item.labelPl : item.labelEn}</span>
+                <span className="ml-3 h-px w-0 bg-primary transition-all duration-300 group-hover:w-5" />
+              </Link>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                className="group inline-flex items-center border border-transparent px-4 py-3 font-inter text-[14px] font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:bg-surface hover:text-foreground"
+              >
+                <span>{lang === "PL" ? item.labelPl : item.labelEn}</span>
+                <span className="ml-3 h-px w-0 bg-primary transition-all duration-300 group-hover:w-5" />
+              </a>
+            )
           ))}
         </nav>
 
@@ -89,14 +100,25 @@ const Header = () => {
         <div className="fixed inset-x-0 top-[72px] z-40 max-h-[calc(100svh-72px)] overflow-y-auto border-t border-border bg-background px-4 pb-6 pt-5 backdrop-blur-md sm:top-20 sm:bg-background/98 sm:px-6 sm:pb-8 sm:pt-6 lg:top-24 lg:max-h-[calc(100svh-96px)] xl:hidden">
           <nav aria-label="Główna nawigacja" className="flex flex-col gap-4">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="border border-border bg-surface px-4 py-3.5 font-barlow text-[22px] font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 hover:translate-x-1 hover:border-primary/70 hover:bg-elevated sm:text-[26px]"
-              >
-                {lang === "PL" ? item.labelPl : item.labelEn}
-              </a>
+              item.type === "route" ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="border border-border bg-surface px-4 py-3.5 font-barlow text-[22px] font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 hover:translate-x-1 hover:border-primary/70 hover:bg-elevated sm:text-[26px]"
+                >
+                  {lang === "PL" ? item.labelPl : item.labelEn}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="border border-border bg-surface px-4 py-3.5 font-barlow text-[22px] font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 hover:translate-x-1 hover:border-primary/70 hover:bg-elevated sm:text-[26px]"
+                >
+                  {lang === "PL" ? item.labelPl : item.labelEn}
+                </a>
+              )
             ))}
           </nav>
 

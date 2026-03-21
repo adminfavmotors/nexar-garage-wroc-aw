@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useLang } from "@/contexts/LanguageContext";
 
 const footerNav = [
-  { labelPl: "Usługi", labelEn: "Services", href: "/#uslugi", type: "anchor" as const },
+  { labelPl: "Usługi", labelEn: "Services", href: "/uslugi", type: "route" as const },
   { labelPl: "O nas", labelEn: "About", href: "/#o-nas", type: "anchor" as const },
   { labelPl: "Opinie", labelEn: "Reviews", href: "/#opinie", type: "anchor" as const },
   { labelPl: "Kontakt", labelEn: "Contact", href: "/#kontakt", type: "anchor" as const },

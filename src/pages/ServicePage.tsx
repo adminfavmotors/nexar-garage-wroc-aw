@@ -24,7 +24,7 @@ const createBreadcrumbSchema = (service: ServiceDefinition) => ({
       "@type": "ListItem",
       position: 2,
       name: "Usługi",
-      item: `${siteUrl}/#uslugi`,
+      item: `${siteUrl}/uslugi`,
     },
     {
       "@type": "ListItem",
@@ -115,7 +115,7 @@ const ServicePage = () => {
                 NEXAR
               </Link>
               <span>/</span>
-              <a href="/#uslugi" className="transition-colors duration-300 hover:text-foreground">
+              <a href="/uslugi" className="transition-colors duration-300 hover:text-foreground">
                 {t("USŁUGI", "SERVICES")}
               </a>
               <span>/</span>
