@@ -27,7 +27,7 @@ const Booking = () => {
   const [dateError, setDateError] = useState(false);
 
   const inputClass =
-    "w-full border border-border bg-background px-4 py-3 font-inter text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors duration-300 focus:border-accent";
+    "w-full border border-border bg-background px-4 py-3.5 font-inter text-[15px] text-foreground placeholder:text-muted-foreground outline-none transition-colors duration-300 focus:border-accent sm:py-3 sm:text-sm";
 
   if (submitted) {
     return (
@@ -177,7 +177,7 @@ const Booking = () => {
               required
               className="mt-1 h-4 w-4 border-border bg-background accent-[hsl(8_100%_40%)]"
             />
-            <span className="font-inter text-[13px] leading-relaxed text-muted-foreground">
+            <span className="font-inter text-[14px] leading-relaxed text-muted-foreground sm:text-[13px]">
               {t(
                 "Wyrażam zgodę na przetwarzanie moich danych osobowych przez Nexar Garage Sp. z o.o. w celu kontaktu i obsługi zgłoszenia serwisowego zgodnie z informacją RODO.",
                 "I consent to Nexar Garage Sp. z o.o. processing my personal data for contact and service booking purposes in line with the privacy notice."
@@ -185,7 +185,7 @@ const Booking = () => {
             </span>
           </label>
 
-          <p className="font-inter text-[12px] leading-relaxed text-muted-foreground/80">
+          <p className="font-inter text-[13px] leading-relaxed text-muted-foreground/80 sm:text-[12px]">
             {t(
               "Administratorem danych jest Nexar Garage Sp. z o.o. Dane z formularza wykorzystujemy wyłącznie do kontaktu i ustalenia terminu wizyty.",
               "The data controller is Nexar Garage Sp. z o.o. We use the form data only to contact you and arrange the appointment."

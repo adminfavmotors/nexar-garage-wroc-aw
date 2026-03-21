@@ -15,7 +15,7 @@ const Header = () => {
   const { lang, setLang, t } = useLang();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/96 shadow-[0_10px_30px_rgba(0,0,0,0.28)] backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/98 shadow-[0_10px_30px_rgba(0,0,0,0.28)] backdrop-blur-md sm:bg-background/96">
       <div className="container mx-auto flex h-[72px] items-center justify-between px-4 sm:h-20 sm:px-6 lg:h-24">
         <Link to="/" className="group flex items-center gap-3 font-barlow sm:gap-4">
           <div className="relative overflow-hidden rounded-lg border-2 border-primary bg-surface px-3 py-2 shadow-[0_0_0_1px_rgba(255,120,90,0.14),0_10px_24px_rgba(0,0,0,0.24),0_0_26px_rgba(170,37,0,0.18)] transition-all duration-500 ease-out group-hover:border-[hsl(8_100%_58%)] group-hover:bg-[hsl(0_0%_9.5%)] group-hover:shadow-[0_0_0_1px_rgba(255,180,165,0.18),0_16px_34px_rgba(0,0,0,0.3),0_0_18px_rgba(170,37,0,0.26),0_0_48px_rgba(170,37,0,0.28)] sm:rounded-xl sm:px-4 sm:py-2.5">
@@ -86,7 +86,7 @@ const Header = () => {
       </div>
 
       {mobileOpen && (
-        <div className="fixed inset-x-0 top-[72px] z-40 max-h-[calc(100svh-72px)] overflow-y-auto border-t border-border bg-background/98 px-4 pb-6 pt-5 backdrop-blur-md sm:top-20 sm:px-6 sm:pb-8 sm:pt-6 lg:top-24 lg:max-h-[calc(100svh-96px)] xl:hidden">
+        <div className="fixed inset-x-0 top-[72px] z-40 max-h-[calc(100svh-72px)] overflow-y-auto border-t border-border bg-background px-4 pb-6 pt-5 backdrop-blur-md sm:top-20 sm:bg-background/98 sm:px-6 sm:pb-8 sm:pt-6 lg:top-24 lg:max-h-[calc(100svh-96px)] xl:hidden">
           <nav aria-label="Główna nawigacja" className="flex flex-col gap-4">
             {navItems.map((item) => (
               <a

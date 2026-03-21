@@ -70,10 +70,10 @@ const ServiceCard = ({
       <span className="font-barlow text-[13px] font-bold text-[hsl(0_0%_34%)]">
         {service.num}
       </span>
-      <h3 className="mt-4 font-barlow text-[20px] font-bold text-foreground sm:text-[22px]">
+      <h3 className="mt-4 font-barlow text-[22px] font-bold text-foreground">
         {lang === "PL" ? service.titlePl : service.titleEn}
       </h3>
-      <p className="mt-3 font-inter text-[13px] leading-relaxed text-muted-foreground sm:text-[14px]">
+      <p className="mt-3 font-inter text-[14px] leading-relaxed text-muted-foreground">
         {lang === "PL" ? service.descPl : service.descEn}
       </p>
 
@@ -81,7 +81,7 @@ const ServiceCard = ({
         <p className="font-inter text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
           {lang === "PL" ? "Ceny orientacyjne" : "Estimated pricing"}
         </p>
-        <p className="mt-2 font-barlow text-[24px] font-bold uppercase tracking-[0.03em] text-accent transition-colors duration-500 group-hover:text-foreground sm:text-[28px]">
+        <p className="mt-2 font-barlow text-[26px] font-bold uppercase tracking-[0.03em] text-accent transition-colors duration-500 group-hover:text-foreground sm:text-[28px]">
           {lang === "PL" ? service.pricePl : service.priceEn}
         </p>
       </div>
