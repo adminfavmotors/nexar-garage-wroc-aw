@@ -54,13 +54,13 @@ const Hero = () => {
         </div>
 
         <div className="animate-fade-up animate-fade-up-delay-4 mt-auto pb-6 sm:pb-7 lg:pb-8">
-          <div className="mx-auto grid w-full max-w-5xl grid-cols-3 gap-2.5 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
+          <div className="mx-auto flex w-full max-w-5xl flex-nowrap items-stretch justify-center gap-2 overflow-x-auto pb-1 scrollbar-none sm:gap-4 sm:overflow-visible">
             {heroBenefits.map((benefit) => (
               <div
                 key={benefit.en}
-                className="inline-flex w-full min-w-0 flex-col items-center justify-center border border-border bg-surface px-3 py-3 text-center font-inter text-[11px] font-medium text-foreground sm:min-w-[220px] sm:flex-row sm:px-5 sm:text-[14px]"
+                className="flex min-w-0 flex-1 basis-0 items-center justify-center border border-border bg-surface px-3 py-3 text-center font-inter text-[11px] font-medium text-foreground sm:min-w-[220px] sm:flex-none sm:px-5 sm:text-[14px]"
               >
-                <span className="mb-1 text-primary sm:mb-0 sm:mr-2">✓</span>
+                <span className="mr-1.5 shrink-0 text-primary sm:mr-2">✓</span>
                 <span>{lang === "PL" ? benefit.pl : benefit.en}</span>
               </div>
             ))}
