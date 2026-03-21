@@ -26,7 +26,9 @@ export type ServiceDefinition = {
   relatedSlugs: string[];
 };
 
-export const getServicePath = (slug: string) => `/uslugi/${slug}`;
+export const getServiceDirectoryPath = () => "/uslugi";
+
+export const getServiceHashPath = (slug: string) => `/uslugi#${slug}`;
 
 export const servicePages: ServiceDefinition[] = [
   {

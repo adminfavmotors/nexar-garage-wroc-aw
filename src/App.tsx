@@ -9,7 +9,6 @@ import CookieBanner from "@/components/CookieBanner";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import PrivacyCookies from "./pages/PrivacyCookies.tsx";
-import ServicePage from "./pages/ServicePage.tsx";
 import ServicesDirectoryPage from "./pages/ServicesDirectoryPage.tsx";
 
 const queryClient = new QueryClient();
@@ -25,7 +24,6 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/uslugi" element={<ServicesDirectoryPage />} />
-              <Route path="/uslugi/:slug" element={<ServicePage />} />
               <Route path="/rodo-cookies" element={<PrivacyCookies />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

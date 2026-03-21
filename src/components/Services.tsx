@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useLang } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import {
-  getServicePath,
+  getServiceHashPath,
   servicePages,
   type ServiceDefinition,
 } from "@/data/servicePages";
@@ -16,7 +16,7 @@ const ServiceCard = ({
 }) => {
   return (
     <Link
-      to={getServicePath(service.slug)}
+      to={getServiceHashPath(service.slug)}
       aria-label={lang === "PL" ? service.title.pl : service.title.en}
       className="group flex h-full flex-col border border-border bg-surface p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.015] hover:border-accent hover:shadow-[0_18px_34px_rgba(0,0,0,0.24),0_0_22px_rgba(255,255,255,0.03)] focus:outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/30 sm:p-7 lg:p-8"
     >
