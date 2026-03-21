@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Nexar Garage Wroclaw
 
-TODO: Document your project here
+Marketing website for Nexar Garage in Wroclaw built with React, TypeScript, Vite and Tailwind CSS.
