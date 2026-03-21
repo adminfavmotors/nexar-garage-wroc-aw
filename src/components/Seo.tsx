@@ -1,19 +1,21 @@
 import { Helmet } from "react-helmet-async";
 
-const title = "Nexar Garage Wrocław | Serwis Samochodowy | Mechanik Wrocław";
-const description =
-  "Nexar Garage – profesjonalny serwis samochodowy we Wrocławiu. Diagnostyka OBD2, wymiana opon, klimatyzacja, geometria kół. Umów wizytę online.";
-const canonicalUrl = "https://www.nexargarage.pl/";
-const ogTitle = "Nexar Garage | Serwis Samochodowy Wrocław";
-const ogImage = "/og-image.jpg";
+const siteUrl = "https://www.nexargarage.pl";
+const defaultImage = `${siteUrl}/og-image.jpg`;
 
-const autoRepairSchema = {
+export const homeAutoRepairSchema = {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
+  "@id": `${siteUrl}/#autorepair`,
   name: "Nexar Garage",
-  url: "https://www.nexargarage.pl",
+  url: siteUrl,
   telephone: "+48712345678",
   email: "kontakt@nexargarage.pl",
+  priceRange: "$$",
+  areaServed: {
+    "@type": "City",
+    name: "Wrocław",
+  },
   address: {
     "@type": "PostalAddress",
     streetAddress: "ul. Świdnicka 18",
@@ -46,68 +48,59 @@ const autoRepairSchema = {
     reviewCount: "6200",
     bestRating: "5",
   },
-  priceRange: "$$",
-  areaServed: {
-    "@type": "City",
-    name: "Wrocław",
-  },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Jak umówić wizytę w Nexar Garage?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Online przez formularz na stronie lub tel. +48 71 234 56 78. Potwierdzamy w ciągu 2 godzin.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Czy diagnostyka jest bezpłatna?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Oferujemy bezpłatną wycenę przed każdą naprawą.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you speak English?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, our staff speaks English. Foreign customers are welcome.",
-      },
-    },
-  ],
+type SeoProps = {
+  title: string;
+  description: string;
+  canonical?: string;
+  robots?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogType?: string;
+  ogImage?: string;
+  schema?: Array<Record<string, unknown>>;
 };
 
-const Seo = () => {
+const Seo = ({
+  title,
+  description,
+  canonical,
+  robots = "index, follow",
+  ogTitle,
+  ogDescription,
+  ogType = "website",
+  ogImage = defaultImage,
+  schema = [],
+}: SeoProps) => {
   return (
     <Helmet htmlAttributes={{ lang: "pl" }}>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#0C0C0C" />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={robots} />
 
-      <link rel="canonical" href={canonicalUrl} />
-      <link rel="alternate" hrefLang="pl" href="https://www.nexargarage.pl/" />
-      <link rel="alternate" hrefLang="en" href="https://www.nexargarage.pl/en/" />
-      <link rel="alternate" hrefLang="x-default" href="https://www.nexargarage.pl/" />
+      {canonical && <link rel="canonical" href={canonical} />}
 
-      <meta property="og:type" content="business.business" />
-      <meta property="og:title" content={ogTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:site_name" content="Nexar Garage" />
+      <meta property="og:title" content={ogTitle ?? title} />
+      <meta property="og:description" content={ogDescription ?? description} />
+      {canonical && <meta property="og:url" content={canonical} />}
       <meta property="og:image" content={ogImage} />
       <meta property="og:locale" content="pl_PL" />
-      <meta property="og:locale:alternate" content="en_GB" />
 
-      <script type="application/ld+json">{JSON.stringify(autoRepairSchema)}</script>
-      <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={ogTitle ?? title} />
+      <meta name="twitter:description" content={ogDescription ?? description} />
+      <meta name="twitter:image" content={ogImage} />
+
+      {schema.map((entry, index) => (
+        <script key={index} type="application/ld+json">
+          {JSON.stringify(entry)}
+        </script>
+      ))}
     </Helmet>
   );
 };

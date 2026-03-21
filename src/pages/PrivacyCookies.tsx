@@ -10,7 +10,13 @@ const PrivacyCookies = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Seo />
+      <Seo
+        title="RODO i Cookies | Nexar Garage Wrocław"
+        description="Informacje o ochronie danych osobowych, zasadach przetwarzania danych i plikach cookie w Nexar Garage."
+        canonical="https://www.nexargarage.pl/rodo-cookies"
+        robots="noindex, follow"
+        ogTitle="RODO i Cookies | Nexar Garage"
+      />
       <Header />
       <main className="pt-20 lg:pt-24">
         <section className="border-b border-border pt-12 pb-14 lg:pt-16 lg:pb-20">
