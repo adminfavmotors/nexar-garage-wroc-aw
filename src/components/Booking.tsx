@@ -34,10 +34,10 @@ const Booking = () => {
       <section
         id="rezerwacja"
         ref={ref}
-        className="border-b border-border bg-surface pt-12 pb-14 lg:pt-16 lg:pb-20"
+        className="border-b border-border bg-surface pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-20"
       >
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="font-barlow text-[48px] font-extrabold uppercase text-foreground">
+        <div className="container mx-auto px-4 text-center sm:px-6">
+          <h2 className="font-barlow text-[40px] font-extrabold uppercase text-foreground sm:text-[48px]">
             {t("DZIĘKUJEMY", "THANK YOU")}
           </h2>
           <p className="mt-4 font-inter text-base text-muted-foreground">
@@ -52,10 +52,10 @@ const Booking = () => {
     <section
       id="rezerwacja"
       ref={ref}
-      className="border-b border-border bg-surface pt-12 pb-14 lg:pt-16 lg:pb-20"
+      className="border-b border-border bg-surface pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-20"
     >
-      <div className="container mx-auto px-6">
-        <h2 className="text-center font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
+      <div className="container mx-auto px-4 sm:px-6">
+        <h2 className="text-center font-barlow text-[38px] font-extrabold uppercase text-foreground sm:text-[48px] sm:leading-[1] lg:text-[56px]">
           {t("ZAREZERWUJ TERMIN", "BOOK AN APPOINTMENT")}
         </h2>
 
@@ -144,7 +144,7 @@ const Booking = () => {
                 <CalendarIcon className="h-4 w-4 shrink-0 text-muted-foreground" />
               </button>
             </PopoverTrigger>
-            <PopoverContent align="start" className="w-auto border-border bg-surface p-0">
+            <PopoverContent align="start" className="w-[calc(100vw-2rem)] max-w-[360px] border-border bg-surface p-0 sm:w-auto">
               <Calendar
                 mode="single"
                 selected={date}
@@ -194,7 +194,7 @@ const Booking = () => {
 
           <button
             type="submit"
-            className="w-full bg-primary py-4 font-barlow text-[18px] font-bold uppercase tracking-wider text-primary-foreground transition-opacity duration-300 hover:opacity-90 active:scale-[0.98]"
+            className="w-full bg-primary py-4 font-barlow text-[16px] font-bold uppercase tracking-wider text-primary-foreground transition-opacity duration-300 hover:opacity-90 active:scale-[0.98] sm:text-[18px]"
           >
             {t("ZAREZERWUJ TERMIN", "BOOK NOW")}
           </button>

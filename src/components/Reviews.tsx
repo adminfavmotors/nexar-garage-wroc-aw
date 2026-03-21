@@ -46,14 +46,14 @@ const Reviews = () => {
   };
 
   return (
-    <section id="opinie" ref={sectionRef} className="border-b border-border pt-12 pb-14 lg:pt-16 lg:pb-20">
-      <div className="container mx-auto px-6">
-        <div className="flex items-end justify-between">
+    <section id="opinie" ref={sectionRef} className="border-b border-border pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-20">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               — {t("OPINIE KLIENTÓW", "CLIENT REVIEWS")} —
             </p>
-            <h2 className="mt-3 font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
+            <h2 className="mt-3 font-barlow text-[38px] font-extrabold uppercase text-foreground sm:text-[48px] sm:leading-[1] lg:text-[56px]">
               {t("CO MÓWIĄ KLIENCI", "WHAT CLIENTS SAY")}
             </h2>
           </div>
@@ -81,7 +81,7 @@ const Reviews = () => {
           {reviews.map((review, i) => (
             <div
               key={i}
-              className="min-w-[320px] flex-shrink-0 border border-border bg-surface p-8 transition-colors duration-300 hover:border-accent"
+              className="min-w-[280px] flex-shrink-0 border border-border bg-surface p-6 transition-colors duration-300 hover:border-accent sm:min-w-[320px] sm:p-8"
             >
               <div className="flex items-center gap-3">
                 <span className="text-primary">★★★★★</span>

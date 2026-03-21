@@ -59,7 +59,7 @@
     background-image:
       radial-gradient(circle at top center, rgba(255, 255, 255, 0.05) 0%, transparent 34%),
       linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(210 8% 7%) 44%, hsl(210 9% 11%) 100%);
-    background-attachment: fixed;
+    background-attachment: scroll;
     font-family: 'Inter', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -71,6 +71,11 @@
   @media (min-width: 1024px) {
     section[id] {
       scroll-margin-top: 6rem;
+    }
+  }
+  @media (min-width: 768px) {
+    body {
+      background-attachment: fixed;
     }
   }
 }

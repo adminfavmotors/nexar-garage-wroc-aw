@@ -16,11 +16,11 @@ const Header = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/96 shadow-[0_10px_30px_rgba(0,0,0,0.28)] backdrop-blur-md">
-      <div className="container mx-auto flex h-20 items-center justify-between px-6 lg:h-24">
-        <Link to="/" className="group flex items-center gap-4 font-barlow">
-          <div className="relative overflow-hidden rounded-xl border-2 border-primary bg-surface px-4 py-2.5 shadow-[0_0_0_1px_rgba(255,120,90,0.14),0_10px_24px_rgba(0,0,0,0.24),0_0_26px_rgba(170,37,0,0.18)] transition-all duration-500 ease-out group-hover:border-[hsl(8_100%_58%)] group-hover:bg-[hsl(0_0%_9.5%)] group-hover:shadow-[0_0_0_1px_rgba(255,180,165,0.18),0_16px_34px_rgba(0,0,0,0.3),0_0_18px_rgba(170,37,0,0.26),0_0_48px_rgba(170,37,0,0.28)]">
+      <div className="container mx-auto flex h-[72px] items-center justify-between px-4 sm:h-20 sm:px-6 lg:h-24">
+        <Link to="/" className="group flex items-center gap-3 font-barlow sm:gap-4">
+          <div className="relative overflow-hidden rounded-lg border-2 border-primary bg-surface px-3 py-2 shadow-[0_0_0_1px_rgba(255,120,90,0.14),0_10px_24px_rgba(0,0,0,0.24),0_0_26px_rgba(170,37,0,0.18)] transition-all duration-500 ease-out group-hover:border-[hsl(8_100%_58%)] group-hover:bg-[hsl(0_0%_9.5%)] group-hover:shadow-[0_0_0_1px_rgba(255,180,165,0.18),0_16px_34px_rgba(0,0,0,0.3),0_0_18px_rgba(170,37,0,0.26),0_0_48px_rgba(170,37,0,0.28)] sm:rounded-xl sm:px-4 sm:py-2.5">
             <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.018)_36%,rgba(170,37,0,0.14)_100%)] opacity-85 transition-opacity duration-500 ease-out group-hover:opacity-100" />
-            <span className="relative block text-[30px] font-extrabold leading-none tracking-[0.04em] text-foreground transition-transform duration-500 ease-out group-hover:-translate-y-0.5 lg:text-[34px]">
+            <span className="relative block text-[25px] font-extrabold leading-none tracking-[0.04em] text-foreground transition-transform duration-500 ease-out group-hover:-translate-y-0.5 sm:text-[30px] lg:text-[34px]">
               NEXAR
             </span>
           </div>
@@ -78,7 +78,7 @@ const Header = () => {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="border border-border bg-surface p-3 text-foreground transition-all duration-300 hover:border-primary/70 hover:bg-elevated hover:scale-[1.03] xl:hidden"
+          className="border border-border bg-surface p-2.5 text-foreground transition-all duration-300 hover:border-primary/70 hover:bg-elevated hover:scale-[1.03] xl:hidden sm:p-3"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -86,14 +86,14 @@ const Header = () => {
       </div>
 
       {mobileOpen && (
-        <div className="fixed inset-x-0 top-20 z-40 border-t border-border bg-background/98 px-6 pb-8 pt-6 backdrop-blur-md lg:top-24 xl:hidden">
+        <div className="fixed inset-x-0 top-[72px] z-40 max-h-[calc(100svh-72px)] overflow-y-auto border-t border-border bg-background/98 px-4 pb-6 pt-5 backdrop-blur-md sm:top-20 sm:px-6 sm:pb-8 sm:pt-6 lg:top-24 lg:max-h-[calc(100svh-96px)] xl:hidden">
           <nav aria-label="Główna nawigacja" className="flex flex-col gap-4">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="border border-border bg-surface px-4 py-4 font-barlow text-[28px] font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 hover:translate-x-1 hover:border-primary/70 hover:bg-elevated"
+                className="border border-border bg-surface px-4 py-3.5 font-barlow text-[22px] font-bold uppercase tracking-[0.08em] text-foreground transition-all duration-300 hover:translate-x-1 hover:border-primary/70 hover:bg-elevated sm:text-[26px]"
               >
                 {lang === "PL" ? item.labelPl : item.labelEn}
               </a>
@@ -125,7 +125,7 @@ const Header = () => {
           <a
             href="/#kontakt"
             onClick={() => setMobileOpen(false)}
-            className="mt-6 block border border-primary bg-primary px-6 py-4 text-center font-barlow text-[15px] font-bold uppercase tracking-[0.16em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 active:scale-[0.98]"
+            className="mt-6 block border border-primary bg-primary px-6 py-3.5 text-center font-barlow text-[14px] font-bold uppercase tracking-[0.16em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 active:scale-[0.98] sm:text-[15px]"
           >
             {t("UMÓW WIZYTĘ", "BOOK NOW")}
           </a>

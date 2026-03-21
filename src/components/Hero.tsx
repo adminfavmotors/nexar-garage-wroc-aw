@@ -14,15 +14,15 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[84svh] overflow-hidden pt-20 diagonal-lines lg:min-h-[88svh] lg:pt-24"
+      className="relative overflow-hidden pt-[72px] diagonal-lines sm:min-h-[78svh] sm:pt-20 lg:min-h-[84svh] lg:pt-24"
     >
-      <div className="container mx-auto flex min-h-[calc(84svh-5rem)] flex-col px-6 lg:min-h-[calc(88svh-6rem)]">
-        <div ref={ref} className="max-w-[960px] py-8 lg:py-12">
+      <div className="container mx-auto flex min-h-full flex-col px-4 sm:px-6 sm:min-h-[calc(78svh-5rem)] lg:min-h-[calc(84svh-6rem)]">
+        <div ref={ref} className="max-w-[960px] py-8 sm:py-10 lg:py-12">
           <p className="animate-fade-up font-inter text-[12px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
             WROCŁAW — EST. 2009
           </p>
 
-          <h1 className="animate-fade-up animate-fade-up-delay-1 mt-6 font-barlow text-[52px] font-extrabold uppercase leading-[0.95] tracking-tight sm:text-7xl lg:text-[96px]">
+          <h1 className="animate-fade-up animate-fade-up-delay-1 mt-5 font-barlow text-[40px] font-extrabold uppercase leading-[0.92] tracking-tight sm:mt-6 sm:text-[58px] md:text-[72px] lg:text-[96px]">
             <span className="block text-foreground">{t("PROFESJONALNY", "PROFESSIONAL")}</span>
             <span className="block text-accent">{t("SERWIS SAMOCHODOWY", "CAR SERVICE")}</span>
             <span className="block text-[hsl(0_0%_34%)]">{t("WE WROCŁAWIU.", "IN WROCŁAW.")}</span>
@@ -30,35 +30,35 @@ const Hero = () => {
 
           <div className="animate-fade-up animate-fade-up-delay-2 mt-6 h-px w-full max-w-xs bg-border" />
 
-          <p className="animate-fade-up animate-fade-up-delay-2 mt-6 font-inter text-base font-medium tracking-[0.08em] text-foreground/80 sm:text-lg">
+          <p className="animate-fade-up animate-fade-up-delay-2 mt-5 font-inter text-[15px] font-medium tracking-[0.06em] text-foreground/82 sm:mt-6 sm:text-base md:text-lg">
             {t(
               "Diagnostyka. Naprawy. Klimatyzacja. Opony.",
               "Diagnostics. Repairs. Air Conditioning. Tyres."
             )}
           </p>
 
-          <div className="animate-fade-up animate-fade-up-delay-3 mt-8 flex flex-wrap gap-4">
+          <div className="animate-fade-up animate-fade-up-delay-3 mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
             <a
               href="#kontakt"
-              className="inline-flex items-center bg-primary px-7 py-3.5 font-barlow text-[14px] font-bold uppercase tracking-wider text-primary-foreground transition-opacity duration-300 hover:opacity-90 active:scale-[0.97]"
+              className="inline-flex w-full items-center justify-center bg-primary px-7 py-3.5 font-barlow text-[14px] font-bold uppercase tracking-wider text-primary-foreground transition-opacity duration-300 hover:opacity-90 active:scale-[0.97] sm:w-auto"
             >
               {t("UMÓW WIZYTĘ", "BOOK NOW")}
             </a>
             <a
               href="#uslugi"
-              className="inline-flex items-center border border-accent px-7 py-3.5 font-barlow text-[14px] font-bold uppercase tracking-wider text-accent transition-colors duration-300 hover:bg-elevated active:scale-[0.97]"
+              className="inline-flex w-full items-center justify-center border border-accent px-7 py-3.5 font-barlow text-[14px] font-bold uppercase tracking-wider text-accent transition-colors duration-300 hover:bg-elevated active:scale-[0.97] sm:w-auto"
             >
               {t("NASZE USŁUGI", "OUR SERVICES")}
             </a>
           </div>
         </div>
 
-        <div className="animate-fade-up animate-fade-up-delay-4 mt-auto pb-6 lg:pb-8">
-          <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <div className="animate-fade-up animate-fade-up-delay-4 mt-auto pb-6 sm:pb-7 lg:pb-8">
+          <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
             {heroBenefits.map((benefit) => (
               <div
                 key={benefit.en}
-                className="inline-flex min-w-[220px] items-center justify-center border border-border bg-surface px-5 py-3 text-center font-inter text-[13px] font-medium text-foreground sm:text-[14px]"
+                className="inline-flex w-full min-w-0 items-center justify-center border border-border bg-surface px-4 py-3 text-center font-inter text-[13px] font-medium text-foreground sm:min-w-[220px] sm:px-5 sm:text-[14px]"
               >
                 <span className="mr-2 text-primary">✓</span>
                 <span>{lang === "PL" ? benefit.pl : benefit.en}</span>

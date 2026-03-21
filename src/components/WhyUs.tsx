@@ -36,23 +36,23 @@ const WhyUs = () => {
   const [carModel, setCarModel] = useState("");
 
   return (
-    <section id="o-nas" ref={ref} className="border-b border-border pt-12 pb-14 lg:pt-16 lg:pb-20">
-      <div className="container mx-auto px-6">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
+    <section id="o-nas" ref={ref} className="border-b border-border pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-20">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-12">
           <div>
-            <h2 className="font-barlow text-4xl font-extrabold uppercase text-foreground sm:text-[56px] sm:leading-[1]">
+            <h2 className="font-barlow text-[38px] font-extrabold uppercase text-foreground sm:text-[48px] sm:leading-[1] lg:text-[56px]">
               {t("DLACZEGO NEXAR?", "WHY NEXAR?")}
             </h2>
-            <div className="mt-8 flex flex-col gap-4">
+            <div className="mt-6 flex flex-col gap-4 sm:mt-8">
               {reasons.map((reason, i) => (
                 <div key={i} className="border-l-2 border-primary pl-4">
-                  <p className="font-inter text-[15px] text-foreground">{reason}</p>
+                  <p className="font-inter text-[14px] text-foreground sm:text-[15px]">{reason}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="border border-border bg-surface p-8">
+          <div className="border border-border bg-surface p-6 sm:p-8">
             <h3 className="font-barlow text-2xl font-bold uppercase text-foreground">
               {t("SZYBKA WYCENA", "QUICK QUOTE")}
             </h3>

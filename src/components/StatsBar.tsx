@@ -18,15 +18,15 @@ const StatsBar = () => {
         {stats.map((stat, i) => (
           <div
             key={i}
-            className={`flex flex-col items-center justify-center px-4 py-12 text-center ${
+            className={`flex flex-col items-center justify-center px-4 py-8 text-center sm:py-10 lg:py-12 ${
               i < 3 ? "border-r border-border" : ""
             } ${i < 2 ? "border-b border-border lg:border-b-0" : ""}`}
           >
-            <span className="font-barlow text-5xl font-bold text-foreground sm:text-[64px]">
+            <span className="font-barlow text-[38px] font-bold text-foreground sm:text-5xl lg:text-[64px]">
               {stat.value}
               {stat.star && <span className="text-primary">★</span>}
             </span>
-            <span className="mt-3 font-inter text-[13px] text-muted-foreground">
+            <span className="mt-2 font-inter text-[12px] text-muted-foreground sm:mt-3 sm:text-[13px]">
               {t(stat.labelPl, stat.labelEn)}
             </span>
           </div>
