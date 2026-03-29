@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
 import CookieBanner from "@/components/CookieBanner";
+import ScrollManager from "@/components/ScrollManager";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import PrivacyCookies from "./pages/PrivacyCookies.tsx";
@@ -21,6 +22,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollManager />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/uslugi" element={<ServicesDirectoryPage />} />

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import RouteLink from "@/components/RouteLink";
 import { useLang } from "@/contexts/LanguageContext";
 
 const footerNav = [
@@ -41,13 +41,13 @@ const Footer = () => {
             <div className="mt-4 grid grid-cols-1 justify-items-center gap-x-5 gap-y-3 min-[380px]:grid-cols-2 min-[560px]:grid-cols-3 lg:justify-items-start">
               {footerNav.map((item) =>
                 item.type === "route" ? (
-                  <Link
+                  <RouteLink
                     key={item.href}
                     to={item.href}
                     className="text-center font-inter text-[13px] leading-relaxed text-muted-foreground transition-colors duration-300 hover:text-foreground"
                   >
                     {lang === "PL" ? item.labelPl : item.labelEn}
-                  </Link>
+                  </RouteLink>
                 ) : (
                   <a
                     key={item.href}
