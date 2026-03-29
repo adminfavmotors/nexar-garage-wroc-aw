@@ -1,3 +1,5 @@
+import type { ServiceDefinition } from "@/data/servicePages";
+
 export const siteUrl = "https://www.nexargarage.pl";
 
 export const homeAutoRepairSchema = {
@@ -40,3 +42,74 @@ export const homeAutoRepairSchema = {
     },
   ],
 };
+
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  name: "Nexar Garage",
+  url: siteUrl,
+  inLanguage: "pl-PL",
+};
+
+export const servicesDirectoryBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Nexar Garage",
+      item: `${siteUrl}/`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Usługi",
+      item: `${siteUrl}/uslugi`,
+    },
+  ],
+};
+
+export const getServicesDirectoryItemListSchema = (services: ServiceDefinition[]) => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${siteUrl}/uslugi#services`,
+  name: "Usługi Nexar Garage",
+  itemListOrder: "https://schema.org/ItemListOrderAscending",
+  numberOfItems: services.length,
+  itemListElement: services.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    url: `${siteUrl}/uslugi#${service.slug}`,
+    item: {
+      "@type": "Service",
+      name: service.title.pl,
+      description: service.shortDescription.pl,
+      serviceType: service.title.pl,
+      areaServed: {
+        "@type": "City",
+        name: "Wrocław",
+      },
+      provider: {
+        "@type": "AutoRepair",
+        name: "Nexar Garage",
+        url: siteUrl,
+      },
+    },
+  })),
+});
+
+export const getServiceFaqSchema = (service: ServiceDefinition) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${siteUrl}/uslugi#faq-${service.slug}`,
+  mainEntity: service.faq.map((item) => ({
+    "@type": "Question",
+    name: item.question.pl,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer.pl,
+    },
+  })),
+});

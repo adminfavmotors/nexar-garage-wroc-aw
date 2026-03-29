@@ -8,7 +8,7 @@ import Booking from "@/components/Booking";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
-import { homeAutoRepairSchema } from "@/data/seo";
+import { homeAutoRepairSchema, websiteSchema } from "@/data/seo";
 
 const homeSeo = {
   title: "Nexar Garage Wrocław | Serwis Samochodowy | Mechanik Wrocław",
@@ -27,7 +27,7 @@ const Index = () => {
         canonical={homeSeo.canonical}
         ogTitle={homeSeo.ogTitle}
         ogType="business.business"
-        schema={[homeAutoRepairSchema]}
+        schema={[homeAutoRepairSchema, websiteSchema]}
       />
       <Header />
       <main>

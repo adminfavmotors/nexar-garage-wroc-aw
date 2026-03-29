@@ -4,7 +4,12 @@ import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
 import { useLang } from "@/contexts/LanguageContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { siteUrl } from "@/data/seo";
+import {
+  getServiceFaqSchema,
+  getServicesDirectoryItemListSchema,
+  servicesDirectoryBreadcrumbSchema,
+  siteUrl,
+} from "@/data/seo";
 import { servicePages } from "@/data/servicePages";
 
 const defaultServiceSlug = servicePages[0]?.slug ?? "";
@@ -17,6 +22,15 @@ const ServicesDirectoryPage = () => {
   const activeService = useMemo(
     () => servicePages.find((service) => service.slug === activeSlug) ?? servicePages[0],
     [activeSlug]
+  );
+
+  const servicesPageSchema = useMemo(
+    () => [
+      servicesDirectoryBreadcrumbSchema,
+      getServicesDirectoryItemListSchema(servicePages),
+      getServiceFaqSchema(activeService),
+    ],
+    [activeService]
   );
 
   useEffect(() => {
@@ -45,6 +59,7 @@ const ServicesDirectoryPage = () => {
         canonical={`${siteUrl}/uslugi`}
         ogTitle="Usługi Nexar Garage | Mechanik Wrocław"
         ogDescription="Sprawdź pełną ofertę usług Nexar Garage we Wrocławiu, porównaj orientacyjne ceny i otwórz opis wybranej usługi bez opuszczania strony."
+        schema={servicesPageSchema}
       />
       <Header />
 
@@ -92,13 +107,17 @@ const ServicesDirectoryPage = () => {
 
             <div className="mt-8 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
               {servicePages.map((service) => (
-                <button
+                <a
                   key={service.slug}
-                  type="button"
-                  onClick={() => openService(service.slug)}
+                  href={`/uslugi#${service.slug}`}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    openService(service.slug);
+                  }}
                   className={`group flex h-full flex-col border bg-surface p-6 text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.015] hover:border-accent hover:shadow-[0_18px_34px_rgba(0,0,0,0.24),0_0_22px_rgba(255,255,255,0.03)] sm:p-7 lg:p-8 ${
                     activeSlug === service.slug ? "border-primary shadow-[0_0_0_1px_rgba(170,37,0,0.22)]" : "border-border"
                   }`}
+                  aria-current={activeSlug === service.slug ? "true" : undefined}
                 >
                   <span className="font-barlow text-[13px] font-bold text-[hsl(0_0%_34%)]">
                     {service.num}
@@ -117,7 +136,7 @@ const ServicesDirectoryPage = () => {
                       {t(service.price.pl, service.price.en)}
                     </p>
                   </div>
-                </button>
+                </a>
               ))}
             </div>
           </div>
