@@ -25,7 +25,7 @@ const StatsBar = () => {
             <span className="font-barlow text-[38px] font-bold text-foreground sm:text-5xl lg:text-[64px]">
               {stat.value}
               {stat.ratingSuffix && (
-                <span className="ml-1 align-middle text-[0.46em] font-semibold tracking-[0.08em] text-primary">
+                <span className="ml-1 align-middle text-[0.46em] font-medium tracking-[0.08em] text-muted-foreground">
                   {stat.ratingSuffix}
                 </span>
               )}
