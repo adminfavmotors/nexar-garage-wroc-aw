@@ -5,7 +5,7 @@ const stats = [
   { value: "15+", labelPl: "lat doświadczenia", labelEn: "years experience" },
   { value: "6200+", labelPl: "zadowolonych klientów", labelEn: "happy clients" },
   { value: "48h", labelPl: "średni czas realizacji", labelEn: "avg turnaround" },
-  { value: "4.9", star: true, labelPl: "ocena Google", labelEn: "Google rating" },
+  { value: "4.9", ratingSuffix: "/5", labelPl: "ocena Google", labelEn: "Google rating" },
 ];
 
 const StatsBar = () => {
@@ -24,7 +24,11 @@ const StatsBar = () => {
           >
             <span className="font-barlow text-[38px] font-bold text-foreground sm:text-5xl lg:text-[64px]">
               {stat.value}
-              {stat.star && <span className="text-primary">★</span>}
+              {stat.ratingSuffix && (
+                <span className="ml-1 align-middle text-[0.46em] font-semibold tracking-[0.08em] text-primary">
+                  {stat.ratingSuffix}
+                </span>
+              )}
             </span>
             <span className="mt-2 font-inter text-[12px] text-muted-foreground sm:mt-3 sm:text-[13px]">
               {t(stat.labelPl, stat.labelEn)}
