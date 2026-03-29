@@ -50,7 +50,7 @@ const Contact = () => {
             {contactRows.map((row, i) => (
               <div key={i} className="flex items-start gap-4 border-l-2 border-primary pl-4">
                 <span className="text-muted-foreground">{row.icon}</span>
-                <p className="font-inter text-[14px] text-foreground sm:text-[15px]">{row.text}</p>
+                <p className="break-words font-inter text-[14px] leading-relaxed text-foreground sm:text-[15px]">{row.text}</p>
               </div>
             ))}
           </div>
@@ -61,7 +61,7 @@ const Contact = () => {
                 <p className="font-inter text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                   GOOGLE MAPS
                 </p>
-                <p className="mt-1 font-inter text-sm text-foreground">{mapAddress}</p>
+                <p className="mt-1 break-words font-inter text-sm leading-relaxed text-foreground">{mapAddress}</p>
               </div>
               <span className="font-barlow text-[12px] font-bold uppercase tracking-wider text-accent">
                 {t("Dojazd", "Directions")}

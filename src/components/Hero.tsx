@@ -54,14 +54,14 @@ const Hero = () => {
         </div>
 
         <div className="mt-auto pb-6 sm:pb-7 lg:pb-8">
-          <div className="mx-auto flex w-full max-w-5xl snap-x snap-mandatory flex-nowrap items-stretch justify-start gap-2 overflow-x-auto pb-1 scrollbar-none sm:justify-center sm:gap-4 sm:overflow-visible">
+          <div className="mx-auto grid w-full max-w-5xl grid-cols-3 gap-2 sm:flex sm:flex-nowrap sm:items-stretch sm:justify-center sm:gap-4">
             {heroBenefits.map((benefit) => (
               <div
                 key={benefit.en}
-                className="flex min-w-[166px] snap-start items-center justify-center border border-border bg-surface px-3 py-3 text-center font-inter text-[12px] font-medium text-foreground sm:min-w-[220px] sm:flex-none sm:px-5 sm:text-[14px]"
+                className="flex min-h-[74px] items-center justify-center border border-border bg-surface px-2 py-3 text-center font-inter text-[10px] font-medium leading-snug text-foreground sm:min-h-0 sm:min-w-[220px] sm:flex-none sm:px-5 sm:text-[14px]"
               >
-                <span className="mr-1.5 shrink-0 text-primary sm:mr-2">✓</span>
-                <span className="whitespace-nowrap">{lang === "PL" ? benefit.pl : benefit.en}</span>
+                <span className="mr-1 shrink-0 text-primary sm:mr-2">✓</span>
+                <span className="text-balance">{lang === "PL" ? benefit.pl : benefit.en}</span>
               </div>
             ))}
           </div>

@@ -38,13 +38,13 @@ const Footer = () => {
             <p className="font-inter text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
               {t("Nawigacja", "Navigation")}
             </p>
-            <div className="mt-4 grid grid-cols-2 justify-items-center gap-x-5 gap-y-3 min-[480px]:grid-cols-3 lg:justify-items-start">
+            <div className="mt-4 grid grid-cols-1 justify-items-center gap-x-5 gap-y-3 min-[380px]:grid-cols-2 min-[560px]:grid-cols-3 lg:justify-items-start">
               {footerNav.map((item) =>
                 item.type === "route" ? (
                   <Link
                     key={item.href}
                     to={item.href}
-                    className="font-inter text-[13px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
+                    className="text-center font-inter text-[13px] leading-relaxed text-muted-foreground transition-colors duration-300 hover:text-foreground"
                   >
                     {lang === "PL" ? item.labelPl : item.labelEn}
                   </Link>
@@ -52,7 +52,7 @@ const Footer = () => {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="font-inter text-[13px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
+                    className="text-center font-inter text-[13px] leading-relaxed text-muted-foreground transition-colors duration-300 hover:text-foreground"
                   >
                     {lang === "PL" ? item.labelPl : item.labelEn}
                   </a>

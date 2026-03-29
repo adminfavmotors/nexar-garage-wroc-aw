@@ -81,7 +81,7 @@ const Reviews = () => {
           {reviews.map((review, i) => (
             <div
               key={i}
-              className="min-w-[280px] flex-shrink-0 border border-border bg-surface p-6 transition-colors duration-300 hover:border-accent sm:min-w-[320px] sm:p-8"
+              className="min-w-[252px] flex-shrink-0 border border-border bg-surface p-5 transition-colors duration-300 hover:border-accent min-[360px]:min-w-[280px] min-[360px]:p-6 sm:min-w-[320px] sm:p-8"
             >
               <div className="flex items-center gap-3">
                 <span className="text-primary">★★★★★</span>
