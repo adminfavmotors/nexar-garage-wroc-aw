@@ -7,7 +7,8 @@ import Reviews from "@/components/Reviews";
 import Booking from "@/components/Booking";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Seo, { homeAutoRepairSchema } from "@/components/Seo";
+import Seo from "@/components/Seo";
+import { homeAutoRepairSchema } from "@/data/seo";
 
 const homeSeo = {
   title: "Nexar Garage Wrocław | Serwis Samochodowy | Mechanik Wrocław",

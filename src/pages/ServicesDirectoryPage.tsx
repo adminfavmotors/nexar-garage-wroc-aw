@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Seo, { siteUrl } from "@/components/Seo";
+import Seo from "@/components/Seo";
 import { useLang } from "@/contexts/LanguageContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { siteUrl } from "@/data/seo";
 import { servicePages } from "@/data/servicePages";
 
 const defaultServiceSlug = servicePages[0]?.slug ?? "";
