@@ -2,9 +2,9 @@ import { useLang } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const heroBenefits = [
-  { pl: "Gwarancja 12 mies.", en: "12-month warranty" },
-  { pl: "Bezpłatna wycena", en: "Free estimate" },
-  { pl: "Oryginalne części", en: "OEM parts" },
+  { pl: "Diagnostyka komputerowa OBD2", en: "OBD2 computer diagnostics" },
+  { pl: "Wycena przed rozpoczęciem prac", en: "Quote before any work starts" },
+  { pl: "Obsługa PL / EN", en: "Polish / English support" },
 ];
 
 const Hero = () => {
@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="site-shell flex min-h-full flex-col sm:min-h-[calc(78svh-5rem)] lg:min-h-[calc(84svh-6rem)]">
         <div ref={ref} className="measure-hero py-8 sm:py-10 lg:py-12">
           <p className="font-inter text-[12px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
-            WROCŁAW — EST. 2009
+            WROCŁAW - EST. 2009
           </p>
 
           <h1 className="text-balance mt-5 font-barlow text-[40px] font-extrabold uppercase leading-[0.96] tracking-tight sm:mt-6 sm:text-[58px] md:text-[72px] lg:text-[96px]">
