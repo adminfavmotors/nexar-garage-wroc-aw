@@ -114,8 +114,8 @@ const ServicesDirectoryPage = () => {
                     event.preventDefault();
                     openService(service.slug);
                   }}
-                  className={`group flex h-full flex-col border bg-surface p-5 text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.015] hover:border-accent hover:shadow-[0_18px_34px_rgba(0,0,0,0.24),0_0_22px_rgba(255,255,255,0.03)] sm:p-7 lg:p-8 ${
-                    activeSlug === service.slug ? "border-primary shadow-[0_0_0_1px_rgba(170,37,0,0.22)]" : "border-border"
+                  className={`service-card-interactive group flex h-full flex-col p-5 text-left hover:-translate-y-1 hover:scale-[1.015] sm:p-7 lg:p-8 ${
+                    activeSlug === service.slug ? "service-card-active" : ""
                   }`}
                   aria-current={activeSlug === service.slug ? "true" : undefined}
                 >
@@ -128,7 +128,7 @@ const ServicesDirectoryPage = () => {
                   <p className="mt-3 font-inter text-[13px] leading-relaxed text-muted-foreground sm:text-[14px]">
                     {t(service.shortDescription.pl, service.shortDescription.en)}
                   </p>
-                  <div className="mt-6 border-t border-border/80 pt-5">
+                  <div className="service-card-divider mt-6 pt-5">
                     <p className="font-inter text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                       {t("Ceny orientacyjne", "Estimated pricing")}
                     </p>
@@ -161,7 +161,7 @@ const ServicesDirectoryPage = () => {
                   window.history.replaceState(null, "", `/uslugi#${value}`);
                 }
               }}
-              className="mt-8 border border-border bg-surface"
+              className="service-card mt-8"
             >
               {servicePages.map((service) => (
                 <AccordionItem
@@ -186,7 +186,7 @@ const ServicesDirectoryPage = () => {
                           {service.scopeItems.map((item, index) => (
                             <div
                               key={item.pl}
-                              className="flex items-start gap-3 border border-border/80 bg-background/40 px-4 py-4"
+                              className="service-card-panel flex items-start gap-3 px-4 py-4"
                             >
                               <span className="mt-0.5 font-barlow text-[18px] font-bold text-primary">
                                 0{index + 1}
@@ -201,7 +201,7 @@ const ServicesDirectoryPage = () => {
 
                       <div>
                         <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-1">
-                          <div className="border border-border bg-background/40 p-5">
+                          <div className="service-card-panel p-5">
                             <p className="font-inter text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                               {t("Cena orientacyjna", "Estimated pricing")}
                             </p>
@@ -209,7 +209,7 @@ const ServicesDirectoryPage = () => {
                               {t(service.price.pl, service.price.en)}
                             </p>
                           </div>
-                          <div className="border border-border bg-background/40 p-5">
+                          <div className="service-card-panel p-5">
                             <p className="font-inter text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                               {t("Czas realizacji", "Lead time")}
                             </p>
@@ -221,7 +221,7 @@ const ServicesDirectoryPage = () => {
 
                         <div className="mt-4 grid gap-4">
                           {service.benefitItems.map((item, index) => (
-                            <div key={item.pl} className="border border-border/80 bg-background/40 px-4 py-5">
+                            <div key={item.pl} className="service-card-panel px-4 py-5">
                               <p className="font-barlow text-[12px] font-bold uppercase tracking-[0.18em] text-primary">
                                 0{index + 1}
                               </p>
@@ -239,7 +239,7 @@ const ServicesDirectoryPage = () => {
             </Accordion>
 
             {activeService && (
-              <div className="mt-8 border border-border bg-surface p-6 sm:p-8">
+              <div className="service-card mt-8 p-6 sm:p-8">
                 <p className="font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                   FAQ
                 </p>
@@ -248,7 +248,7 @@ const ServicesDirectoryPage = () => {
                 </h3>
                 <div className="mt-6 grid gap-4">
                   {activeService.faq.map((item) => (
-                    <div key={item.question.pl} className="border border-border/80 bg-background/40 p-5">
+                    <div key={item.question.pl} className="service-card-panel p-5">
                       <p className="font-barlow text-[19px] font-bold uppercase text-foreground min-[360px]:text-[22px]">
                         {t(item.question.pl, item.question.en)}
                       </p>

@@ -145,6 +145,47 @@
         hsl(210 8% 12%) 41px
       );
   }
+  .service-card {
+    border: 1px solid hsl(var(--border));
+    background-color: hsl(var(--surface));
+  }
+  .service-card-interactive {
+    border: 1px solid hsl(var(--border));
+    background-color: hsl(var(--surface));
+    transition:
+      transform 0.5s ease-out,
+      border-color 0.5s ease-out,
+      box-shadow 0.5s ease-out,
+      background-color 0.5s ease-out;
+  }
+  .service-card-interactive:hover {
+    border-color: hsl(var(--accent));
+    box-shadow:
+      0 18px 34px rgba(0, 0, 0, 0.24),
+      0 0 22px rgba(255, 255, 255, 0.03);
+  }
+  .service-card-interactive:focus-visible {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow:
+      0 0 0 1px rgba(170, 37, 0, 0.22),
+      0 0 0 4px rgba(170, 37, 0, 0.16);
+  }
+  .service-card-active {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 1px rgba(170, 37, 0, 0.22);
+  }
+  .service-card-panel {
+    border: 1px solid hsl(var(--border) / 0.8);
+    background-color: hsl(var(--background) / 0.4);
+  }
+  .service-card-panel-solid {
+    border: 1px solid hsl(var(--border));
+    background-color: hsl(var(--background));
+  }
+  .service-card-divider {
+    border-top: 1px solid hsl(var(--border) / 0.8);
+  }
   [data-reveal='pending'] {
     opacity: 0;
     transform: translateY(24px);

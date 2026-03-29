@@ -53,7 +53,7 @@ const WhyUs = () => {
             </div>
           </div>
 
-          <div className="border border-border bg-surface p-6 sm:p-8">
+          <div className="service-card p-6 sm:p-8">
             <h3 className="font-barlow text-2xl font-bold uppercase text-foreground">
               {t("WYBIERZ USŁUGĘ", "PICK A SERVICE")}
             </h3>
@@ -70,10 +70,10 @@ const WhyUs = () => {
                   key={service.slug}
                   type="button"
                   onClick={() => setSelectedSlug(service.slug)}
-                  className={`border px-4 py-4 text-left transition-colors duration-300 ${
+                  className={`service-card-panel-solid px-4 py-4 text-left transition-colors duration-300 ${
                     selectedSlug === service.slug
-                      ? "border-primary bg-background text-foreground"
-                      : "border-border bg-background text-muted-foreground hover:border-accent hover:text-foreground"
+                      ? "service-card-active text-foreground"
+                      : "text-muted-foreground hover:border-accent hover:text-foreground"
                   }`}
                 >
                   <p className="font-barlow text-[18px] font-bold uppercase">
@@ -87,7 +87,7 @@ const WhyUs = () => {
             </div>
 
             {selectedService && (
-              <div className="mt-6 border border-border bg-background p-5">
+              <div className="service-card-panel-solid mt-6 p-5">
                 <p className="font-barlow text-[22px] font-bold uppercase text-foreground">
                   {t(selectedService.title.pl, selectedService.title.en)}
                 </p>
@@ -96,7 +96,7 @@ const WhyUs = () => {
                 </p>
 
                 <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                  <div className="border border-border/80 px-4 py-4">
+                  <div className="service-card-panel px-4 py-4">
                     <p className="font-inter text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                       {t("Cena orientacyjna", "Estimated pricing")}
                     </p>
@@ -105,7 +105,7 @@ const WhyUs = () => {
                     </p>
                   </div>
 
-                  <div className="border border-border/80 px-4 py-4">
+                  <div className="service-card-panel px-4 py-4">
                     <p className="font-inter text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                       {t("Czas realizacji", "Lead time")}
                     </p>
@@ -132,7 +132,7 @@ const WhyUs = () => {
               </div>
             )}
 
-            <div className="mt-6 border-t border-border pt-5">
+            <div className="service-card-divider mt-6 pt-5">
               <p className="font-inter text-[13px] leading-relaxed text-muted-foreground">
                 {t(
                   "Jeśli potrzebujesz niestandardowej naprawy, przejdź do rezerwacji i wybierz opcję „Inne”, a opiszesz problem własnymi słowami.",

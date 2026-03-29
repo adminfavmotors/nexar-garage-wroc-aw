@@ -18,7 +18,7 @@ const ServiceCard = ({
     <Link
       to={getServiceHashPath(service.slug)}
       aria-label={lang === "PL" ? service.title.pl : service.title.en}
-      className="group flex h-full flex-col border border-border bg-surface p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.015] hover:border-accent hover:shadow-[0_18px_34px_rgba(0,0,0,0.24),0_0_22px_rgba(255,255,255,0.03)] focus:outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/30 sm:p-7 lg:p-8"
+      className="service-card-interactive group flex h-full flex-col p-6 hover:-translate-y-1 hover:scale-[1.015] sm:p-7 lg:p-8"
     >
       <span className="font-barlow text-[13px] font-bold text-[hsl(0_0%_34%)]">
         {service.num}
@@ -30,7 +30,7 @@ const ServiceCard = ({
         {lang === "PL" ? service.shortDescription.pl : service.shortDescription.en}
       </p>
 
-      <div className="mt-6 border-t border-border/80 pt-5">
+      <div className="service-card-divider mt-6 pt-5">
         <p className="font-inter text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
           {lang === "PL" ? "Ceny orientacyjne" : "Estimated pricing"}
         </p>
