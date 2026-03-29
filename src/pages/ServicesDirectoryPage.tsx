@@ -66,7 +66,7 @@ const ServicesDirectoryPage = () => {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
-                href="/#rezerwacja"
+                href={`/?service=${activeService.bookingValue}#rezerwacja`}
                 className="inline-flex items-center justify-center border border-primary bg-primary px-7 py-3.5 font-barlow text-[14px] font-bold uppercase tracking-[0.16em] text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90"
               >
                 {t("PRZEJDŹ DO REZERWACJI", "GO TO BOOKING")}

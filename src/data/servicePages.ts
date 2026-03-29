@@ -11,6 +11,7 @@ export type ServiceFaq = {
 export type ServiceDefinition = {
   num: string;
   slug: string;
+  bookingValue: string;
   title: LocalizedText;
   shortDescription: LocalizedText;
   metaTitle: string;
@@ -34,6 +35,7 @@ export const servicePages: ServiceDefinition[] = [
   {
     num: "01",
     slug: "diagnostyka-komputerowa",
+    bookingValue: "diagnostics",
     title: {
       pl: "Diagnostyka komputerowa",
       en: "Computer diagnostics",
@@ -87,6 +89,7 @@ export const servicePages: ServiceDefinition[] = [
   {
     num: "02",
     slug: "serwis-i-naprawy",
+    bookingValue: "repairs",
     title: {
       pl: "Serwis i naprawy",
       en: "Service and repairs",
@@ -140,6 +143,7 @@ export const servicePages: ServiceDefinition[] = [
   {
     num: "03",
     slug: "wymiana-opon",
+    bookingValue: "tyres",
     title: {
       pl: "Wymiana opon",
       en: "Tyre service",
@@ -193,6 +197,7 @@ export const servicePages: ServiceDefinition[] = [
   {
     num: "04",
     slug: "elektryk-samochodowy",
+    bookingValue: "electrics",
     title: {
       pl: "Elektryk samochodowy",
       en: "Auto electrics",
@@ -246,6 +251,7 @@ export const servicePages: ServiceDefinition[] = [
   {
     num: "05",
     slug: "klimatyzacja-samochodowa",
+    bookingValue: "ac",
     title: {
       pl: "Klimatyzacja samochodowa",
       en: "Car air conditioning",
@@ -299,6 +305,7 @@ export const servicePages: ServiceDefinition[] = [
   {
     num: "06",
     slug: "geometria-kol",
+    bookingValue: "alignment",
     title: {
       pl: "Geometria kół",
       en: "Wheel alignment",

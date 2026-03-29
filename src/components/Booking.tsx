@@ -1,33 +1,48 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { format } from "date-fns";
 import { enUS, pl } from "date-fns/locale";
 import { CalendarIcon } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 import { useLang } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-
-const serviceOptions = [
-  { value: "diagnostics", pl: "Diagnostyka komputerowa", en: "Computer Diagnostics" },
-  { value: "repairs", pl: "Serwis i naprawy", en: "Service & Repairs" },
-  { value: "tyres", pl: "Wymiana opon", en: "Tyre Service" },
-  { value: "electrics", pl: "Elektryk samochodowy", en: "Auto Electrics" },
-  { value: "ac", pl: "Klimatyzacja", en: "Air Conditioning" },
-  { value: "alignment", pl: "Geometria kół", en: "Wheel Alignment" },
-  { value: "other", pl: "Inne", en: "Other" },
-];
+import { servicePages } from "@/data/servicePages";
 
 const Booking = () => {
   const { lang, t } = useLang();
   const ref = useScrollReveal();
+  const [searchParams] = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
   const [service, setService] = useState("");
   const [date, setDate] = useState<Date | undefined>();
   const [dateError, setDateError] = useState(false);
 
+  const serviceOptions = useMemo(
+    () => [
+      ...servicePages.map((servicePage) => ({
+        value: servicePage.bookingValue,
+        pl: servicePage.title.pl,
+        en: servicePage.title.en,
+      })),
+      { value: "other", pl: "Inne", en: "Other" },
+    ],
+    []
+  );
+
   const inputClass =
     "w-full border border-border bg-background px-4 py-3.5 font-inter text-[15px] text-foreground placeholder:text-muted-foreground outline-none transition-colors duration-300 focus:border-accent sm:py-3 sm:text-sm";
+
+  useEffect(() => {
+    const requestedService = searchParams.get("service");
+    if (!requestedService) return;
+
+    const isSupported = serviceOptions.some((option) => option.value === requestedService);
+    if (isSupported) {
+      setService(requestedService);
+    }
+  }, [searchParams, serviceOptions]);
 
   if (submitted) {
     return (

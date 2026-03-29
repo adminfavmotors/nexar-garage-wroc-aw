@@ -45,7 +45,7 @@ const Hero = () => {
               {t("UMÓW WIZYTĘ", "BOOK NOW")}
             </a>
             <a
-              href="#uslugi"
+              href="/uslugi"
               className="inline-flex w-full items-center justify-center border border-accent px-7 py-3.5 font-barlow text-[14px] font-bold uppercase tracking-wider text-accent transition-colors duration-300 hover:bg-elevated active:scale-[0.97] sm:w-auto"
             >
               {t("NASZE USŁUGI", "OUR SERVICES")}
