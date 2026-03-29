@@ -87,7 +87,7 @@ const ServicesDirectoryPage = () => {
                 {t("PRZEJDŹ DO REZERWACJI", "GO TO BOOKING")}
               </a>
               <a
-                href="/#kontakt"
+                href="/#rezerwacja"
                 className="inline-flex w-full items-center justify-center border border-border bg-surface px-6 py-3.5 text-center font-barlow text-[13px] font-bold uppercase tracking-[0.16em] text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-elevated sm:w-auto sm:px-7 sm:text-[14px]"
               >
                 {t("ZAPYTAJ O TERMIN", "ASK ABOUT AVAILABILITY")}

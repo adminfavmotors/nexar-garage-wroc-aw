@@ -7,7 +7,7 @@ const navItems = [
   { labelPl: "USŁUGI", labelEn: "SERVICES", href: "/uslugi", type: "route" as const },
   { labelPl: "O NAS", labelEn: "ABOUT", href: "/#o-nas", type: "anchor" as const },
   { labelPl: "OPINIE", labelEn: "REVIEWS", href: "/#opinie", type: "anchor" as const },
-  { labelPl: "KONTAKT", labelEn: "CONTACT", href: "/#kontakt", type: "anchor" as const },
+  { labelPl: "KONTAKT", labelEn: "CONTACT", href: "/#rezerwacja", type: "anchor" as const },
 ];
 
 const Header = () => {
@@ -88,7 +88,7 @@ const Header = () => {
           </div>
 
           <a
-            href="/#kontakt"
+            href="/#rezerwacja"
             className="inline-flex items-center border border-primary bg-primary px-7 py-3.5 font-barlow text-[15px] font-bold uppercase tracking-[0.16em] text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-[0_12px_24px_rgba(170,37,0,0.22)] active:scale-[0.98]"
           >
             {t("UMÓW WIZYTĘ", "BOOK NOW")}
@@ -157,7 +157,7 @@ const Header = () => {
           </div>
 
           <a
-            href="/#kontakt"
+            href="/#rezerwacja"
             onClick={() => setMobileOpen(false)}
             className="mt-6 block border border-primary bg-primary px-6 py-3.5 text-center font-barlow text-[14px] font-bold uppercase tracking-[0.16em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 active:scale-[0.98] sm:text-[15px]"
           >

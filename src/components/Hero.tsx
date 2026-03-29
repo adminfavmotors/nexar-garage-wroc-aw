@@ -39,7 +39,7 @@ const Hero = () => {
 
           <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
             <a
-              href="#kontakt"
+              href="#rezerwacja"
               className="inline-flex w-full items-center justify-center bg-primary px-7 py-3.5 font-barlow text-[14px] font-bold uppercase tracking-wider text-primary-foreground transition-opacity duration-300 hover:opacity-90 active:scale-[0.97] sm:w-auto"
             >
               {t("UMÓW WIZYTĘ", "BOOK NOW")}

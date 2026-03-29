@@ -5,7 +5,7 @@ const footerNav = [
   { labelPl: "Usługi", labelEn: "Services", href: "/uslugi", type: "route" as const },
   { labelPl: "O nas", labelEn: "About", href: "/#o-nas", type: "anchor" as const },
   { labelPl: "Opinie", labelEn: "Reviews", href: "/#opinie", type: "anchor" as const },
-  { labelPl: "Kontakt", labelEn: "Contact", href: "/#kontakt", type: "anchor" as const },
+  { labelPl: "Kontakt", labelEn: "Contact", href: "/#rezerwacja", type: "anchor" as const },
   { labelPl: "Rezerwacja", labelEn: "Booking", href: "/#rezerwacja", type: "anchor" as const },
   { labelPl: "RODO / COOKIES", labelEn: "Privacy / Cookies", href: "/rodo-cookies", type: "route" as const },
 ];
