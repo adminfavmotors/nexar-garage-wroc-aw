@@ -16,28 +16,28 @@ const Hero = () => {
       id="home"
       className="relative overflow-hidden pt-[72px] diagonal-lines sm:min-h-[78svh] sm:pt-20 lg:min-h-[84svh] lg:pt-24"
     >
-      <div className="container mx-auto flex min-h-full flex-col px-4 sm:px-6 sm:min-h-[calc(78svh-5rem)] lg:min-h-[calc(84svh-6rem)]">
-        <div ref={ref} className="max-w-[960px] py-8 sm:py-10 lg:py-12">
-          <p className="animate-fade-up font-inter text-[12px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+      <div className="site-shell flex min-h-full flex-col sm:min-h-[calc(78svh-5rem)] lg:min-h-[calc(84svh-6rem)]">
+        <div ref={ref} className="measure-hero py-8 sm:py-10 lg:py-12">
+          <p className="font-inter text-[12px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
             WROCŁAW — EST. 2009
           </p>
 
-          <h1 className="animate-fade-up animate-fade-up-delay-1 mt-5 font-barlow text-[40px] font-extrabold uppercase leading-[0.92] tracking-tight sm:mt-6 sm:text-[58px] md:text-[72px] lg:text-[96px]">
+          <h1 className="text-balance mt-5 font-barlow text-[40px] font-extrabold uppercase leading-[0.96] tracking-tight sm:mt-6 sm:text-[58px] md:text-[72px] lg:text-[96px]">
             <span className="block text-foreground">{t("PROFESJONALNY", "PROFESSIONAL")}</span>
             <span className="block text-accent">{t("SERWIS SAMOCHODOWY", "CAR SERVICE")}</span>
             <span className="block text-[hsl(0_0%_34%)]">{t("WE WROCŁAWIU.", "IN WROCŁAW.")}</span>
           </h1>
 
-          <div className="animate-fade-up animate-fade-up-delay-2 mt-6 h-px w-full max-w-xs bg-border" />
+          <div className="mt-6 h-px w-full max-w-xs bg-border" />
 
-          <p className="animate-fade-up animate-fade-up-delay-2 mt-5 font-inter text-[15px] font-medium tracking-[0.06em] text-foreground/82 sm:mt-6 sm:text-base md:text-lg">
+          <p className="measure-copy mt-5 font-inter text-[15px] font-medium tracking-[0.06em] text-foreground/82 sm:mt-6 sm:text-base md:text-lg">
             {t(
               "Diagnostyka. Naprawy. Klimatyzacja. Opony.",
               "Diagnostics. Repairs. Air Conditioning. Tyres."
             )}
           </p>
 
-          <div className="animate-fade-up animate-fade-up-delay-3 mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
             <a
               href="#kontakt"
               className="inline-flex w-full items-center justify-center bg-primary px-7 py-3.5 font-barlow text-[14px] font-bold uppercase tracking-wider text-primary-foreground transition-opacity duration-300 hover:opacity-90 active:scale-[0.97] sm:w-auto"
@@ -53,7 +53,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="animate-fade-up animate-fade-up-delay-4 mt-auto pb-6 sm:pb-7 lg:pb-8">
+        <div className="mt-auto pb-6 sm:pb-7 lg:pb-8">
           <div className="mx-auto flex w-full max-w-5xl snap-x snap-mandatory flex-nowrap items-stretch justify-start gap-2 overflow-x-auto pb-1 scrollbar-none sm:justify-center sm:gap-4 sm:overflow-visible">
             {heroBenefits.map((benefit) => (
               <div

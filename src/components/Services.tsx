@@ -47,12 +47,12 @@ const Services = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="uslugi" ref={ref} className="border-b border-border pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-20">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="uslugi" ref={ref} className="section-block border-b border-border">
+      <div className="site-shell">
         <p className="text-center font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
           - {t("NASZE USŁUGI", "OUR SERVICES")} -
         </p>
-        <h2 className="mt-3 text-center font-barlow text-[38px] font-extrabold uppercase text-foreground sm:text-[48px] sm:leading-[1] lg:text-[56px]">
+        <h2 className="text-balance mx-auto mt-3 text-center font-barlow text-[38px] font-extrabold uppercase text-foreground sm:text-[48px] sm:leading-[1] lg:text-[56px]">
           {t("KOMPLEKSOWA OBSŁUGA", "COMPREHENSIVE SERVICE")}
         </h2>
 

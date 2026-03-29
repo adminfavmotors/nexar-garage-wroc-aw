@@ -49,15 +49,15 @@ const ServicesDirectoryPage = () => {
       <Header />
 
       <main className="pt-20 lg:pt-24">
-        <section className="border-b border-border pt-12 pb-14 lg:pt-16 lg:pb-20">
-          <div className="container mx-auto px-4 sm:px-6">
+        <section className="section-block border-b border-border">
+          <div className="site-shell">
             <p className="font-inter text-[12px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
               {t("Oferta serwisu Wrocław", "Workshop services Wrocław")}
             </p>
-            <h1 className="mt-4 max-w-5xl font-barlow text-[42px] font-extrabold uppercase leading-[0.94] text-foreground sm:text-[58px] lg:text-[74px]">
+            <h1 className="text-balance measure-hero mt-4 font-barlow text-[42px] font-extrabold uppercase leading-[0.96] text-foreground sm:text-[58px] lg:text-[74px]">
               {t("USŁUGI NEXAR GARAGE", "NEXAR GARAGE SERVICES")}
             </h1>
-            <p className="mt-5 max-w-3xl font-inter text-[16px] leading-relaxed text-muted-foreground sm:text-[17px]">
+            <p className="measure-copy-wide mt-5 font-inter text-[16px] leading-relaxed text-muted-foreground sm:text-[17px]">
               {t(
                 "Zebraliśmy wszystkie główne usługi w jednym miejscu. Wybierz pozycję z listy, a niżej otworzy się tylko opis tej usługi wraz z zakresem prac i orientacyjną ceną.",
                 "All core services are grouped in one place. Pick a service from the list and only that service description will open below with scope and estimated pricing."
@@ -81,12 +81,12 @@ const ServicesDirectoryPage = () => {
           </div>
         </section>
 
-        <section id="uslugi" className="border-b border-border py-10 sm:py-12 lg:py-16">
-          <div className="container mx-auto px-4 sm:px-6">
+        <section id="uslugi" className="section-block border-b border-border">
+          <div className="site-shell">
             <p className="text-center font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               - {t("NASZE USŁUGI", "OUR SERVICES")} -
             </p>
-            <h2 className="mt-3 text-center font-barlow text-[38px] font-extrabold uppercase text-foreground sm:text-[48px] sm:leading-[1] lg:text-[56px]">
+            <h2 className="text-balance mx-auto mt-3 text-center font-barlow text-[38px] font-extrabold uppercase text-foreground sm:text-[48px] sm:leading-[1] lg:text-[56px]">
               {t("KOMPLEKSOWA OBSŁUGA", "COMPREHENSIVE SERVICE")}
             </h2>
 
@@ -123,8 +123,8 @@ const ServicesDirectoryPage = () => {
           </div>
         </section>
 
-        <section ref={detailsRef} className="border-b border-border py-10 sm:py-12 lg:py-16">
-          <div className="container mx-auto px-4 sm:px-6">
+        <section ref={detailsRef} className="section-block border-b border-border">
+          <div className="site-shell">
             <p className="font-inter text-[12px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               {t("Opis wybranej usługi", "Selected service details")}
             </p>
@@ -160,7 +160,7 @@ const ServicesDirectoryPage = () => {
                   <AccordionContent className="px-6 pb-6 sm:px-8 sm:pb-8">
                     <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
                       <div>
-                        <p className="max-w-3xl font-inter text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                        <p className="measure-copy-wide font-inter text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                           {t(service.heroSummary.pl, service.heroSummary.en)}
                         </p>
                         <div className="mt-6 grid gap-3">

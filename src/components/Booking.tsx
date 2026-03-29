@@ -34,9 +34,9 @@ const Booking = () => {
       <section
         id="rezerwacja"
         ref={ref}
-        className="border-b border-border bg-surface pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-20"
+        className="section-block border-b border-border bg-surface"
       >
-        <div className="container mx-auto px-4 text-center sm:px-6">
+        <div className="site-shell text-center">
           <h2 className="font-barlow text-[40px] font-extrabold uppercase text-foreground sm:text-[48px]">
             {t("DZIĘKUJEMY", "THANK YOU")}
           </h2>
@@ -52,10 +52,10 @@ const Booking = () => {
     <section
       id="rezerwacja"
       ref={ref}
-      className="border-b border-border bg-surface pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-20"
+      className="section-block border-b border-border bg-surface"
     >
-      <div className="container mx-auto px-4 sm:px-6">
-        <h2 className="text-center font-barlow text-[38px] font-extrabold uppercase text-foreground sm:text-[48px] sm:leading-[1] lg:text-[56px]">
+      <div className="site-shell">
+        <h2 className="text-balance mx-auto text-center font-barlow text-[38px] font-extrabold uppercase text-foreground sm:text-[48px] sm:leading-[1] lg:text-[56px]">
           {t("ZAREZERWUJ TERMIN", "BOOK AN APPOINTMENT")}
         </h2>
 
@@ -68,7 +68,7 @@ const Booking = () => {
             }
             setSubmitted(true);
           }}
-          className="mx-auto mt-8 flex max-w-[600px] flex-col gap-4 sm:mt-10"
+          className="measure-copy mx-auto mt-8 flex flex-col gap-4 sm:mt-10"
         >
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <input
