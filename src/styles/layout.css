@@ -171,6 +171,7 @@
 
   .surface-panel {
     position: relative;
+    overflow: hidden;
     border: 1px solid hsl(var(--border));
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 100%),
@@ -186,6 +187,7 @@
 
   .surface-panel-soft {
     position: relative;
+    overflow: hidden;
     border: 1px solid hsl(var(--border) / 0.9);
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%),
@@ -200,6 +202,7 @@
 
   .surface-panel-strong {
     position: relative;
+    overflow: hidden;
     border: 1px solid hsl(var(--line-soft));
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0) 100%),
@@ -211,6 +214,39 @@
       -11px -11px 28px rgba(255, 255, 255, 0.03),
       inset 1px 1px 0 rgba(255, 255, 255, 0.055),
       inset -1px -1px 0 rgba(14, 10, 8, 0.2);
+  }
+
+  .surface-panel::before,
+  .surface-panel-soft::before,
+  .surface-panel-strong::before,
+  .service-card::before,
+  .service-card-interactive::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 22%, transparent 56%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0) 26%),
+      linear-gradient(135deg, rgba(125, 149, 179, 0.08), transparent 45%, rgba(236, 186, 142, 0.06) 100%);
+    opacity: 0.9;
+  }
+
+  .surface-panel::after,
+  .surface-panel-soft::after,
+  .surface-panel-strong::after,
+  .service-card::after,
+  .service-card-interactive::after {
+    content: "";
+    position: absolute;
+    left: 1.1rem;
+    right: 1.1rem;
+    top: 0.9rem;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.08) 45%, transparent 90%);
+    opacity: 0.62;
   }
 
   .divider-hairline {
@@ -371,6 +407,8 @@
   }
 
   .trust-chip {
+    position: relative;
+    overflow: hidden;
     border: 1px solid hsl(var(--border));
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
@@ -387,7 +425,22 @@
       -6px -6px 14px rgba(255, 255, 255, 0.016);
   }
 
+  .trust-chip::before,
+  .stat-chip::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.04) 24%, transparent 58%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0));
+    opacity: 0.88;
+  }
+
   .stat-chip {
+    position: relative;
+    overflow: hidden;
     border: 1px solid hsl(var(--border));
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0)),
@@ -420,6 +473,7 @@
 
   .service-card {
     position: relative;
+    overflow: hidden;
     border: 1px solid hsl(var(--border));
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0)),
@@ -427,14 +481,15 @@
       hsl(var(--surface));
     border-radius: calc(var(--radius) + 0.1rem);
     box-shadow:
-      14px 14px 30px rgba(12, 9, 8, 0.18),
-      -10px -10px 22px rgba(255, 255, 255, 0.02),
-      inset 1px 1px 0 rgba(255, 255, 255, 0.035),
+      16px 16px 34px rgba(12, 9, 8, 0.2),
+      -11px -11px 24px rgba(255, 255, 255, 0.028),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.05),
       inset -1px -1px 0 rgba(14, 10, 8, 0.18);
   }
 
   .service-card-interactive {
     position: relative;
+    overflow: hidden;
     border: 1px solid hsl(var(--border));
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0)),
@@ -442,9 +497,9 @@
       hsl(var(--surface));
     border-radius: calc(var(--radius) + 0.1rem);
     box-shadow:
-      15px 15px 32px rgba(12, 9, 8, 0.19),
-      -10px -10px 22px rgba(255, 255, 255, 0.02),
-      inset 1px 1px 0 rgba(255, 255, 255, 0.04),
+      18px 18px 38px rgba(12, 9, 8, 0.21),
+      -12px -12px 28px rgba(255, 255, 255, 0.03),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.055),
       inset -1px -1px 0 rgba(14, 10, 8, 0.18);
     transition:
       transform 0.35s ease,
@@ -455,16 +510,24 @@
 
   .service-card-interactive:hover {
     transform: translateY(-4px);
-    border-color: hsl(var(--line-soft));
+    border-color: hsl(var(--cool-glow) / 0.34);
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0)),
       linear-gradient(135deg, rgba(236, 186, 142, 0.08), rgba(125, 149, 179, 0.06)),
       hsl(var(--surface-strong));
     box-shadow:
-      18px 18px 38px rgba(12, 9, 8, 0.24),
-      -12px -12px 28px rgba(255, 255, 255, 0.03),
-      inset 1px 1px 0 rgba(255, 255, 255, 0.055),
+      22px 22px 44px rgba(12, 9, 8, 0.24),
+      -14px -14px 32px rgba(255, 255, 255, 0.038),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.07),
       inset -1px -1px 0 rgba(14, 10, 8, 0.2);
+  }
+
+  .service-card-interactive:hover::before {
+    opacity: 1;
+    background:
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 24%, transparent 56%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 26%),
+      linear-gradient(135deg, rgba(125, 149, 179, 0.12), transparent 45%, rgba(236, 186, 142, 0.08) 100%);
   }
 
   .service-card-interactive:focus-visible {
@@ -476,16 +539,24 @@
   }
 
   .service-card-active {
-    border-color: hsl(var(--primary) / 0.52);
+    border-color: hsl(var(--primary) / 0.62);
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0)),
       linear-gradient(135deg, rgba(236, 186, 142, 0.08), rgba(125, 149, 179, 0.05)),
       hsl(var(--surface-strong));
     box-shadow:
-      18px 18px 38px rgba(12, 9, 8, 0.22),
-      -12px -12px 28px rgba(255, 255, 255, 0.028),
-      inset 1px 1px 0 rgba(255, 255, 255, 0.06),
+      22px 22px 44px rgba(12, 9, 8, 0.23),
+      -14px -14px 32px rgba(255, 255, 255, 0.04),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.075),
       inset -1px -1px 0 rgba(14, 10, 8, 0.18);
+  }
+
+  .service-card-active::before {
+    opacity: 1;
+    background:
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 24%, transparent 56%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.065) 0%, rgba(255, 255, 255, 0) 26%),
+      linear-gradient(135deg, rgba(125, 149, 179, 0.12), transparent 45%, rgba(236, 186, 142, 0.08) 100%);
   }
 
   .service-card-panel {
