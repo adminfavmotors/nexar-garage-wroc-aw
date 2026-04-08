@@ -115,6 +115,22 @@ It is meant to be extended over time instead of rewritten.
 - Applied the new typography and accent patterns to the main home sections and services directory components.
 - Shifted emphasis from aggressive uppercase mass to hierarchy, spacing, rhythm, and smaller precision details.
 
+### Phase 11. Card surface highlight integration
+
+- Adapted the requested “highlighted card” idea into the existing design system instead of copying a standalone demo class.
+- Implemented a dark-compatible dual-shadow surface treatment for the main card primitives.
+- Updated the following shared surface layers:
+  - `surface-panel`
+  - `surface-panel-soft`
+  - `surface-panel-strong`
+  - `service-card`
+  - `service-card-interactive`
+  - `service-card-active`
+- Added lighter matching depth for:
+  - `trust-chip`
+  - `stat-chip`
+- Kept the effect aligned with the project palette and hierarchy, so cards feel more dimensional without turning the UI into light neumorphism.
+
 ## Files with major changes
 
 ### Architecture and entry points
@@ -150,6 +166,7 @@ It is meant to be extended over time instead of rewritten.
 - `npm test`
 
 Both commands passed after the architecture cleanup, after the visual refactor pass, after the palette/readability correction, and again after the typography refinement.
+Both commands also passed after the card-surface highlight integration.
 
 ## Known next steps
 
@@ -157,6 +174,7 @@ Both commands passed after the architecture cleanup, after the visual refactor p
 - Introduce real photo slots and integrate provided workshop imagery.
 - Fine-tune typography rhythm section by section once media assets are available.
 - Revisit a few remaining high-emphasis UI labels if screenshots still show isolated heavy spots.
+- Validate whether the new card depth should stay equally strong across all card tiers or be reduced on secondary panels.
 - Continue removing any remaining dead code or styles that no longer serve the new system.
 
 ## Update protocol
