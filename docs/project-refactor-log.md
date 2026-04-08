@@ -156,6 +156,30 @@ It is meant to be extended over time instead of rewritten.
   - clearer hover separation for interactive cards
 - Limited this pass strictly to card and panel surfaces without touching the button system again.
 
+### Phase 14. Brand palette realignment
+
+- Reworked the core palette around the new reference palette:
+  - black
+  - white
+  - dark gray
+  - gray
+  - light gray
+  - brand orange
+  - warm red-to-orange-to-sand gradient tones
+- Updated the global token layer so the project now uses a black-and-gray base with orange-led accents instead of the earlier mixed warm/cool palette.
+- Added dedicated brand gradient tokens for CTA and section accent usage:
+  - `brand-red`
+  - `brand-orange`
+  - `brand-sand`
+- Updated:
+  - page background lighting
+  - section ambient gradients
+  - surface overlays
+  - card tinting
+  - chip tinting
+  - button glow and hover gradients
+- Aligned the CTA glow treatment with the same brand colors so buttons and section accents now speak the same color language.
+
 ## Files with major changes
 
 ### Architecture and entry points
@@ -194,6 +218,7 @@ Both commands passed after the architecture cleanup, after the visual refactor p
 Both commands also passed after the card-surface highlight integration.
 Both commands also passed after the shared button glow treatment.
 Both commands also passed after the stronger card highlight visibility pass.
+Both commands also passed after the brand palette realignment.
 
 ## Known next steps
 
@@ -204,6 +229,7 @@ Both commands also passed after the stronger card highlight visibility pass.
 - Validate whether the new card depth should stay equally strong across all card tiers or be reduced on secondary panels.
 - Validate whether the new button glow should stay equally strong on all CTA contexts or be toned down for secondary placements.
 - Review whether the current card highlight is now balanced enough or if chips and secondary panels should be toned down slightly.
+- Review whether the new orange-led brand system should be slightly softened in long-scroll sections or kept this assertive across the entire site.
 - Continue removing any remaining dead code or styles that no longer serve the new system.
 
 ## Update protocol

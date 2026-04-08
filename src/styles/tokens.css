@@ -1,7 +1,7 @@
 @layer base {
   :root {
-    --background: 26 18% 13%;
-    --foreground: 36 30% 96%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
 
     --shell-max-laptop: 74rem;
     --shell-max-desktop: 82rem;
@@ -14,54 +14,57 @@
     --section-space-tablet: 4.75rem;
     --section-space-desktop: 6.25rem;
 
-    --card: 30 17% 20%;
-    --card-foreground: 36 30% 96%;
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 30 17% 19%;
-    --popover-foreground: 36 30% 96%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 14 72% 58%;
-    --primary-foreground: 34 60% 98%;
+    --primary: 20 98% 46%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 214 12% 24%;
-    --secondary-foreground: 36 30% 96%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 214 9% 22%;
-    --muted-foreground: 30 18% 78%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 41 52% 81%;
-    --accent-foreground: 24 18% 12%;
+    --accent: 31 38% 76%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 72% 56%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 13% 31%;
-    --input: 30 13% 31%;
-    --ring: 14 72% 58%;
+    --border: 0 0% 28%;
+    --input: 0 0% 28%;
+    --ring: 20 98% 46%;
 
     --radius: 1.125rem;
 
-    --surface: 28 18% 18%;
-    --surface-soft: 214 10% 22%;
-    --surface-strong: 26 20% 24%;
-    --surface-cool: 216 11% 26%;
-    --surface-warm: 24 22% 22%;
-    --elevated: 28 18% 21%;
-    --line-soft: 34 16% 40%;
-    --warm-glow: 20 64% 52%;
-    --warm-haze: 38 44% 84%;
-    --cool-glow: 194 78% 64%;
-    --cool-haze: 214 25% 73%;
-    --canvas-top: 28 24% 20%;
-    --canvas-bottom: 220 12% 13%;
+    --surface: 0 0% 9%;
+    --surface-soft: 0 0% 13%;
+    --surface-strong: 0 0% 16%;
+    --surface-cool: 0 0% 20%;
+    --surface-warm: 0 0% 12%;
+    --elevated: 0 0% 14%;
+    --line-soft: 0 0% 39%;
+    --warm-glow: 20 98% 46%;
+    --warm-haze: 31 38% 76%;
+    --cool-glow: 2 99% 38%;
+    --cool-haze: 0 0% 65%;
+    --brand-red: 2 99% 38%;
+    --brand-orange: 24 99% 47%;
+    --brand-sand: 31 38% 76%;
+    --canvas-top: 0 0% 7%;
+    --canvas-bottom: 0 0% 0%;
 
-    --sidebar-background: 29 18% 18%;
-    --sidebar-foreground: 36 30% 96%;
-    --sidebar-primary: 14 72% 58%;
-    --sidebar-primary-foreground: 34 60% 98%;
-    --sidebar-accent: 216 11% 24%;
-    --sidebar-accent-foreground: 36 30% 96%;
-    --sidebar-border: 30 13% 31%;
-    --sidebar-ring: 14 72% 58%;
+    --sidebar-background: 0 0% 9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 20 98% 46%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 20%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 28%;
+    --sidebar-ring: 20 98% 46%;
   }
 }

@@ -10,15 +10,15 @@
   body {
     @apply bg-background text-foreground antialiased;
     background-image:
-      radial-gradient(circle at top left, rgba(232, 180, 136, 0.24) 0%, transparent 24%),
-      radial-gradient(circle at top right, rgba(124, 147, 180, 0.16) 0%, transparent 30%),
+      radial-gradient(circle at top left, rgba(241, 96, 1, 0.22) 0%, transparent 24%),
+      radial-gradient(circle at top right, rgba(193, 8, 1, 0.18) 0%, transparent 30%),
       linear-gradient(180deg, hsl(var(--canvas-top)) 0%, hsl(var(--background)) 24%, hsl(var(--canvas-bottom)) 100%);
     background-attachment: scroll;
     font-family: 'Inter', sans-serif;
   }
 
   ::selection {
-    background: rgba(226, 129, 82, 0.34);
+    background: rgba(241, 96, 1, 0.34);
     color: hsl(var(--foreground));
   }
 
