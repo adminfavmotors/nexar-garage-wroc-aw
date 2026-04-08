@@ -85,6 +85,36 @@ It is meant to be extended over time instead of rewritten.
 - Rebuilt service details accordion to use the new surface system.
 - Rebuilt service FAQ to match the new section language.
 
+### Phase 9. Readability and palette correction
+
+- Rebalanced the global color system because the interface still relied too heavily on near-black surfaces with low-contrast secondary text.
+- Lifted the background and surface values so the project no longer sits inside one very dark tonal band.
+- Expanded the palette with warmer and cooler supporting tones instead of relying on one dark hue in multiple shades.
+- Increased contrast for:
+  - muted copy
+  - borders
+  - surface separation
+  - secondary buttons
+  - chips and small labels
+- Updated the shared visual foundation so readability improvements propagate across home, shared blocks, and the services page.
+
+### Phase 10. Typography and section accent refinement
+
+- Reduced the visual weight of major display headings so the interface feels less poster-like and more premium.
+- Added dedicated heading scales:
+  - `hero-title`
+  - `section-title`
+  - `section-title-compact`
+- Added calmer body-copy scales:
+  - `section-copy`
+  - `body-relaxed`
+  - `body-fine`
+- Introduced subtle section accents that are not based only on color:
+  - `section-accent`
+  - `accent-rule`
+- Applied the new typography and accent patterns to the main home sections and services directory components.
+- Shifted emphasis from aggressive uppercase mass to hierarchy, spacing, rhythm, and smaller precision details.
+
 ## Files with major changes
 
 ### Architecture and entry points
@@ -119,13 +149,14 @@ It is meant to be extended over time instead of rewritten.
 - `npm run build`
 - `npm test`
 
-Both commands passed after the architecture cleanup and again after the visual refactor pass.
+Both commands passed after the architecture cleanup, after the visual refactor pass, after the palette/readability correction, and again after the typography refinement.
 
 ## Known next steps
 
 - Perform a visual browser pass on desktop, tablet, and mobile.
 - Introduce real photo slots and integrate provided workshop imagery.
 - Fine-tune typography rhythm section by section once media assets are available.
+- Revisit a few remaining high-emphasis UI labels if screenshots still show isolated heavy spots.
 - Continue removing any remaining dead code or styles that no longer serve the new system.
 
 ## Update protocol

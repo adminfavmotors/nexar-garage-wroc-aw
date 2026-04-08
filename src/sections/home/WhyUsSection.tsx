@@ -63,6 +63,9 @@ const WhyUsSection = () => {
                   "Nexar is meant to feel like a controlled technical partner: fast diagnostics, clear estimates and a tightly scoped repair process. Less workshop chaos, more confidence."
                 )}
               </p>
+              <div className="max-w-[17rem]">
+                <div className="accent-rule" />
+              </div>
             </div>
           </div>
 
@@ -84,10 +87,10 @@ const WhyUsSection = () => {
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/55 text-primary">
                     <Icon size={18} />
                   </span>
-                  <p className="mt-4 font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  <p className="section-accent mt-4">
                     {t(item.label.pl, item.label.en)}
                   </p>
-                  <p className="mt-2 font-inter text-[0.95rem] leading-7 text-foreground/90">
+                  <p className="body-relaxed mt-2">
                     {t(item.value.pl, item.value.en)}
                   </p>
                 </div>
@@ -100,7 +103,7 @@ const WhyUsSection = () => {
           <div className="section-intro gap-4">
             <span className="eyebrow">{t("Szybki wybór usługi", "Service shortcut")}</span>
             <div className="grid gap-3">
-              <h3 className="font-barlow text-[2.35rem] leading-[0.95] text-foreground sm:text-[2.9rem]">
+              <h3 className="section-title-compact max-w-[11ch]">
                 {t("Wybierz ścieżkę i od razu przejdź do konkretu.", "Pick the right track and move straight to the details.")}
               </h3>
               <p className="section-copy">
@@ -138,10 +141,10 @@ const WhyUsSection = () => {
             <div className="surface-panel-strong mt-6 p-5 sm:p-6">
               <div className="grid gap-6">
                 <div>
-                  <p className="font-barlow text-[2rem] leading-none text-foreground sm:text-[2.45rem]">
+                  <p className="section-title-compact">
                     {t(selectedService.title.pl, selectedService.title.en)}
                   </p>
-                  <p className="mt-3 font-inter text-[0.98rem] leading-7 text-muted-foreground">
+                  <p className="body-relaxed mt-3">
                     {t(selectedService.shortDescription.pl, selectedService.shortDescription.en)}
                   </p>
                 </div>

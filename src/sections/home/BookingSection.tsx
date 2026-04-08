@@ -78,25 +78,28 @@ const BookingSection = () => {
                   "We only need the essentials: your contact details, the car, the scope of work and a preferred date. We will refine the rest after the request is in."
                 )}
               </p>
+              <div className="max-w-[17rem]">
+                <div className="accent-rule" />
+              </div>
             </div>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="surface-panel-soft px-5 py-5">
               <p className="font-barlow text-[1.8rem] leading-none text-primary">01</p>
-              <p className="mt-3 font-inter text-[0.92rem] leading-7 text-foreground/90">
+              <p className="body-relaxed mt-3 text-foreground/84">
                 {t("Wysyłasz zgłoszenie z podstawowym zakresem naprawy.", "You send the request with the basic repair scope.")}
               </p>
             </div>
             <div className="surface-panel-soft px-5 py-5">
               <p className="font-barlow text-[1.8rem] leading-none text-primary">02</p>
-              <p className="mt-3 font-inter text-[0.92rem] leading-7 text-foreground/90">
+              <p className="body-relaxed mt-3 text-foreground/84">
                 {t("Potwierdzamy termin i doprecyzowujemy szczegóły telefonicznie.", "We confirm the date and clarify details by phone.")}
               </p>
             </div>
             <div className="surface-panel-soft px-5 py-5">
               <p className="font-barlow text-[1.8rem] leading-none text-primary">03</p>
-              <p className="mt-3 font-inter text-[0.92rem] leading-7 text-foreground/90">
+              <p className="body-relaxed mt-3 text-foreground/84">
                 {t("Auto trafia do serwisu z jasnym zakresem i przewidywalnym przebiegiem.", "Your car arrives with a clear scope and a predictable service flow.")}
               </p>
             </div>

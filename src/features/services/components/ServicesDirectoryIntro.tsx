@@ -25,6 +25,9 @@ const ServicesDirectoryIntro = ({ activeService }: ServicesDirectoryIntroProps) 
                   "Instead of a second heavy landing page, this gives you a structured service directory. Pick the scope, compare estimated pricing and open details without jumping across the site."
                 )}
               </p>
+              <div className="max-w-[16rem]">
+                <div className="accent-rule" />
+              </div>
             </div>
           </div>
 
@@ -43,10 +46,10 @@ const ServicesDirectoryIntro = ({ activeService }: ServicesDirectoryIntroProps) 
 
         <div className="surface-panel-strong p-6 sm:p-8">
           <span className="eyebrow">{t("Aktualnie wybrana usługa", "Currently selected service")}</span>
-          <p className="mt-5 font-barlow text-[2.2rem] leading-[0.96] text-foreground sm:text-[3rem]">
+          <p className="section-title-compact mt-5">
             {t(activeService.title.pl, activeService.title.en)}
           </p>
-          <p className="mt-4 font-inter text-[0.98rem] leading-7 text-muted-foreground">
+          <p className="body-relaxed mt-4">
             {t(activeService.heroSummary.pl, activeService.heroSummary.en)}
           </p>
 

@@ -24,6 +24,9 @@ const ServiceDetailsAccordion = ({
           <h2 className="section-title text-balance">
             {t("Zakres, korzyści i ceny w jednej uporządkowanej warstwie.", "Scope, benefits and pricing in one structured layer.")}
           </h2>
+          <div className="mx-auto w-full max-w-[14rem]">
+            <div className="accent-rule" />
+          </div>
         </div>
 
         <Accordion
@@ -44,7 +47,7 @@ const ServiceDetailsAccordion = ({
                   <span className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
                     {service.num}
                   </span>
-                  <span className="font-barlow text-[1.8rem] leading-none text-foreground sm:text-[2.35rem]">
+                  <span className="section-title-compact">
                     {t(service.title.pl, service.title.en)}
                   </span>
                 </div>
@@ -52,7 +55,7 @@ const ServiceDetailsAccordion = ({
               <AccordionContent className="px-5 pb-5 sm:px-8 sm:pb-8">
                 <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
                   <div>
-                    <p className="measure-copy-wide font-inter text-[0.98rem] leading-7 text-muted-foreground">
+                    <p className="body-relaxed measure-copy-wide">
                       {t(service.heroSummary.pl, service.heroSummary.en)}
                     </p>
                     <div className="mt-6 grid gap-3">

@@ -52,6 +52,9 @@ const ContactSection = () => {
                   "If you want to call, write or simply check directions, everything sits in one calm place. No visual noise and no hidden details."
                 )}
               </p>
+              <div className="max-w-[15rem]">
+                <div className="accent-rule" />
+              </div>
             </div>
           </div>
 
@@ -62,10 +65,10 @@ const ContactSection = () => {
                   {row.icon}
                 </span>
                 <div>
-                  <p className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  <p className="section-accent">
                     {row.label}
                   </p>
-                  <p className="mt-2 font-inter text-[0.97rem] leading-7 text-foreground/90">{row.text}</p>
+                  <p className="body-relaxed mt-2 text-foreground/84">{row.text}</p>
                 </div>
               </div>
             ))}
@@ -77,10 +80,10 @@ const ContactSection = () => {
             <span className="eyebrow">{t("Mapa i lokalizacja", "Map and location")}</span>
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="font-barlow text-[2rem] leading-none text-foreground sm:text-[2.5rem]">
+                <p className="section-title-compact">
                   {t("Nexar Garage, centrum Wrocławia", "Nexar Garage, central Wroclaw")}
                 </p>
-                <p className="mt-2 font-inter text-[0.95rem] leading-7 text-muted-foreground">{mapAddress}</p>
+                <p className="body-relaxed mt-2">{mapAddress}</p>
               </div>
               <a
                 href={mapQuery}
@@ -107,10 +110,10 @@ const ContactSection = () => {
               </>
             ) : (
               <div className="flex h-full flex-col items-center justify-center px-6 text-center sm:px-8">
-                <p className="font-barlow text-[2rem] leading-none text-foreground sm:text-[2.4rem]">
+                <p className="section-title-compact max-w-[10ch]">
                   {t("Mapa wymaga zgody", "Map requires consent")}
                 </p>
-                <p className="mt-4 max-w-md font-inter text-[0.95rem] leading-7 text-muted-foreground">
+                <p className="body-relaxed mt-4 max-w-md">
                   {t(
                     "Aby wyświetlić Google Maps, zaakceptuj dodatkowe pliki cookie dla treści zewnętrznych.",
                     "To display Google Maps, please accept additional cookies for external content."

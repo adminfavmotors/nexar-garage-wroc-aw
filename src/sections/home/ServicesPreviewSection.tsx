@@ -23,10 +23,10 @@ const FeaturedServiceCard = ({
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="font-inter text-[12px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p className="section-accent">
             {t("Usługa wyróżniona", "Featured service")}
           </p>
-          <h3 className="mt-4 font-barlow text-[36px] font-semibold leading-[0.94] text-foreground sm:text-[44px]">
+          <h3 className="section-title-compact mt-4 max-w-[10ch]">
             {lang === "PL" ? service.title.pl : service.title.en}
           </h3>
         </div>
@@ -35,7 +35,7 @@ const FeaturedServiceCard = ({
         </span>
       </div>
 
-      <p className="mt-5 max-w-[34rem] font-inter text-[15px] leading-[1.75] text-muted-foreground sm:text-[16px]">
+      <p className="body-relaxed mt-5 max-w-[34rem]">
         {lang === "PL" ? service.shortDescription.pl : service.shortDescription.en}
       </p>
 
@@ -62,7 +62,7 @@ const FeaturedServiceCard = ({
         <div className="grid gap-3 sm:grid-cols-2">
           {service.scopeItems.slice(0, 4).map((item) => (
             <div key={item.en} className="surface-panel-soft px-4 py-4">
-              <p className="font-inter text-[14px] leading-[1.65] text-foreground/88">
+              <p className="body-fine text-foreground/84">
                 {lang === "PL" ? item.pl : item.en}
               </p>
             </div>
@@ -89,10 +89,10 @@ const ServiceCard = ({
       <span className="font-inter text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {service.num}
       </span>
-      <h3 className="mt-4 font-barlow text-[26px] font-semibold leading-[0.98] text-foreground">
+      <h3 className="section-title-compact mt-4 text-[2rem] sm:text-[2.1rem]">
         {lang === "PL" ? service.title.pl : service.title.en}
       </h3>
-      <p className="mt-3 font-inter text-[14px] leading-[1.7] text-muted-foreground">
+      <p className="body-fine mt-3">
         {lang === "PL" ? service.shortDescription.pl : service.shortDescription.en}
       </p>
 
@@ -119,6 +119,9 @@ const ServicesPreviewSection = () => {
             <h2 className="section-title mt-5 max-w-[11ch]">
               {t("Kompleksowa obsługa bez szablonowego układu", "Comprehensive service without a template feel")}
             </h2>
+            <div className="mt-5 max-w-[15rem]">
+              <div className="accent-rule" />
+            </div>
           </div>
 
           <div className="lg:justify-self-end lg:text-right">

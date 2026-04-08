@@ -52,19 +52,23 @@ const HeroSection = () => {
           <div ref={ref} className="py-4 sm:py-6">
             <span className="eyebrow">Wrocław • est. 2009</span>
 
-            <h1 className="text-balance mt-6 max-w-[10ch] font-barlow text-[48px] font-semibold leading-[0.92] text-foreground sm:text-[66px] lg:text-[92px]">
+            <h1 className="hero-title text-balance mt-6 max-w-[11ch]">
               <span className="block">Profesjonalny</span>
               <span className="block text-accent">serwis</span>
               <span className="block">samochodowy</span>
-              <span className="block text-muted-foreground">we Wrocławiu</span>
+              <span className="block text-foreground/62">we Wrocławiu</span>
             </h1>
 
-            <p className="measure-copy mt-6 font-inter text-[16px] leading-[1.75] text-muted-foreground sm:text-[18px]">
+            <p className="section-copy measure-copy mt-6 sm:text-[1.08rem]">
               {t(
                 "Diagnostyka, naprawy, klimatyzacja i serwis opon w miejscu, które ma wyglądać spokojnie, działać precyzyjnie i dawać klientowi jasny obraz kosztów.",
                 "Diagnostics, repairs, air conditioning and tyre service in a workshop that feels calm, works precisely and gives the customer a clear picture of the cost."
               )}
             </p>
+
+            <div className="mt-6 max-w-[18rem]">
+              <div className="accent-rule" />
+            </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <RouteLink
@@ -96,11 +100,11 @@ const HeroSection = () => {
                 {t("Jak pracujemy", "How we work")}
               </span>
 
-              <p className="mt-5 font-barlow text-[34px] font-semibold leading-[0.96] text-foreground sm:text-[40px]">
+              <p className="section-title-compact mt-5 max-w-[11ch]">
                 {t("Mniej chaosu. Więcej kontroli.", "Less chaos. More control.")}
               </p>
 
-              <p className="mt-4 font-inter text-[15px] leading-[1.72] text-muted-foreground">
+              <p className="body-relaxed mt-4">
                 {t(
                   "Nie dokładamy kolejnych warstw komplikacji. Najpierw diagnoza, potem zakres prac, a dopiero na końcu decyzja o naprawie.",
                   "We do not add more layers of complication. First the diagnosis, then the scope of work, and only then the repair decision."
@@ -124,10 +128,10 @@ const HeroSection = () => {
             <div className="surface-panel p-5 sm:p-6">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-inter text-[12px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  <p className="section-accent">
                     {t("Zakres usług", "Service scope")}
                   </p>
-                  <p className="mt-3 font-barlow text-[30px] font-semibold leading-none text-foreground">
+                  <p className="section-title-compact mt-3 max-w-[10ch]">
                     {t("Od diagnostyki po odbiór auta", "From diagnosis to handoff")}
                   </p>
                 </div>

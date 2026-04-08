@@ -42,13 +42,16 @@ const ReviewsSection = () => {
                   "Instead of loud claims, the signal is simple: clients return because the process is predictable, the communication is clear and the final bill stays aligned with the quote."
                 )}
               </p>
+              <div className="max-w-[16rem]">
+                <div className="accent-rule" />
+              </div>
             </div>
           </div>
 
           <div className="surface-panel-strong p-6 sm:p-8">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                <p className="section-accent">
                   Google Reviews
                 </p>
                 <p className="mt-3 font-barlow text-[4.2rem] leading-none text-foreground sm:text-[5rem]">
@@ -62,7 +65,7 @@ const ReviewsSection = () => {
               </div>
             </div>
 
-            <blockquote className="mt-8 max-w-2xl font-inter text-[1.08rem] leading-8 text-foreground/90 sm:text-[1.18rem]">
+            <blockquote className="mt-8 max-w-2xl font-inter text-[1.04rem] leading-8 text-foreground/86 sm:text-[1.12rem]">
               “
               {lang === "PL"
                 ? "Spokojny kontakt, konkretna diagnoza i żadnego warsztatowego teatru. Po prostu wszystko było dokładnie tak, jak ustaliliśmy."
@@ -75,7 +78,7 @@ const ReviewsSection = () => {
         <div className="grid gap-3">
           {reviews.map((review, index) => (
             <article key={review.name} className={index === 0 ? "surface-panel p-6 sm:p-7" : "surface-panel-soft px-5 py-5 sm:px-6"}>
-              <p className="font-inter text-[0.98rem] leading-7 text-foreground/88">
+              <p className="body-relaxed text-foreground/84">
                 “{lang === "PL" ? review.quote : review.quoteEn}”
               </p>
               <div className="mt-5 divider-hairline pt-4">
