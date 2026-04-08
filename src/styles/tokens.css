@@ -1,0 +1,63 @@
+@layer base {
+  :root {
+    --background: 24 18% 10%;
+    --foreground: 34 28% 95%;
+
+    --shell-max-laptop: 74rem;
+    --shell-max-desktop: 82rem;
+    --shell-max-wide: 92rem;
+    --measure-tight: 30rem;
+    --measure-copy: 44rem;
+    --measure-copy-wide: 52rem;
+    --measure-hero: 64rem;
+    --section-space-mobile: 3.5rem;
+    --section-space-tablet: 4.75rem;
+    --section-space-desktop: 6.25rem;
+
+    --card: 28 16% 15%;
+    --card-foreground: 34 28% 95%;
+
+    --popover: 28 16% 14%;
+    --popover-foreground: 34 28% 95%;
+
+    --primary: 12 63% 55%;
+    --primary-foreground: 35 44% 97%;
+
+    --secondary: 30 13% 19%;
+    --secondary-foreground: 34 28% 95%;
+
+    --muted: 28 12% 17%;
+    --muted-foreground: 31 12% 68%;
+
+    --accent: 38 40% 84%;
+    --accent-foreground: 24 18% 10%;
+
+    --destructive: 0 72% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 29 12% 24%;
+    --input: 29 12% 24%;
+    --ring: 12 63% 55%;
+
+    --radius: 1.125rem;
+
+    --surface: 28 16% 14%;
+    --surface-soft: 30 14% 16%;
+    --surface-strong: 30 13% 20%;
+    --elevated: 30 15% 18%;
+    --line-soft: 31 12% 31%;
+    --warm-glow: 18 52% 42%;
+    --warm-haze: 32 35% 76%;
+    --canvas-top: 27 28% 15%;
+    --canvas-bottom: 24 16% 9%;
+
+    --sidebar-background: 28 16% 14%;
+    --sidebar-foreground: 34 28% 95%;
+    --sidebar-primary: 12 63% 55%;
+    --sidebar-primary-foreground: 35 44% 97%;
+    --sidebar-accent: 30 13% 19%;
+    --sidebar-accent-foreground: 34 28% 95%;
+    --sidebar-border: 29 12% 24%;
+    --sidebar-ring: 12 63% 55%;
+  }
+}
