@@ -131,6 +131,20 @@ It is meant to be extended over time instead of rewritten.
   - `stat-chip`
 - Kept the effect aligned with the project palette and hierarchy, so cards feel more dimensional without turning the UI into light neumorphism.
 
+### Phase 12. Button glow and hover treatment
+
+- Adapted the requested hover/glow button reference into the shared button system instead of creating a separate demo-style class.
+- Reworked the following shared button primitives:
+  - `premium-button-primary`
+  - `premium-button-secondary`
+- Added:
+  - stronger glow-based shadow treatment
+  - richer gradient hover states
+  - active press feedback
+  - darker base surfaces that stay aligned with the project palette
+- Explicitly did not add reflection, because it conflicts with the current premium industrial direction.
+- Kept the implementation inside the design foundation so every existing primary and secondary CTA inherits the same behavior consistently.
+
 ## Files with major changes
 
 ### Architecture and entry points
@@ -167,6 +181,7 @@ It is meant to be extended over time instead of rewritten.
 
 Both commands passed after the architecture cleanup, after the visual refactor pass, after the palette/readability correction, and again after the typography refinement.
 Both commands also passed after the card-surface highlight integration.
+Both commands also passed after the shared button glow treatment.
 
 ## Known next steps
 
@@ -175,6 +190,7 @@ Both commands also passed after the card-surface highlight integration.
 - Fine-tune typography rhythm section by section once media assets are available.
 - Revisit a few remaining high-emphasis UI labels if screenshots still show isolated heavy spots.
 - Validate whether the new card depth should stay equally strong across all card tiers or be reduced on secondary panels.
+- Validate whether the new button glow should stay equally strong on all CTA contexts or be toned down for secondary placements.
 - Continue removing any remaining dead code or styles that no longer serve the new system.
 
 ## Update protocol
