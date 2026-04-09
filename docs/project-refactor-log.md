@@ -1,6 +1,6 @@
 # Nexar Refactor Log
 
-Last updated: 2026-04-08
+Last updated: 2026-04-09
 
 ## Purpose
 
@@ -180,6 +180,25 @@ It is meant to be extended over time instead of rewritten.
   - button glow and hover gradients
 - Aligned the CTA glow treatment with the same brand colors so buttons and section accents now speak the same color language.
 
+### Phase 15. Grayscale and white lift
+
+- Lightened the foundation after the brand realignment still felt too dark in long-scroll usage.
+- Added more neutral gray and soft white separation into the core token layer.
+- Raised the luminosity of:
+  - base background
+  - card and popover surfaces
+  - secondary and muted layers
+  - border and line values
+  - surface and elevated tiers
+- Increased white-driven highlight layers across:
+  - page background
+  - ambient section backgrounds
+  - panels
+  - cards
+  - chips
+  - form fields
+- Kept the orange brand language, but moved the interface balance toward gray/white structure instead of deep black dominance.
+
 ## Files with major changes
 
 ### Architecture and entry points
@@ -219,6 +238,7 @@ Both commands also passed after the card-surface highlight integration.
 Both commands also passed after the shared button glow treatment.
 Both commands also passed after the stronger card highlight visibility pass.
 Both commands also passed after the brand palette realignment.
+Both commands also passed after the grayscale and white lift pass.
 
 ## Known next steps
 
@@ -230,6 +250,7 @@ Both commands also passed after the brand palette realignment.
 - Validate whether the new button glow should stay equally strong on all CTA contexts or be toned down for secondary placements.
 - Review whether the current card highlight is now balanced enough or if chips and secondary panels should be toned down slightly.
 - Review whether the new orange-led brand system should be slightly softened in long-scroll sections or kept this assertive across the entire site.
+- Review whether the current gray/white lift is enough or if the project should move one more step toward a lighter premium black theme.
 - Continue removing any remaining dead code or styles that no longer serve the new system.
 
 ## Update protocol

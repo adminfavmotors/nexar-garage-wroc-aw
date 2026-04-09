@@ -10,8 +10,10 @@
   body {
     @apply bg-background text-foreground antialiased;
     background-image:
-      radial-gradient(circle at top left, rgba(241, 96, 1, 0.22) 0%, transparent 24%),
-      radial-gradient(circle at top right, rgba(193, 8, 1, 0.18) 0%, transparent 30%),
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.08) 0%, transparent 18%),
+      radial-gradient(circle at top left, rgba(241, 96, 1, 0.18) 0%, transparent 28%),
+      radial-gradient(circle at top right, rgba(255, 255, 255, 0.05) 0%, transparent 22%),
+      radial-gradient(circle at top right, rgba(193, 8, 1, 0.16) 0%, transparent 34%),
       linear-gradient(180deg, hsl(var(--canvas-top)) 0%, hsl(var(--background)) 24%, hsl(var(--canvas-bottom)) 100%);
     background-attachment: scroll;
     font-family: 'Inter', sans-serif;

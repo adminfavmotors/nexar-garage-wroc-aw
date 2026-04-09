@@ -157,16 +157,18 @@
 
   .section-muted {
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0)),
       linear-gradient(135deg, rgba(193, 8, 1, 0.06), rgba(217, 195, 171, 0.05)),
-      hsl(var(--surface) / 0.62);
+      hsl(var(--surface) / 0.78);
   }
 
   .hero-ambient {
     background-image:
+      radial-gradient(circle at 12% 14%, rgba(255, 255, 255, 0.08) 0%, transparent 16%),
       radial-gradient(circle at 10% 10%, rgba(241, 96, 1, 0.2) 0%, transparent 26%),
+      radial-gradient(circle at 84% 14%, rgba(255, 255, 255, 0.05) 0%, transparent 18%),
       radial-gradient(circle at 88% 18%, rgba(193, 8, 1, 0.18) 0%, transparent 29%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 24%);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 24%);
   }
 
   .surface-panel {
@@ -174,7 +176,7 @@
     overflow: hidden;
     border: 1px solid hsl(var(--border));
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 42%, rgba(255, 255, 255, 0) 100%),
       linear-gradient(135deg, rgba(193, 8, 1, 0.06), rgba(217, 195, 171, 0.04)),
       hsl(var(--surface));
     border-radius: calc(var(--radius) + 0.1rem);
@@ -190,7 +192,7 @@
     overflow: hidden;
     border: 1px solid hsl(var(--border) / 0.9);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(255, 255, 255, 0) 100%),
       linear-gradient(135deg, rgba(193, 8, 1, 0.05), rgba(217, 195, 171, 0.02)),
       hsl(var(--surface-soft));
     border-radius: calc(var(--radius) - 0.1rem);
@@ -205,7 +207,7 @@
     overflow: hidden;
     border: 1px solid hsl(var(--line-soft));
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.025) 42%, rgba(255, 255, 255, 0) 100%),
       linear-gradient(135deg, rgba(241, 96, 1, 0.12), rgba(217, 195, 171, 0.07)),
       hsl(var(--surface-strong));
     border-radius: calc(var(--radius) + 0.25rem);
@@ -227,8 +229,8 @@
     border-radius: inherit;
     pointer-events: none;
     background:
-      radial-gradient(circle at top left, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 22%, transparent 56%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0) 26%),
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 22%, transparent 56%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 26%),
       linear-gradient(135deg, rgba(193, 8, 1, 0.08), transparent 45%, rgba(217, 195, 171, 0.07) 100%);
     opacity: 0.9;
   }
@@ -411,7 +413,7 @@
     overflow: hidden;
     border: 1px solid hsl(var(--border));
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01)),
       linear-gradient(135deg, rgba(193, 8, 1, 0.03), rgba(217, 195, 171, 0.03)),
       hsl(var(--surface-cool) / 0.56);
     border-radius: 999px;
@@ -434,8 +436,8 @@
     border-radius: inherit;
     pointer-events: none;
     background:
-      radial-gradient(circle at top left, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.04) 24%, transparent 58%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0));
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 24%, transparent 58%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
     opacity: 0.88;
   }
 
@@ -444,7 +446,7 @@
     overflow: hidden;
     border: 1px solid hsl(var(--border));
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.01)),
       linear-gradient(135deg, rgba(241, 96, 1, 0.05), rgba(217, 195, 171, 0.05)),
       hsl(var(--surface-soft));
     border-radius: calc(var(--radius) - 0.1rem);
@@ -477,7 +479,7 @@
     overflow: hidden;
     border: 1px solid hsl(var(--border));
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02) 40%, rgba(255, 255, 255, 0)),
       linear-gradient(135deg, rgba(193, 8, 1, 0.06), rgba(217, 195, 171, 0.04)),
       hsl(var(--surface));
     border-radius: calc(var(--radius) + 0.1rem);
@@ -493,7 +495,7 @@
     overflow: hidden;
     border: 1px solid hsl(var(--border));
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02) 40%, rgba(255, 255, 255, 0)),
       linear-gradient(135deg, rgba(193, 8, 1, 0.06), rgba(217, 195, 171, 0.04)),
       hsl(var(--surface));
     border-radius: calc(var(--radius) + 0.1rem);
@@ -513,7 +515,7 @@
     transform: translateY(-4px);
     border-color: hsl(var(--brand-orange) / 0.4);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.03) 40%, rgba(255, 255, 255, 0)),
       linear-gradient(135deg, rgba(193, 8, 1, 0.09), rgba(217, 195, 171, 0.07)),
       hsl(var(--surface-strong));
     box-shadow:
@@ -542,7 +544,7 @@
   .service-card-active {
     border-color: hsl(var(--primary) / 0.62);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03) 40%, rgba(255, 255, 255, 0)),
       linear-gradient(135deg, rgba(241, 96, 1, 0.12), rgba(217, 195, 171, 0.08)),
       hsl(var(--surface-strong));
     box-shadow:
@@ -563,7 +565,7 @@
   .service-card-panel {
     border: 1px solid hsl(var(--border) / 0.92);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01)),
       linear-gradient(135deg, rgba(193, 8, 1, 0.03), rgba(217, 195, 171, 0.02)),
       hsl(var(--surface-soft));
     border-radius: calc(var(--radius) - 0.2rem);
@@ -572,7 +574,7 @@
   .service-card-panel-solid {
     border: 1px solid hsl(var(--border));
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.015)),
       linear-gradient(135deg, rgba(193, 8, 1, 0.05), rgba(217, 195, 171, 0.04)),
       hsl(var(--surface-warm));
     border-radius: calc(var(--radius) - 0.2rem);

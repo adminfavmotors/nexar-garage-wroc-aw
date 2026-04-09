@@ -1,6 +1,6 @@
 @layer base {
   :root {
-    --background: 0 0% 0%;
+    --background: 0 0% 5%;
     --foreground: 0 0% 98%;
 
     --shell-max-laptop: 74rem;
@@ -14,20 +14,20 @@
     --section-space-tablet: 4.75rem;
     --section-space-desktop: 6.25rem;
 
-    --card: 0 0% 14%;
+    --card: 0 0% 18%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 12%;
+    --popover: 0 0% 16%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 20 98% 46%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 20%;
+    --secondary: 0 0% 24%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 0 0% 24%;
+    --muted-foreground: 0 0% 74%;
 
     --accent: 31 38% 76%;
     --accent-foreground: 0 0% 0%;
@@ -35,36 +35,36 @@
     --destructive: 0 72% 56%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 28%;
-    --input: 0 0% 28%;
+    --border: 0 0% 34%;
+    --input: 0 0% 34%;
     --ring: 20 98% 46%;
 
     --radius: 1.125rem;
 
-    --surface: 0 0% 9%;
-    --surface-soft: 0 0% 13%;
-    --surface-strong: 0 0% 16%;
-    --surface-cool: 0 0% 20%;
-    --surface-warm: 0 0% 12%;
-    --elevated: 0 0% 14%;
-    --line-soft: 0 0% 39%;
+    --surface: 0 0% 12%;
+    --surface-soft: 0 0% 17%;
+    --surface-strong: 0 0% 21%;
+    --surface-cool: 0 0% 26%;
+    --surface-warm: 0 0% 16%;
+    --elevated: 0 0% 19%;
+    --line-soft: 0 0% 47%;
     --warm-glow: 20 98% 46%;
     --warm-haze: 31 38% 76%;
     --cool-glow: 2 99% 38%;
-    --cool-haze: 0 0% 65%;
+    --cool-haze: 0 0% 74%;
     --brand-red: 2 99% 38%;
     --brand-orange: 24 99% 47%;
     --brand-sand: 31 38% 76%;
-    --canvas-top: 0 0% 7%;
-    --canvas-bottom: 0 0% 0%;
+    --canvas-top: 0 0% 10%;
+    --canvas-bottom: 0 0% 4%;
 
-    --sidebar-background: 0 0% 9%;
+    --sidebar-background: 0 0% 12%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 20 98% 46%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 20%;
+    --sidebar-accent: 0 0% 24%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 28%;
+    --sidebar-border: 0 0% 34%;
     --sidebar-ring: 20 98% 46%;
   }
 }
