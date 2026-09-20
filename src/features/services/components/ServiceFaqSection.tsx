@@ -15,7 +15,7 @@ const ServiceFaqSection = ({ activeService }: ServiceFaqSectionProps) => {
         <h2 className="section-title-compact max-w-[15ch]">
           {t("Najczęstsze pytania", "Frequently asked questions")}
         </h2>
-        <p className="body-relaxed measure-copy-wide">
+        <p className="body-relaxed measure-copy">
           {t(
             `Odpowiedzi dotyczą usługi: ${activeService.title.pl}. Jeśli objawy są nietypowe, opisz je w formularzu rezerwacji.`,
             `These answers cover ${activeService.title.en}. If the symptoms are unusual, describe them in the booking form.`

@@ -156,7 +156,7 @@ const BookingSection = () => {
   return (
     <section id="rezerwacja" className="section-block border-b border-border">
       <div className="site-shell">
-        <div className="editorial-grid">
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10">
           <div className="section-intro">
             <span className="eyebrow">{t("Rezerwacja wizyty", "Book an appointment")}</span>
             <div className="grid gap-5">
@@ -326,7 +326,7 @@ const BookingSection = () => {
               </label>
             )}
 
-            <div className="field-shell">
+            <div className="field-shell self-start">
               <span id="preferred-date-label" className="field-label">
                 {t("Preferowany termin", "Preferred date")}<RequiredMark />
               </span>

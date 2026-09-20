@@ -24,7 +24,7 @@ const ServiceDetailsAccordion = ({
           <h2 className="section-title text-balance max-w-[15ch]">
             {t("Co dokładnie obejmuje każda usługa.", "What each service includes.")}
           </h2>
-          <p className="section-copy measure-copy-wide">
+          <p className="section-copy measure-copy">
             {t(
               "Rozwiń wybraną pozycję, aby sprawdzić zakres diagnostyki lub naprawy, przewidywany czas oraz najważniejsze korzyści.",
               "Open a service to review the diagnostic or repair scope, estimated lead time and key benefits."

@@ -18,7 +18,7 @@ const ServicesGrid = ({ activeSlug, onOpenService }: ServicesGridProps) => {
           <h2 className="section-title text-balance max-w-[15ch]">
             {t("Wybierz usługę i sprawdź zakres prac.", "Choose a service and review the scope.")}
           </h2>
-          <p className="section-copy measure-copy-wide">
+          <p className="section-copy measure-copy">
             {t(
               "Ceny mają charakter orientacyjny. Po wybraniu pozycji zobaczysz, co obejmuje usługa, ile zwykle trwa i jakie objawy warto zgłosić przy rezerwacji.",
               "Prices are estimates. Select an item to see what the service includes, how long it usually takes and which symptoms to mention when booking."

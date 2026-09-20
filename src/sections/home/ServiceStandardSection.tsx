@@ -71,7 +71,7 @@ const ServiceStandardSection = () => {
           <h2 className="section-title text-balance max-w-[15ch]">
             {t("Możesz sprawdzić każdy etap zlecenia.", "Every stage of the job stays clear.")}
           </h2>
-          <p className="section-copy measure-copy-wide">
+          <p className="section-copy measure-copy">
             {t(
               "Zaufanie budujemy sposobem pracy: najpierw diagnoza, potem uzgodniony zakres i koszt, a na końcu jasne podsumowanie wykonanych czynności.",
               "We build trust through the way we work: diagnosis first, then an agreed scope and cost, followed by a clear summary of completed work."

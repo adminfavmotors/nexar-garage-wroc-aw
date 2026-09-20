@@ -118,7 +118,7 @@ const ServicesPreviewSection = () => {
           <h2 className="section-title text-balance max-w-[15ch]">
             {t("Pełny zakres usług w jednym warsztacie", "Complete service under one roof")}
           </h2>
-          <p className="section-copy measure-copy-wide">
+          <p className="section-copy measure-copy">
             {t(
               "Od diagnostyki komputerowej i elektryki po mechanikę, klimatyzację, opony i geometrię. Przed rozpoczęciem prac potwierdzamy zakres oraz orientacyjny koszt.",
               "From computer diagnostics and auto electrics to mechanical repairs, air conditioning, tyres and wheel alignment. We confirm the scope and estimated cost before work begins."
