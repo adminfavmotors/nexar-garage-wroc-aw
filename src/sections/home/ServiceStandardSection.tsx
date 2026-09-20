@@ -66,7 +66,7 @@ const ServiceStandardSection = () => {
   return (
     <section id="standard" className="section-block border-b border-border">
       <div className="site-shell">
-        <div className="editorial-grid items-end">
+        <div className="editorial-grid">
           <div>
             <span className="eyebrow">{t("Standard obsługi", "Service standard")}</span>
             <h2 className="section-title text-balance mt-5 max-w-[12ch]">
@@ -86,7 +86,7 @@ const ServiceStandardSection = () => {
           </div>
         </div>
 
-        <ol className="mt-10 border-y border-border lg:grid lg:grid-cols-5 lg:divide-x lg:divide-border">
+        <ol className="mt-8 border-y border-border lg:grid lg:grid-cols-5 lg:divide-x lg:divide-border">
           {serviceSteps.map((step, index) => (
             <li
               key={step.title.en}
@@ -101,7 +101,7 @@ const ServiceStandardSection = () => {
           ))}
         </ol>
 
-        <div className="mt-10 grid border-y border-border md:grid-cols-3 md:divide-x md:divide-border">
+        <div className="mt-6 grid border-y border-border md:grid-cols-3 md:divide-x md:divide-border">
           {visitRecords.map((record) => (
             <div
               key={record.label.en}
@@ -118,7 +118,7 @@ const ServiceStandardSection = () => {
         </div>
 
         {hasVerifiedEvidence && (
-          <div className="mt-12">
+          <div className="mt-8">
             <div className="grid gap-10 lg:grid-cols-2">
               {verifiedEvidence.workshopPhotos.length > 0 && (
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -166,7 +166,7 @@ const ServiceStandardSection = () => {
             </div>
 
             {(verifiedEvidence.certificates.length > 0 || verifiedEvidence.warranty) && (
-              <div className="mt-10 grid border-y border-border md:grid-cols-2 md:divide-x md:divide-border">
+              <div className="mt-8 grid border-y border-border md:grid-cols-2 md:divide-x md:divide-border">
                 {verifiedEvidence.certificates.map((certificate) => (
                   <a
                     key={certificate.documentUrl}

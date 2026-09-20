@@ -10,7 +10,7 @@ const ServiceFaqSection = ({ activeService }: ServiceFaqSectionProps) => {
 
   return (
     <div>
-      <div className="editorial-grid items-end">
+      <div className="editorial-grid">
         <div>
           <span className="eyebrow">FAQ</span>
           <h2 className="section-title-compact mt-5 max-w-[12ch]">

@@ -45,30 +45,30 @@ const HeroSection = () => {
       id="home"
       className="hero-ambient relative overflow-hidden pt-[98px] sm:pt-[118px] lg:pt-[136px]"
     >
-      <div className="site-shell pb-10 sm:pb-12 lg:pb-16">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:gap-8">
+      <div className="site-shell pb-10 sm:pb-12 lg:pb-12">
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:gap-10">
           <div className="hero-enter py-4 sm:py-6">
             <span className="eyebrow">Wrocław • est. 2009</span>
 
-            <h1 className="hero-title text-balance mt-6 max-w-[11ch]">
+            <h1 className="hero-title text-balance mt-5 max-w-[11ch]">
               <span className="block">{t("Profesjonalny", "Professional")}</span>
               <span className="block text-accent">{t("serwis", "car")}</span>
               <span className="block">{t("samochodowy", "service")}</span>
               <span className="block text-muted-foreground">{t("we Wrocławiu", "in Wroclaw")}</span>
             </h1>
 
-            <p className="section-copy measure-copy mt-6 sm:text-[1.08rem]">
+            <p className="section-copy measure-copy mt-5 sm:text-[1.08rem]">
               {t(
                 "Diagnostyka, naprawy, klimatyzacja i serwis opon. Najpierw sprawdzamy przyczynę, potem przedstawiamy zakres i koszt prac.",
                 "Diagnostics, repairs, air conditioning and tyre service. First we identify the cause, then we present the scope and cost of the work."
               )}
             </p>
 
-            <div className="mt-6 max-w-[18rem]">
+            <div className="mt-5 max-w-[18rem]">
               <div className="accent-rule" />
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <RouteLink
                 to={getHomeSectionPath(homeSectionIds.booking)}
                 className="premium-button-primary"
@@ -83,16 +83,6 @@ const HeroSection = () => {
               </RouteLink>
             </div>
 
-            <div className="mt-8 grid border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
-              {heroBenefits.map((benefit, index) => (
-                <div key={benefit.en} className="flex items-start gap-3 border-b border-border py-4 last:border-b-0 sm:border-b-0 sm:px-4 sm:first:pl-0 sm:last:pr-0">
-                  <span className="font-mono text-xs font-semibold text-primary">0{index + 1}</span>
-                  <p className="body-fine">
-                    {lang === "PL" ? benefit.pl : benefit.en}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
 
           <aside
@@ -129,6 +119,17 @@ const HeroSection = () => {
               </div>
             </div>
           </aside>
+        </div>
+
+        <div className="hero-enter hero-enter-delay mt-6 grid border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
+          {heroBenefits.map((benefit, index) => (
+            <div key={benefit.en} className="flex items-start gap-3 border-b border-border py-4 last:border-b-0 sm:border-b-0 sm:px-5 sm:first:pl-0 sm:last:pr-0">
+              <span className="font-mono text-xs font-semibold text-primary">0{index + 1}</span>
+              <p className="body-fine">
+                {lang === "PL" ? benefit.pl : benefit.en}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

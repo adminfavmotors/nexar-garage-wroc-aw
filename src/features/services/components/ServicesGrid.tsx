@@ -13,7 +13,7 @@ const ServicesGrid = ({ activeSlug, onOpenService }: ServicesGridProps) => {
   return (
     <section id="uslugi" className="section-block border-b border-border">
       <div className="site-shell">
-        <div className="editorial-grid items-end">
+        <div className="editorial-grid">
           <div>
             <span className="eyebrow">{t("Zakres usług", "Service range")}</span>
             <h2 className="section-title text-balance mt-5 max-w-[11ch]">
@@ -28,7 +28,7 @@ const ServicesGrid = ({ activeSlug, onOpenService }: ServicesGridProps) => {
           </p>
         </div>
 
-        <div className="mt-10 border-y border-border">
+        <div className="mt-8 border-y border-border">
           {servicePages.map((service) => {
             const isActive = activeSlug === service.slug;
 

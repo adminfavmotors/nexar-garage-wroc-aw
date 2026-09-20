@@ -19,7 +19,7 @@ const ServiceDetailsAccordion = ({
   return (
     <section ref={detailsRef} className="section-block border-b border-border">
       <div className="site-shell">
-        <div className="editorial-grid items-end">
+        <div className="editorial-grid">
           <div>
             <span className="eyebrow">{t("Szczegóły usług", "Service details")}</span>
             <h2 className="section-title text-balance mt-5 max-w-[11ch]">
@@ -43,7 +43,7 @@ const ServiceDetailsAccordion = ({
               onChangeActiveSlug(value);
             }
           }}
-          className="mt-10 border-y border-border"
+          className="mt-8 border-y border-border"
         >
           {servicePages.map((service) => (
             <AccordionItem key={service.slug} value={service.slug} id={service.slug} className="border-b border-border last:border-b-0">

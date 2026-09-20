@@ -12,7 +12,7 @@ const ServicesDirectoryIntro = ({ activeService }: ServicesDirectoryIntroProps) 
 
   return (
     <section className="section-block border-b border-border hero-ambient">
-      <div className="site-shell grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(20rem,0.72fr)] lg:items-end lg:gap-16">
+      <div className="site-shell grid items-start gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(20rem,0.72fr)] lg:gap-10">
         <div>
           <span className="eyebrow">{t("Oferta serwisu Wrocław", "Workshop services Wroclaw")}</span>
           <h1 className="section-title measure-hero text-balance mt-5">

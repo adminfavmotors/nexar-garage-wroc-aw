@@ -19,9 +19,9 @@ const FeaturedServiceCard = ({
   return (
     <Link
       to={getServiceHashPath(service.slug)}
-      className="group block border-y border-border py-8 transition-colors duration-200 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:py-10"
+      className="group block border-y border-border py-7 transition-colors duration-200 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:py-8"
     >
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(15rem,0.38fr)] lg:items-end">
+      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(15rem,0.38fr)]">
         <div>
           <div className="flex items-center gap-4">
             <p className="section-accent">
@@ -58,7 +58,7 @@ const FeaturedServiceCard = ({
         </div>
       </div>
 
-      <div className="mt-8 grid border-t border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
+      <div className="mt-6 grid border-t border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
         {service.scopeItems.slice(0, 3).map((item, index) => (
           <div key={item.en} className="flex gap-3 border-b border-border py-4 last:border-b-0 sm:border-b-0 sm:px-5 sm:first:pl-0 sm:last:pr-0">
             <span className="font-mono text-xs text-primary">0{index + 1}</span>
@@ -113,7 +113,7 @@ const ServicesPreviewSection = () => {
   return (
     <section id="uslugi" className="section-block section-muted border-b border-border">
       <div className="site-shell">
-        <div className="section-intro lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] lg:items-end">
+        <div className="section-intro lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] lg:gap-10">
           <div>
             <span className="eyebrow">{t("Nasze usługi", "Our services")}</span>
             <h2 className="section-title mt-5 max-w-[11ch]">
@@ -124,8 +124,8 @@ const ServicesPreviewSection = () => {
             </div>
           </div>
 
-          <div className="lg:justify-self-end lg:text-right">
-            <p className="section-copy measure-copy-wide lg:ml-auto">
+          <div>
+            <p className="section-copy measure-copy-wide">
               {t(
                 "Od diagnostyki komputerowej i elektryki po mechanikę, klimatyzację, opony i geometrię. Przed rozpoczęciem prac potwierdzamy zakres oraz orientacyjny koszt.",
                 "From computer diagnostics and auto electrics to mechanical repairs, air conditioning, tyres and wheel alignment. We confirm the scope and estimated cost before work begins."
@@ -134,7 +134,7 @@ const ServicesPreviewSection = () => {
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-8">
           <FeaturedServiceCard service={featuredService} lang={lang} t={t} />
 
           <div>

@@ -155,8 +155,8 @@ const BookingSection = () => {
 
   return (
     <section id="rezerwacja" className="section-block border-b border-border">
-      <div className="site-shell editorial-grid">
-        <div className="section-stack">
+      <div className="site-shell">
+        <div className="editorial-grid">
           <div className="section-intro">
             <span className="eyebrow">{t("Rezerwacja wizyty", "Book an appointment")}</span>
             <div className="grid gap-5">
@@ -178,28 +178,28 @@ const BookingSection = () => {
             </div>
           </div>
 
-          <div className="grid border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
-            <div className="border-b border-border py-5 sm:border-b-0 sm:pr-5">
+          <div className="border-y border-border">
+            <div className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-3 border-b border-border py-4">
               <p className="font-mono text-sm font-semibold text-primary">01</p>
-              <p className="body-relaxed mt-2">
+              <p className="body-relaxed">
                 {t(
                   "Wysyłasz zgłoszenie z podstawowym zakresem naprawy.",
                   "You send the request with the basic repair scope.",
                 )}
               </p>
             </div>
-            <div className="border-b border-border py-5 sm:border-b-0 sm:px-5">
+            <div className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-3 border-b border-border py-4">
               <p className="font-mono text-sm font-semibold text-primary">02</p>
-              <p className="body-relaxed mt-2">
+              <p className="body-relaxed">
                 {t(
                   "Potwierdzamy termin i doprecyzowujemy szczegóły telefonicznie.",
                   "We confirm the date and clarify details by phone.",
                 )}
               </p>
             </div>
-            <div className="py-5 sm:pl-5">
+            <div className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-3 py-4">
               <p className="font-mono text-sm font-semibold text-primary">03</p>
-              <p className="body-relaxed mt-2">
+              <p className="body-relaxed">
                 {t(
                   "Auto trafia do serwisu z jasnym zakresem i przewidywalnym przebiegiem.",
                   "Your car arrives with a clear scope and a predictable service flow.",
@@ -209,14 +209,14 @@ const BookingSection = () => {
           </div>
         </div>
 
-        <div className="surface-panel p-6 sm:p-8">
-          <form id="booking-form" onSubmit={handleSubmit} aria-busy={submitState === "sending"} className="grid gap-6">
-            <p className="field-note">
+        <div className="surface-panel mt-8 p-6 sm:p-7">
+          <form id="booking-form" onSubmit={handleSubmit} aria-busy={submitState === "sending"} className="grid gap-5 md:grid-cols-2">
+            <p className="field-note md:col-span-2">
               <span aria-hidden="true" className="text-primary">*</span>{" "}
               {t("Pole wymagane", "Required field")}
             </p>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2 md:col-span-2">
               <label htmlFor="booking-full-name" className="field-shell">
                 <span className="field-label">{t("Imię i nazwisko", "Full name")}<RequiredMark /></span>
                 <input
@@ -259,7 +259,26 @@ const BookingSection = () => {
               />
             </label>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <label htmlFor="booking-service" className="field-shell">
+              <span className="field-label">{t("Zakres usługi", "Service scope")}<RequiredMark /></span>
+              <select
+                id="booking-service"
+                name="service"
+                required
+                value={service}
+                onChange={(event) => setService(event.target.value)}
+                className="field-input"
+              >
+                <option value="">{t("Wybierz usługę", "Select service")}</option>
+                {serviceOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {lang === "PL" ? option.pl : option.en}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <div className="grid gap-4 sm:grid-cols-2 md:col-span-2">
               <label htmlFor="booking-vehicle" className="field-shell">
                 <span className="field-label">{t("Marka i model", "Make and model")}<RequiredMark /></span>
                 <input
@@ -289,27 +308,8 @@ const BookingSection = () => {
               </label>
             </div>
 
-            <label htmlFor="booking-service" className="field-shell">
-              <span className="field-label">{t("Zakres usługi", "Service scope")}<RequiredMark /></span>
-              <select
-                id="booking-service"
-                name="service"
-                required
-                value={service}
-                onChange={(event) => setService(event.target.value)}
-                className="field-input"
-              >
-                <option value="">{t("Wybierz usługę", "Select service")}</option>
-                {serviceOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {lang === "PL" ? option.pl : option.en}
-                  </option>
-                ))}
-              </select>
-            </label>
-
             {service === "other" && (
-              <label htmlFor="booking-problem" className="field-shell">
+              <label htmlFor="booking-problem" className="field-shell md:col-span-2">
                 <span className="field-label">{t("Opis problemu", "Describe the issue")}<RequiredMark /></span>
                 <textarea
                   id="booking-problem"
@@ -400,7 +400,7 @@ const BookingSection = () => {
               <input id="booking-company" name="company" type="text" tabIndex={-1} autoComplete="off" />
             </div>
 
-            <div className="grid gap-4 border-y border-border py-5">
+            <div className="grid gap-4 border-y border-border py-5 md:col-span-2">
               <div className="flex items-start gap-3">
                 <input
                   id="booking-consent"
@@ -436,7 +436,7 @@ const BookingSection = () => {
                 ref={errorSummaryRef}
                 role="alert"
                 tabIndex={-1}
-                className="border border-primary px-4 py-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                className="border border-primary px-4 py-4 focus:outline-none focus:ring-2 focus:ring-primary md:col-span-2"
               >
                 <p className="font-body font-semibold text-foreground">
                   {t("Nie udało się wysłać zgłoszenia.", "We could not send your request.")}
@@ -454,7 +454,7 @@ const BookingSection = () => {
             <button
               type="submit"
               disabled={submitState === "sending"}
-              className="premium-button-primary w-full"
+              className="premium-button-primary w-full md:col-span-2"
             >
               {submitState === "sending"
                 ? t("Wysyłanie…", "Sending…")

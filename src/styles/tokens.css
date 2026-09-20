@@ -10,9 +10,9 @@
     --measure-copy: 44rem;
     --measure-copy-wide: 52rem;
     --measure-hero: 64rem;
-    --section-space-mobile: 3.5rem;
-    --section-space-tablet: 4.75rem;
-    --section-space-desktop: 6.25rem;
+    --section-space-mobile: 3rem;
+    --section-space-tablet: 3.5rem;
+    --section-space-desktop: 4rem;
 
     --font-display: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
     --font-body: 'IBM Plex Sans', system-ui, sans-serif;

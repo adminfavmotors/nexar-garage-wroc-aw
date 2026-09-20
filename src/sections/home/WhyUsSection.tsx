@@ -41,8 +41,8 @@ const WhyUsSection = () => {
   return (
     <section id="o-nas" className="section-block border-b border-border">
       <div className="site-shell">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
-          <div className="section-intro lg:sticky lg:top-32 lg:self-start">
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-10">
+          <div className="section-intro lg:self-start">
             <span className="eyebrow">{t("Dlaczego właśnie my", "Why clients stay with us")}</span>
             <div className="grid gap-5 lg:max-w-[42rem]">
               <h2 className="section-title text-balance">
@@ -62,7 +62,7 @@ const WhyUsSection = () => {
 
           <ol className="border-y border-border">
             {reasons.map((reason, index) => (
-              <li key={reason} className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-4 border-b border-border py-6 last:border-b-0 sm:py-7">
+              <li key={reason} className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-4 border-b border-border py-5 last:border-b-0 sm:py-6">
                 <span className="font-mono text-sm font-semibold text-primary">0{index + 1}</span>
                 <p className="font-body text-[1rem] leading-7 text-muted-foreground sm:text-[1.05rem]">{reason}</p>
               </li>
@@ -70,7 +70,7 @@ const WhyUsSection = () => {
           </ol>
         </div>
 
-        <div className="mt-12 grid border-y border-border md:grid-cols-3 md:divide-x md:divide-border lg:mt-16">
+        <div className="mt-8 grid border-y border-border md:grid-cols-3 md:divide-x md:divide-border lg:mt-10">
           {operatingHighlights.map((item) => {
             const Icon = item.icon;
 

@@ -5,8 +5,7 @@
   }
 
   .section-block {
-    padding-top: var(--section-space-mobile);
-    padding-bottom: calc(var(--section-space-mobile) + 0.25rem);
+    padding-block: var(--section-space-mobile);
   }
 
   .measure-tight {
@@ -55,16 +54,19 @@
 
   .section-intro {
     display: grid;
+    align-items: start;
     gap: 1.35rem;
   }
 
   .editorial-grid {
     display: grid;
+    align-items: start;
     gap: 2rem;
   }
 
   .section-stack {
     display: grid;
+    align-self: start;
     gap: 1.5rem;
   }
 
@@ -390,15 +392,14 @@
     }
 
     .section-block {
-      padding-top: var(--section-space-tablet);
-      padding-bottom: calc(var(--section-space-tablet) + 0.35rem);
+      padding-block: var(--section-space-tablet);
     }
   }
 
   @media (min-width: 1024px) {
     .editorial-grid {
       grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-      gap: 3rem;
+      gap: 2.5rem;
     }
   }
 
@@ -410,8 +411,7 @@
 
   @media (min-width: 1024px) {
     .section-block {
-      padding-top: var(--section-space-desktop);
-      padding-bottom: calc(var(--section-space-desktop) + 0.5rem);
+      padding-block: var(--section-space-desktop);
     }
   }
 }
