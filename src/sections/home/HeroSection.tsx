@@ -46,7 +46,7 @@ const HeroSection = () => {
       className="hero-ambient relative overflow-hidden pt-[98px] sm:pt-[118px] lg:pt-[136px]"
     >
       <div className="site-shell pb-10 sm:pb-12 lg:pb-16">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:items-end lg:gap-8">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:gap-8">
           <div className="hero-enter py-4 sm:py-6">
             <span className="eyebrow">Wrocław • est. 2009</span>
 
@@ -95,39 +95,40 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="hero-enter hero-enter-delay lg:pb-1">
-            <div className="border-y border-border py-6 sm:py-8 lg:border-l lg:border-y-0 lg:py-2 lg:pl-8">
-              <span className="eyebrow">
-                {t("Jak pracujemy", "How we work")}
-              </span>
+          <aside
+            aria-labelledby="hero-process-title"
+            className="hero-enter hero-enter-delay border-y border-border py-6 sm:py-8 lg:border-l lg:border-y-0 lg:py-6 lg:pl-8"
+          >
+            <span className="eyebrow">
+              {t("Jak pracujemy", "How we work")}
+            </span>
 
-              <p className="section-title-compact mt-5 max-w-[11ch]">
-                {t("Mniej chaosu. Więcej kontroli.", "Less chaos. More control.")}
-              </p>
+            <h2 id="hero-process-title" className="section-title-compact mt-5 max-w-[11ch]">
+              {t("Mniej chaosu. Więcej kontroli.", "Less chaos. More control.")}
+            </h2>
 
-              <p className="body-relaxed mt-4">
-                {t(
-                  "Każde zlecenie zaczynamy od diagnozy. Naprawę rozpoczynamy dopiero po uzgodnieniu zakresu, części i orientacyjnego kosztu.",
-                  "Every job starts with a diagnosis. Repairs begin only after the scope, parts and estimated cost have been agreed."
-                )}
-              </p>
+            <p className="body-relaxed mt-4">
+              {t(
+                "Każde zlecenie zaczynamy od diagnozy. Naprawę rozpoczynamy dopiero po uzgodnieniu zakresu, części i orientacyjnego kosztu.",
+                "Every job starts with a diagnosis. Repairs begin only after the scope, parts and estimated cost have been agreed."
+              )}
+            </p>
 
-              <div className="mt-8 border-t border-border pt-6">
-                <div className="grid gap-5 sm:grid-cols-3">
-                  {heroStandards.map((standard) => (
-                    <div key={standard.labelEn}>
-                      <span className="font-display text-[1.6rem] font-semibold leading-none text-foreground">
-                        {lang === "PL" ? standard.valuePl : standard.valueEn}
-                      </span>
-                      <span className="stat-chip-label">
-                        {lang === "PL" ? standard.labelPl : standard.labelEn}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            <div className="mt-8 border-t border-border pt-6">
+              <div className="grid gap-5 sm:grid-cols-3">
+                {heroStandards.map((standard) => (
+                  <div key={standard.labelEn}>
+                    <span className="font-display text-[1.6rem] font-semibold leading-none text-foreground">
+                      {lang === "PL" ? standard.valuePl : standard.valueEn}
+                    </span>
+                    <span className="stat-chip-label">
+                      {lang === "PL" ? standard.labelPl : standard.labelEn}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
