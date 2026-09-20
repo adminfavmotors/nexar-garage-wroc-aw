@@ -9,23 +9,32 @@ const ServiceFaqSection = ({ activeService }: ServiceFaqSectionProps) => {
   const { t } = useLang();
 
   return (
-    <div className="surface-panel p-6 sm:p-8">
-      <div className="section-intro gap-4">
-        <span className="eyebrow">FAQ</span>
-        <h3 className="font-barlow text-[2rem] leading-none text-foreground sm:text-[2.5rem]">
+    <div>
+      <div className="editorial-grid items-end">
+        <div>
+          <span className="eyebrow">FAQ</span>
+          <h2 className="section-title-compact mt-5 max-w-[12ch]">
           {t("Najczęstsze pytania", "Frequently asked questions")}
-        </h3>
+          </h2>
+        </div>
+        <p className="body-relaxed measure-copy-wide">
+          {t(
+            `Odpowiedzi dotyczą usługi: ${activeService.title.pl}. Jeśli objawy są nietypowe, opisz je w formularzu rezerwacji.`,
+            `These answers cover ${activeService.title.en}. If the symptoms are unusual, describe them in the booking form.`
+          )}
+        </p>
       </div>
-      <div className="mt-6 grid gap-3">
-        {activeService.faq.map((item) => (
-          <div key={item.question.pl} className="surface-panel-soft p-5">
-            <p className="font-barlow text-[1.5rem] leading-[0.98] text-foreground sm:text-[1.8rem]">
+      <div className="mt-8 border-y border-border">
+        {activeService.faq.map((item, index) => (
+          <article key={item.question.pl} className="grid gap-3 border-b border-border py-6 last:border-b-0 sm:grid-cols-[2.5rem_minmax(0,0.82fr)_minmax(0,1.18fr)] sm:gap-6">
+            <span className="font-mono text-xs font-semibold text-primary">0{index + 1}</span>
+            <h3 className="font-display text-[1.55rem] font-semibold leading-[1.02] text-foreground sm:text-[1.75rem]">
               {t(item.question.pl, item.question.en)}
-            </p>
-            <p className="mt-3 font-inter text-[0.95rem] leading-7 text-muted-foreground">
+            </h3>
+            <p className="font-body text-[0.95rem] leading-7 text-muted-foreground">
               {t(item.answer.pl, item.answer.en)}
             </p>
-          </div>
+          </article>
         ))}
       </div>
     </div>

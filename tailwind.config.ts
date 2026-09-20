@@ -15,8 +15,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        barlow: ["Barlow Condensed", "sans-serif"],
-        inter: ["Inter", "sans-serif"],
+        display: ["var(--font-display)"],
+        body: ["var(--font-body)"],
+        mono: ["var(--font-mono)"],
+        sans: ["var(--font-body)"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,7 +54,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        elevated: "hsl(var(--elevated))",
         surface: "hsl(var(--surface))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

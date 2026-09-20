@@ -3,38 +3,40 @@ import {
   BookingSection,
   ContactSection,
   HeroSection,
-  ReviewsSection,
+  ServiceStandardSection,
   ServicesPreviewSection,
-  StatsSection,
   WhyUsSection,
 } from "@/sections/home";
-import { homeAutoRepairSchema, websiteSchema } from "@/features/services/seo";
-
-const homeSeo = {
-  title: "Nexar Garage WrocÄąâ€šaw | Serwis Samochodowy | Mechanik WrocÄąâ€šaw",
-  description:
-    "Nexar Garage Ă˘â‚¬â€ś profesjonalny serwis samochodowy we WrocÄąâ€šawiu. Diagnostyka OBD2, wymiana opon, klimatyzacja, geometria kÄ‚Ĺ‚Äąâ€š. UmÄ‚Ĺ‚w wizytĂ„â„˘ online.",
-  canonical: "https://www.nexargarage.pl/",
-  ogTitle: "Nexar Garage | Serwis Samochodowy WrocÄąâ€šaw",
-};
+import { getWebsiteSchema, homeAutoRepairSchema } from "@/features/services/seo";
+import { useLang } from "@/features/language";
 
 const HomePage = () => {
+  const { lang, t } = useLang();
+
   return (
     <SitePage
       seo={{
-        title: homeSeo.title,
-        description: homeSeo.description,
-        canonical: homeSeo.canonical,
-        ogTitle: homeSeo.ogTitle,
+        title: t(
+          "Nexar Garage Wrocław | Serwis samochodowy | Mechanik Wrocław",
+          "Nexar Garage Wroclaw | Car service and repairs",
+        ),
+        description: t(
+          "Nexar Garage — profesjonalny serwis samochodowy we Wrocławiu. Diagnostyka OBD2, naprawy, opony, klimatyzacja i geometria kół.",
+          "Nexar Garage is a professional car workshop in Wroclaw offering OBD2 diagnostics, repairs, tyres, air conditioning and wheel alignment.",
+        ),
+        canonical: "https://www.nexargarage.pl/",
+        ogTitle: t(
+          "Nexar Garage | Serwis samochodowy Wrocław",
+          "Nexar Garage | Car workshop in Wroclaw",
+        ),
         ogType: "business.business",
-        schema: [homeAutoRepairSchema, websiteSchema],
+        schema: [homeAutoRepairSchema, getWebsiteSchema(lang)],
       }}
     >
       <HeroSection />
-      <StatsSection />
       <ServicesPreviewSection />
       <WhyUsSection />
-      <ReviewsSection />
+      <ServiceStandardSection />
       <BookingSection />
       <ContactSection />
     </SitePage>

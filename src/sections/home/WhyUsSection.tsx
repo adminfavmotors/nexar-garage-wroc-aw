@@ -1,21 +1,17 @@
 import { Clock3, Globe2, MapPin } from "lucide-react";
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
 import { useLang } from "@/features/language";
-import { getServiceHashPath, servicePages } from "@/features/services/data";
-import { useScrollReveal } from "@/shared/hooks/useScrollReveal";
 
 const reasonsPl = [
-  "Certyfikowani mechanicy i jasny proces wyceny przed rozpoczęciem prac.",
-  "Części OEM lub sprawdzone zamienniki dobierane pod konkretny zakres naprawy.",
-  "Stały kontakt podczas realizacji, bez zaskoczeń przy odbiorze auta.",
+  "Diagnoza i jasny proces wyceny przed rozpoczęciem prac.",
+  "Przed naprawą ustalamy wariant części: OEM lub sprawdzone zamienniki.",
+  "Każda zmiana zakresu wymaga kontaktu przed wykonaniem dodatkowych prac.",
   "Możliwość obsługi po polsku i po angielsku, także przy bardziej złożonych zleceniach.",
 ];
 
 const reasonsEn = [
-  "Certified mechanics and a clear quote process before any work starts.",
-  "OEM parts or trusted replacements selected for the exact repair scope.",
-  "Consistent communication during the job, with no surprises at handoff.",
+  "Diagnostics and a clear quote process before any work starts.",
+  "Before the repair, we agree on OEM parts or trusted replacements.",
+  "Every scope change requires contact before additional work is carried out.",
   "Support in both Polish and English, including more complex service cases.",
 ];
 
@@ -39,28 +35,23 @@ const operatingHighlights = [
 
 const WhyUsSection = () => {
   const { lang, t } = useLang();
-  const ref = useScrollReveal();
-  const [selectedSlug, setSelectedSlug] = useState(servicePages[0]?.slug ?? "");
-
-  const selectedService = useMemo(
-    () => servicePages.find((service) => service.slug === selectedSlug) ?? servicePages[0],
-    [selectedSlug]
-  );
 
   const reasons = lang === "PL" ? reasonsPl : reasonsEn;
 
   return (
-    <section id="o-nas" ref={ref} className="section-block border-b border-border/80">
-      <div className="site-shell editorial-grid">
-        <div className="section-stack">
-          <div className="section-intro">
+    <section id="o-nas" className="section-block border-b border-border/80">
+      <div className="site-shell">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
+          <div className="section-intro lg:sticky lg:top-32 lg:self-start">
             <span className="eyebrow">{t("Dlaczego właśnie my", "Why clients stay with us")}</span>
             <div className="grid gap-5 lg:max-w-[42rem]">
-              <h2 className="section-title text-balance">{t("Serwis, który daje więcej spokoju niż hałasu.", "A garage that gives more clarity than noise.")}</h2>
+              <h2 className="section-title text-balance">
+                {t("Serwis, który daje więcej spokoju niż hałasu.", "A garage that gives more clarity than noise.")}
+              </h2>
               <p className="section-copy measure-copy-wide">
                 {t(
-                  "Nexar ma działać jak uporządkowane zaplecze techniczne: szybka diagnoza, zrozumiała wycena i precyzyjnie zamknięty zakres prac. Bez warsztatowego chaosu i bez przypadkowej komunikacji.",
-                  "Nexar is meant to feel like a controlled technical partner: fast diagnostics, clear estimates and a tightly scoped repair process. Less workshop chaos, more confidence."
+                  "Łączymy szybką diagnozę, zrozumiałą wycenę i jasno ustalony zakres prac. Klient wie, co naprawiamy, jakich części używamy i kiedy auto będzie gotowe.",
+                  "We combine fast diagnostics, clear estimates and a precisely agreed scope of work. You know what we are repairing, which parts we use and when the car will be ready."
                 )}
               </p>
               <div className="max-w-[17rem]">
@@ -69,129 +60,36 @@ const WhyUsSection = () => {
             </div>
           </div>
 
-          <div className="grid gap-3">
+          <ol className="border-y border-border">
             {reasons.map((reason, index) => (
-              <div key={reason} className="surface-panel-soft flex items-start gap-4 px-5 py-4 sm:px-6">
-                <span className="font-barlow text-[1.55rem] leading-none text-primary">0{index + 1}</span>
-                <p className="font-inter text-[0.97rem] leading-7 text-foreground/90">{reason}</p>
-              </div>
+              <li key={reason} className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-4 border-b border-border py-6 last:border-b-0 sm:py-7">
+                <span className="font-mono text-sm font-semibold text-primary">0{index + 1}</span>
+                <p className="font-body text-[1rem] leading-7 text-foreground/90 sm:text-[1.05rem]">{reason}</p>
+              </li>
             ))}
-          </div>
+          </ol>
+        </div>
 
-          <div className="grid gap-3 md:grid-cols-3">
-            {operatingHighlights.map((item) => {
-              const Icon = item.icon;
+        <div className="mt-12 grid border-y border-border md:grid-cols-3 md:divide-x md:divide-border lg:mt-16">
+          {operatingHighlights.map((item) => {
+            const Icon = item.icon;
 
-              return (
-                <div key={item.label.en} className="surface-panel-soft px-5 py-5">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/55 text-primary">
-                    <Icon size={18} />
-                  </span>
-                  <p className="section-accent mt-4">
+            return (
+              <div key={item.label.en} className="flex gap-4 border-b border-border py-6 last:border-b-0 md:border-b-0 md:px-6 md:first:pl-0 md:last:pr-0">
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border text-primary">
+                  <Icon aria-hidden="true" size={18} />
+                </span>
+                <div>
+                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
                     {t(item.label.pl, item.label.en)}
                   </p>
-                  <p className="body-relaxed mt-2">
+                  <p className="body-relaxed mt-2 text-foreground/88">
                     {t(item.value.pl, item.value.en)}
                   </p>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="surface-panel p-6 sm:p-8">
-          <div className="section-intro gap-4">
-            <span className="eyebrow">{t("Szybki wybór usługi", "Service shortcut")}</span>
-            <div className="grid gap-3">
-              <h3 className="section-title-compact max-w-[11ch]">
-                {t("Wybierz ścieżkę i od razu przejdź do konkretu.", "Pick the right track and move straight to the details.")}
-              </h3>
-              <p className="section-copy">
-                {t(
-                  "To nie jest druga lista usług. To skrót do poprawnego flow: wybór zakresu, szybki podgląd ceny i przejście do opisu albo rezerwacji.",
-                  "This is not another service grid. It is the shortest route into the right flow: select a service, preview the pricing and jump to details or booking."
-                )}
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {servicePages.map((service) => (
-              <button
-                key={service.slug}
-                type="button"
-                onClick={() => setSelectedSlug(service.slug)}
-                className={`px-4 py-4 text-left transition-colors duration-300 ${
-                  selectedSlug === service.slug
-                    ? "service-card-panel-solid service-card-active text-foreground"
-                    : "service-card-panel text-muted-foreground hover:border-[hsl(var(--line-soft))] hover:text-foreground"
-                }`}
-              >
-                <p className="font-barlow text-[1.4rem] leading-none text-foreground">
-                  {t(service.title.pl, service.title.en)}
-                </p>
-                <p className="mt-2 font-inter text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-primary">
-                  {t(service.price.pl, service.price.en)}
-                </p>
-              </button>
-            ))}
-          </div>
-
-          {selectedService && (
-            <div className="surface-panel-strong mt-6 p-5 sm:p-6">
-              <div className="grid gap-6">
-                <div>
-                  <p className="section-title-compact">
-                    {t(selectedService.title.pl, selectedService.title.en)}
-                  </p>
-                  <p className="body-relaxed mt-3">
-                    {t(selectedService.shortDescription.pl, selectedService.shortDescription.en)}
-                  </p>
-                </div>
-
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="surface-panel-soft px-4 py-4">
-                    <p className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                      {t("Cena orientacyjna", "Estimated pricing")}
-                    </p>
-                    <p className="mt-2 font-barlow text-[2rem] leading-none text-primary">
-                      {t(selectedService.price.pl, selectedService.price.en)}
-                    </p>
-                  </div>
-                  <div className="surface-panel-soft px-4 py-4">
-                    <p className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                      {t("Czas realizacji", "Lead time")}
-                    </p>
-                    <p className="mt-2 font-barlow text-[2rem] leading-none text-foreground">
-                      {t(selectedService.leadTime.pl, selectedService.leadTime.en)}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {selectedService.scopeItems.slice(0, 4).map((item) => (
-                    <div key={item.en} className="surface-panel-soft px-4 py-4">
-                      <p className="font-inter text-[0.93rem] leading-7 text-foreground/88">
-                        {t(item.pl, item.en)}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <a
-                    href={`/?service=${selectedService.bookingValue}#rezerwacja`}
-                    className="premium-button-primary w-full sm:w-auto"
-                  >
-                    {t("Umów ten serwis", "Book this service")}
-                  </a>
-                  <Link to={getServiceHashPath(selectedService.slug)} className="premium-button-secondary w-full sm:w-auto">
-                    {t("Zobacz szczegóły", "View details")}
-                  </Link>
-                </div>
               </div>
-            </div>
-          )}
+            );
+          })}
         </div>
       </div>
     </section>

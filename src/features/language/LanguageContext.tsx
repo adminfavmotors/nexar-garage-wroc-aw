@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
-type Lang = "PL" | "EN";
+export type Lang = "PL" | "EN";
 
 interface LanguageContextType {
   lang: Lang;
@@ -10,15 +10,29 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const getInitialLanguage = (): Lang => {
+  try {
+    return localStorage.getItem("nexar-lang") === "EN" ? "EN" : "PL";
+  } catch {
+    return "PL";
+  }
+};
+
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [lang, setLangState] = useState<Lang>(() => {
-    const saved = localStorage.getItem("nexar-lang");
-    return (saved === "EN" ? "EN" : "PL") as Lang;
-  });
+  const [lang, setLangState] = useState<Lang>(getInitialLanguage);
+
+  useEffect(() => {
+    document.documentElement.lang = lang === "PL" ? "pl" : "en";
+
+    try {
+      localStorage.setItem("nexar-lang", lang);
+    } catch {
+      // The language still works when storage is unavailable.
+    }
+  }, [lang]);
 
   const setLang = (l: Lang) => {
     setLangState(l);
-    localStorage.setItem("nexar-lang", l);
   };
 
   const t = (pl: string, en: string) => (lang === "PL" ? pl : en);

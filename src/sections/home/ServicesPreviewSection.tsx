@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import { useLang } from "@/features/language";
-import { useScrollReveal } from "@/shared/hooks/useScrollReveal";
 import {
   getServiceHashPath,
   servicePages,
@@ -19,55 +19,54 @@ const FeaturedServiceCard = ({
   return (
     <Link
       to={getServiceHashPath(service.slug)}
-      className="service-card-interactive flex h-full flex-col p-6 sm:p-8"
+      className="group block border-y border-border py-8 transition-colors duration-200 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:py-10"
     >
-      <div className="flex items-start justify-between gap-4">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(15rem,0.38fr)] lg:items-end">
         <div>
-          <p className="section-accent">
-            {t("Usługa wyróżniona", "Featured service")}
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="section-accent">
+              {t("Usługa wyróżniona", "Featured service")}
+            </p>
+            <span className="font-mono text-xs font-semibold text-muted-foreground">
+              {service.num}
+            </span>
+          </div>
           <h3 className="section-title-compact mt-4 max-w-[10ch]">
             {lang === "PL" ? service.title.pl : service.title.en}
           </h3>
-        </div>
-        <span className="rounded-full border border-border px-3 py-1 font-inter text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-          {service.num}
-        </span>
-      </div>
-
-      <p className="body-relaxed mt-5 max-w-[34rem]">
-        {lang === "PL" ? service.shortDescription.pl : service.shortDescription.en}
-      </p>
-
-      <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        <div className="surface-panel-soft px-4 py-4">
-          <p className="font-inter text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            {t("Cena orientacyjna", "Estimated price")}
-          </p>
-          <p className="mt-2 font-barlow text-[28px] font-semibold leading-none text-accent">
-            {lang === "PL" ? service.price.pl : service.price.en}
+          <p className="body-relaxed mt-5 max-w-[38rem]">
+            {lang === "PL" ? service.shortDescription.pl : service.shortDescription.en}
           </p>
         </div>
-        <div className="surface-panel-soft px-4 py-4">
-          <p className="font-inter text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            {t("Czas realizacji", "Lead time")}
-          </p>
-          <p className="mt-2 font-barlow text-[28px] font-semibold leading-none text-foreground">
-            {lang === "PL" ? service.leadTime.pl : service.leadTime.en}
-          </p>
+        <div className="grid grid-cols-2 gap-6 border-t border-border pt-6 lg:grid-cols-1 lg:border-l lg:border-t-0 lg:pt-0 lg:pl-6">
+          <div>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+              {t("Cena", "Price")}
+            </p>
+            <p className="mt-2 font-mono text-[1.4rem] font-semibold leading-none tabular-nums text-primary">
+              {lang === "PL" ? service.price.pl : service.price.en}
+            </p>
+          </div>
+          <div>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+              {t("Czas", "Lead time")}
+            </p>
+            <p className="mt-2 font-mono text-[1.4rem] font-semibold leading-none tabular-nums text-foreground">
+              {lang === "PL" ? service.leadTime.pl : service.leadTime.en}
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="divider-hairline mt-6 pt-6">
-        <div className="grid gap-3 sm:grid-cols-2">
-          {service.scopeItems.slice(0, 4).map((item) => (
-            <div key={item.en} className="surface-panel-soft px-4 py-4">
-              <p className="body-fine text-foreground/84">
-                {lang === "PL" ? item.pl : item.en}
-              </p>
-            </div>
-          ))}
-        </div>
+      <div className="mt-8 grid border-t border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
+        {service.scopeItems.slice(0, 3).map((item, index) => (
+          <div key={item.en} className="flex gap-3 border-b border-border py-4 last:border-b-0 sm:border-b-0 sm:px-5 sm:first:pl-0 sm:last:pr-0">
+            <span className="font-mono text-xs text-primary">0{index + 1}</span>
+            <p className="body-fine text-foreground/84">
+              {lang === "PL" ? item.pl : item.en}
+            </p>
+          </div>
+        ))}
       </div>
     </Link>
   );
@@ -84,22 +83,24 @@ const ServiceCard = ({
     <Link
       to={getServiceHashPath(service.slug)}
       aria-label={lang === "PL" ? service.title.pl : service.title.en}
-      className="service-card-interactive group flex h-full flex-col p-5 sm:p-6"
+      className="group grid gap-4 border-b border-border py-6 transition-colors duration-200 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-[hsl(var(--surface))] sm:grid-cols-[2.5rem_minmax(0,1fr)_auto] sm:items-center"
     >
-      <span className="font-inter text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <span className="font-mono text-xs font-semibold text-muted-foreground">
         {service.num}
       </span>
-      <h3 className="section-title-compact mt-4 text-[2rem] sm:text-[2.1rem]">
-        {lang === "PL" ? service.title.pl : service.title.en}
-      </h3>
-      <p className="body-fine mt-3">
-        {lang === "PL" ? service.shortDescription.pl : service.shortDescription.en}
-      </p>
-
-      <div className="service-card-divider mt-auto pt-5">
-        <p className="font-inter text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+      <div className="min-w-0">
+        <h3 className="font-display text-[1.75rem] font-semibold leading-none text-foreground transition-colors duration-200 group-hover:text-primary sm:text-[1.9rem]">
+          {lang === "PL" ? service.title.pl : service.title.en}
+        </h3>
+        <p className="body-fine mt-2 max-w-[42rem]">
+          {lang === "PL" ? service.shortDescription.pl : service.shortDescription.en}
+        </p>
+      </div>
+      <div className="flex items-center justify-between gap-5 sm:justify-end">
+        <p className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
           {lang === "PL" ? service.price.pl : service.price.en}
         </p>
+        <ArrowUpRight aria-hidden="true" className="h-5 w-5 text-primary" />
       </div>
     </Link>
   );
@@ -107,17 +108,16 @@ const ServiceCard = ({
 
 const ServicesPreviewSection = () => {
   const { lang, t } = useLang();
-  const ref = useScrollReveal();
   const [featuredService, ...secondaryServices] = servicePages;
 
   return (
-    <section id="uslugi" ref={ref} className="section-block section-muted border-b border-border">
+    <section id="uslugi" className="section-block section-muted border-b border-border">
       <div className="site-shell">
         <div className="section-intro lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] lg:items-end">
           <div>
             <span className="eyebrow">{t("Nasze usługi", "Our services")}</span>
             <h2 className="section-title mt-5 max-w-[11ch]">
-              {t("Kompleksowa obsługa bez szablonowego układu", "Comprehensive service without a template feel")}
+              {t("Pełny zakres usług w jednym warsztacie", "Complete service under one roof")}
             </h2>
             <div className="mt-5 max-w-[15rem]">
               <div className="accent-rule" />
@@ -127,17 +127,17 @@ const ServicesPreviewSection = () => {
           <div className="lg:justify-self-end lg:text-right">
             <p className="section-copy measure-copy-wide lg:ml-auto">
               {t(
-                "Zamiast jednej siatki identycznych kart pokazujemy ofertę w bardziej czytelnej hierarchii: usługa główna, zakres, cena i pozostałe specjalizacje obok.",
-                "Instead of one grid of identical cards, the offer is presented in a clearer hierarchy: one lead service, its scope and price, with the remaining specialties alongside."
+                "Od diagnostyki komputerowej i elektryki po mechanikę, klimatyzację, opony i geometrię. Przed rozpoczęciem prac potwierdzamy zakres oraz orientacyjny koszt.",
+                "From computer diagnostics and auto electrics to mechanical repairs, air conditioning, tyres and wheel alignment. We confirm the scope and estimated cost before work begins."
               )}
             </p>
           </div>
         </div>
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+        <div className="mt-10">
           <FeaturedServiceCard service={featuredService} lang={lang} t={t} />
 
-          <div className="grid auto-rows-fr gap-4 sm:grid-cols-2">
+          <div>
             {secondaryServices.map((service) => (
               <ServiceCard key={service.slug} service={service} lang={lang} />
             ))}

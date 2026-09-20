@@ -1,4 +1,5 @@
 import type { ServiceDefinition } from "@/features/services/data/servicePages";
+import type { Lang } from "@/features/language";
 
 export const siteUrl = "https://www.nexargarage.pl";
 
@@ -43,16 +44,16 @@ export const homeAutoRepairSchema = {
   ],
 };
 
-export const websiteSchema = {
+export const getWebsiteSchema = (lang: Lang) => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${siteUrl}/#website`,
   name: "Nexar Garage",
   url: siteUrl,
-  inLanguage: "pl-PL",
-};
+  inLanguage: lang === "PL" ? "pl-PL" : "en-GB",
+});
 
-export const servicesDirectoryBreadcrumbSchema = {
+export const getServicesDirectoryBreadcrumbSchema = (lang: Lang) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
@@ -65,17 +66,17 @@ export const servicesDirectoryBreadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Usługi",
+      name: lang === "PL" ? "Usługi" : "Services",
       item: `${siteUrl}/uslugi`,
     },
   ],
-};
+});
 
-export const getServicesDirectoryItemListSchema = (services: ServiceDefinition[]) => ({
+export const getServicesDirectoryItemListSchema = (services: ServiceDefinition[], lang: Lang) => ({
   "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": `${siteUrl}/uslugi#services`,
-  name: "Usługi Nexar Garage",
+  name: lang === "PL" ? "Usługi Nexar Garage" : "Nexar Garage services",
   itemListOrder: "https://schema.org/ItemListOrderAscending",
   numberOfItems: services.length,
   itemListElement: services.map((service, index) => ({
@@ -84,9 +85,9 @@ export const getServicesDirectoryItemListSchema = (services: ServiceDefinition[]
     url: `${siteUrl}/uslugi#${service.slug}`,
     item: {
       "@type": "Service",
-      name: service.title.pl,
-      description: service.shortDescription.pl,
-      serviceType: service.title.pl,
+      name: lang === "PL" ? service.title.pl : service.title.en,
+      description: lang === "PL" ? service.shortDescription.pl : service.shortDescription.en,
+      serviceType: lang === "PL" ? service.title.pl : service.title.en,
       areaServed: {
         "@type": "City",
         name: "Wrocław",
@@ -100,16 +101,16 @@ export const getServicesDirectoryItemListSchema = (services: ServiceDefinition[]
   })),
 });
 
-export const getServiceFaqSchema = (service: ServiceDefinition) => ({
+export const getServiceFaqSchema = (service: ServiceDefinition, lang: Lang) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "@id": `${siteUrl}/uslugi#faq-${service.slug}`,
   mainEntity: service.faq.map((item) => ({
     "@type": "Question",
-    name: item.question.pl,
+    name: lang === "PL" ? item.question.pl : item.question.en,
     acceptedAnswer: {
       "@type": "Answer",
-      text: item.answer.pl,
+      text: lang === "PL" ? item.answer.pl : item.answer.en,
     },
   })),
 });

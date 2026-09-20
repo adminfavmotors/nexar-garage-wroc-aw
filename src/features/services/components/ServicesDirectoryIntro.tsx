@@ -1,4 +1,5 @@
-import { appRoutes, getHomeSectionPath, homeSectionIds, RouteLink } from "@/shared/navigation";
+import { ArrowDownRight } from "lucide-react";
+import { appRoutes, homeSectionIds, RouteLink } from "@/shared/navigation";
 import { useLang } from "@/features/language";
 import type { ServiceDefinition } from "@/features/services/data";
 
@@ -11,67 +12,67 @@ const ServicesDirectoryIntro = ({ activeService }: ServicesDirectoryIntroProps) 
 
   return (
     <section className="section-block border-b border-border/80 hero-ambient">
-      <div className="site-shell editorial-grid">
-        <div className="section-stack">
-          <div className="section-intro">
-            <span className="eyebrow">{t("Oferta serwisu Wrocław", "Workshop services Wroclaw")}</span>
-            <div className="grid gap-5">
-              <h1 className="section-title measure-hero text-balance">
-                {t("Wszystkie usługi zebrane w jednym, spokojnym katalogu.", "All services grouped into one calm directory.")}
-              </h1>
-              <p className="section-copy measure-copy-wide">
-                {t(
-                  "Zamiast drugiego ciężkiego landing page masz tu uporządkowaną listę usług. Wybierz zakres, porównaj orientacyjne ceny i otwórz szczegóły bez skakania po stronie.",
-                  "Instead of a second heavy landing page, this gives you a structured service directory. Pick the scope, compare estimated pricing and open details without jumping across the site."
-                )}
-              </p>
-              <div className="max-w-[16rem]">
-                <div className="accent-rule" />
-              </div>
-            </div>
+      <div className="site-shell grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(20rem,0.72fr)] lg:items-end lg:gap-16">
+        <div>
+          <span className="eyebrow">{t("Oferta serwisu Wrocław", "Workshop services Wroclaw")}</span>
+          <h1 className="section-title measure-hero text-balance mt-5">
+            {t("Serwis samochodowy bez zgadywania.", "Car service without guesswork.")}
+          </h1>
+          <p className="section-copy measure-copy-wide mt-6">
+            {t(
+              "Wybierz usługę, sprawdź orientacyjny koszt i zobacz dokładny zakres prac. Ostateczną wycenę potwierdzamy po oględzinach lub diagnostyce auta.",
+              "Choose a service, check the estimated cost and review the exact scope. We confirm the final quote after inspecting or diagnosing the car."
+            )}
+          </p>
+          <div className="mt-6 max-w-[16rem]">
+            <div className="accent-rule" />
           </div>
-
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <RouteLink
               to={`${appRoutes.home}?service=${activeService.bookingValue}#${homeSectionIds.booking}`}
               className="premium-button-primary w-full sm:w-auto"
             >
-              {t("Przejdź do rezerwacji", "Go to booking")}
+              {t("Umów wybraną usługę", "Book selected service")}
             </RouteLink>
-            <RouteLink to={getHomeSectionPath(homeSectionIds.booking)} className="premium-button-secondary w-full sm:w-auto">
-              {t("Zapytaj o termin", "Ask about availability")}
-            </RouteLink>
+            <a href="#uslugi" className="editorial-link w-fit">
+              {t("Porównaj zakresy", "Compare services")}
+              <ArrowDownRight aria-hidden="true" />
+            </a>
           </div>
         </div>
 
-        <div className="surface-panel-strong p-6 sm:p-8">
-          <span className="eyebrow">{t("Aktualnie wybrana usługa", "Currently selected service")}</span>
-          <p className="section-title-compact mt-5">
+        <aside className="border-y border-border py-6 lg:border-l lg:border-y-0 lg:py-2 lg:pl-8">
+          <div className="flex items-center justify-between gap-4">
+            <span className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+              {t("Wybrana usługa", "Selected service")}
+            </span>
+            <span className="font-mono text-xs font-semibold text-primary">{activeService.num}</span>
+          </div>
+          <p className="section-title-compact mt-5 max-w-[12ch]">
             {t(activeService.title.pl, activeService.title.en)}
           </p>
           <p className="body-relaxed mt-4">
             {t(activeService.heroSummary.pl, activeService.heroSummary.en)}
           </p>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            <div className="surface-panel-soft px-4 py-4">
-              <p className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                {t("Cena orientacyjna", "Estimated pricing")}
-              </p>
-              <p className="mt-2 font-barlow text-[2rem] leading-none text-primary">
+          <dl className="mt-7 grid grid-cols-2 divide-x divide-border border-t border-border pt-5">
+            <div className="pr-5">
+              <dt className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+                {t("Cena od", "Price from")}
+              </dt>
+              <dd className="mt-2 font-mono text-[1.35rem] font-semibold leading-none tabular-nums text-primary">
                 {t(activeService.price.pl, activeService.price.en)}
-              </p>
+              </dd>
             </div>
-            <div className="surface-panel-soft px-4 py-4">
-              <p className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                {t("Czas realizacji", "Lead time")}
-              </p>
-              <p className="mt-2 font-barlow text-[2rem] leading-none text-foreground">
+            <div className="pl-5">
+              <dt className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+                {t("Czas", "Lead time")}
+              </dt>
+              <dd className="mt-2 font-mono text-[1.35rem] font-semibold leading-none tabular-nums text-foreground">
                 {t(activeService.leadTime.pl, activeService.leadTime.en)}
-              </p>
+              </dd>
             </div>
-          </div>
-        </div>
+          </dl>
+        </aside>
       </div>
     </section>
   );

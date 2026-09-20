@@ -13,10 +13,10 @@ const CookieBanner = () => {
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <span className="eyebrow">{t("Prywatność i cookies", "Privacy and cookies")}</span>
-            <h3 className="mt-3 font-barlow text-[2rem] leading-none text-foreground sm:text-[2.35rem]">
+            <h3 className="mt-3 font-display text-[2rem] font-semibold leading-none text-foreground sm:text-[2.35rem]">
               {t("Treści zewnętrzne uruchamiamy tylko po zgodzie.", "External content loads only after consent.")}
             </h3>
-            <p className="mt-3 font-inter text-[0.94rem] leading-7 text-muted-foreground">
+            <p className="mt-3 font-body text-[0.94rem] leading-7 text-muted-foreground">
               {t(
                 "Niezbędne pliki cookie odpowiadają za działanie strony. Google Maps i inne treści zewnętrzne ładujemy dopiero wtedy, gdy wyrazisz na to zgodę.",
                 "Essential cookies keep the site working. Google Maps and other external content are only loaded after you explicitly allow them."

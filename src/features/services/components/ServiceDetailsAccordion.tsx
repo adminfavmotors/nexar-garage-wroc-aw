@@ -19,14 +19,19 @@ const ServiceDetailsAccordion = ({
   return (
     <section ref={detailsRef} className="section-block border-b border-border/80">
       <div className="site-shell">
-        <div className="section-intro mx-auto max-w-3xl text-center">
-          <span className="eyebrow mx-auto">{t("Szczegóły usług", "Service details")}</span>
-          <h2 className="section-title text-balance">
-            {t("Zakres, korzyści i ceny w jednej uporządkowanej warstwie.", "Scope, benefits and pricing in one structured layer.")}
-          </h2>
-          <div className="mx-auto w-full max-w-[14rem]">
-            <div className="accent-rule" />
+        <div className="editorial-grid items-end">
+          <div>
+            <span className="eyebrow">{t("Szczegóły usług", "Service details")}</span>
+            <h2 className="section-title text-balance mt-5 max-w-[11ch]">
+              {t("Co dokładnie obejmuje każda usługa.", "What each service includes.")}
+            </h2>
           </div>
+          <p className="section-copy measure-copy-wide">
+            {t(
+              "Rozwiń wybraną pozycję, aby sprawdzić zakres diagnostyki lub naprawy, przewidywany czas oraz najważniejsze korzyści.",
+              "Open a service to review the diagnostic or repair scope, estimated lead time and key benefits."
+            )}
+          </p>
         </div>
 
         <Accordion
@@ -38,70 +43,79 @@ const ServiceDetailsAccordion = ({
               onChangeActiveSlug(value);
             }
           }}
-          className="surface-panel mt-10 overflow-hidden"
+          className="mt-10 border-y border-border"
         >
           {servicePages.map((service) => (
             <AccordionItem key={service.slug} value={service.slug} id={service.slug} className="border-b border-border/80 last:border-b-0">
-              <AccordionTrigger className="px-5 py-5 text-left hover:no-underline sm:px-8 sm:py-6">
-                <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-5">
-                  <span className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+              <AccordionTrigger className="min-h-[5.5rem] px-3 py-5 text-left hover:bg-[hsl(var(--surface))] hover:no-underline focus-visible:bg-[hsl(var(--surface))] sm:px-5 sm:py-6">
+                <div className="flex min-w-0 flex-1 flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-5">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-primary">
                     {service.num}
                   </span>
-                  <span className="section-title-compact">
+                  <span className="section-title-compact text-[1.8rem] sm:text-[2.15rem]">
                     {t(service.title.pl, service.title.en)}
+                  </span>
+                  <span className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground sm:ml-auto sm:pr-5">
+                    {t(service.price.pl, service.price.en)}
                   </span>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="px-5 pb-5 sm:px-8 sm:pb-8">
-                <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
-                  <div>
+              <AccordionContent className="border-t border-border px-3 pb-7 pt-7 sm:px-5 sm:pb-9 sm:pt-8">
+                <div className="grid gap-9 lg:grid-cols-[minmax(0,1.08fr)_minmax(19rem,0.72fr)] lg:gap-12">
+                  <div className="min-w-0">
                     <p className="body-relaxed measure-copy-wide">
                       {t(service.heroSummary.pl, service.heroSummary.en)}
                     </p>
-                    <div className="mt-6 grid gap-3">
+                    <h3 className="mt-7 font-mono text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+                      {t("Zakres prac", "Scope of work")}
+                    </h3>
+                    <ol className="mt-4 border-y border-border">
                       {service.scopeItems.map((item, index) => (
-                        <div key={item.pl} className="surface-panel-soft flex items-start gap-4 px-4 py-4">
-                          <span className="font-barlow text-[1.45rem] leading-none text-primary">0{index + 1}</span>
-                          <p className="font-inter text-[0.94rem] leading-7 text-foreground/90">
+                        <li key={item.pl} className="flex items-start gap-4 border-b border-border py-4 last:border-b-0">
+                          <span className="pt-1 font-mono text-xs font-semibold text-primary">0{index + 1}</span>
+                          <p className="font-body text-[0.94rem] leading-7 text-foreground/90">
                             {t(item.pl, item.en)}
                           </p>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ol>
                   </div>
 
-                  <div className="grid gap-4">
-                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-                      <div className="surface-panel-soft p-5">
-                        <p className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  <div className="border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+                    <dl className="grid grid-cols-2 divide-x divide-border border-b border-border pb-6">
+                      <div className="pr-5">
+                        <dt className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
                           {t("Cena orientacyjna", "Estimated pricing")}
-                        </p>
-                        <p className="mt-2 font-barlow text-[2rem] leading-none text-primary">
+                        </dt>
+                        <dd className="mt-2 font-mono text-[1.35rem] font-semibold leading-none tabular-nums text-primary">
                           {t(service.price.pl, service.price.en)}
-                        </p>
+                        </dd>
                       </div>
-                      <div className="surface-panel-soft p-5">
-                        <p className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      <div className="pl-5">
+                        <dt className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
                           {t("Czas realizacji", "Lead time")}
-                        </p>
-                        <p className="mt-2 font-barlow text-[2rem] leading-none text-foreground">
+                        </dt>
+                        <dd className="mt-2 font-mono text-[1.35rem] font-semibold leading-none tabular-nums text-foreground">
                           {t(service.leadTime.pl, service.leadTime.en)}
-                        </p>
+                        </dd>
                       </div>
-                    </div>
+                    </dl>
 
-                    <div className="grid gap-3">
+                    <h3 className="mt-6 font-mono text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+                      {t("Dlaczego warto", "Why it helps")}
+                    </h3>
+                    <ol className="mt-3">
                       {service.benefitItems.map((item, index) => (
-                        <div key={item.pl} className="surface-panel-soft px-4 py-5">
-                          <p className="font-inter text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                        <li key={item.pl} className="border-b border-border py-4 last:border-b-0">
+                          <p className="font-mono text-xs font-semibold text-primary">
                             0{index + 1}
                           </p>
-                          <p className="mt-3 font-inter text-[0.94rem] leading-7 text-foreground/90">
+                          <p className="mt-2 font-body text-[0.94rem] leading-7 text-foreground/90">
                             {t(item.pl, item.en)}
                           </p>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ol>
                   </div>
                 </div>
               </AccordionContent>

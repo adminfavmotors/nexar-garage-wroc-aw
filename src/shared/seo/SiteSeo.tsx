@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { siteUrl } from "@/features/services/seo";
+import { useLang } from "@/features/language";
 
 const defaultImage = `${siteUrl}/og-image.jpg`;
 
@@ -26,8 +27,12 @@ const SiteSeo = ({
   ogImage = defaultImage,
   schema = [],
 }: SiteSeoProps) => {
+  const { lang } = useLang();
+  const htmlLang = lang === "PL" ? "pl" : "en";
+  const ogLocale = lang === "PL" ? "pl_PL" : "en_GB";
+
   return (
-    <Helmet htmlAttributes={{ lang: "pl" }}>
+    <Helmet htmlAttributes={{ lang: htmlLang }}>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,7 +47,8 @@ const SiteSeo = ({
       <meta property="og:description" content={ogDescription ?? description} />
       {canonical && <meta property="og:url" content={canonical} />}
       <meta property="og:image" content={ogImage} />
-      <meta property="og:locale" content="pl_PL" />
+      <meta property="og:locale" content={ogLocale} />
+      <meta property="og:locale:alternate" content={lang === "PL" ? "en_GB" : "pl_PL"} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={ogTitle ?? title} />

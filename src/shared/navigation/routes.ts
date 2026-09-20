@@ -7,7 +7,8 @@ export const appRoutes = {
 export const homeSectionIds = {
   about: "o-nas",
   booking: "rezerwacja",
-  reviews: "opinie",
+  contact: "kontakt",
+  standard: "standard",
 } as const;
 
 export const getHomeSectionPath = (sectionId: string) => `${appRoutes.home}#${sectionId}`;

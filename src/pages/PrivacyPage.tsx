@@ -9,73 +9,78 @@ const PrivacyPage = () => {
   return (
     <SitePage
       seo={{
-        title: "RODO i Cookies | Nexar Garage WrocÄąâ€šaw",
-        description:
-          "Informacje o ochronie danych osobowych, zasadach przetwarzania danych i plikach cookie w Nexar Garage.",
+        title: t(
+          "RODO i cookies | Nexar Garage Wrocław",
+          "Privacy and cookies | Nexar Garage Wroclaw",
+        ),
+        description: t(
+          "Informacje o ochronie danych osobowych, przetwarzaniu danych i plikach cookie w Nexar Garage.",
+          "Information about personal data processing, privacy rights and cookies at Nexar Garage.",
+        ),
         canonical: "https://www.nexargarage.pl/rodo-cookies",
         robots: "noindex, follow",
-        ogTitle: "RODO i Cookies | Nexar Garage",
+        ogTitle: t("RODO i cookies | Nexar Garage", "Privacy and cookies | Nexar Garage"),
       }}
       mainClassName="pt-20 lg:pt-24"
     >
       <section className="border-b border-border pt-12 pb-14 lg:pt-16 lg:pb-20">
         <div className="container mx-auto max-w-5xl px-6">
-          <p className="font-inter text-[12px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
             RODO / COOKIES
           </p>
-          <h1 className="mt-4 font-barlow text-5xl font-extrabold uppercase leading-none text-foreground sm:text-[72px]">
-            {t("PRYWATNOÄąĹˇĂ„â€  I PLIKI COOKIE", "PRIVACY AND COOKIES")}
+          <h1 className="mt-4 font-display text-5xl font-bold leading-[0.94] text-foreground sm:text-[72px]">
+            {t("PRYWATNOŚĆ I PLIKI COOKIE", "PRIVACY AND COOKIES")}
           </h1>
-          <p className="mt-6 max-w-3xl font-inter text-[16px] leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-3xl font-body text-base leading-relaxed text-muted-foreground">
             {t(
-              "Tutaj znajdziesz najwaÄąÄ˝niejsze informacje o przetwarzaniu danych osobowych oraz zasadach uÄąÄ˝ywania plikÄ‚Ĺ‚w cookie i treÄąâ€şci zewnĂ„â„˘trznych na stronie Nexar Garage.",
+              "Tutaj znajdziesz najważniejsze informacje o przetwarzaniu danych osobowych oraz zasadach używania plików cookie i treści zewnętrznych na stronie Nexar Garage.",
               "Here you can find the key information about personal data processing and the use of cookies and external content on the Nexar Garage website."
             )}
           </p>
 
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
             <section className="border border-border bg-surface p-8">
-              <h2 className="font-barlow text-[30px] font-bold uppercase text-foreground">
+              <h2 className="font-display text-[2rem] font-semibold leading-none text-foreground">
                 {t("Administrator danych", "Data controller")}
               </h2>
-              <p className="mt-4 font-inter text-[14px] leading-relaxed text-muted-foreground">
+              <p className="mt-4 font-body text-[0.95rem] leading-relaxed text-muted-foreground">
                 Nexar Garage Sp. z o.o.
                 <br />
-                ul. ÄąĹˇwidnicka 18, 50-068 WrocÄąâ€šaw
+                ul. Świdnicka 18, 50-068 Wrocław
                 <br />
                 kontakt@nexargarage.pl
                 <br />
                 +48 71 234 56 78
               </p>
-              <p className="mt-4 font-inter text-[14px] leading-relaxed text-muted-foreground">
+              <p className="mt-4 font-body text-[0.95rem] leading-relaxed text-muted-foreground">
                 {t(
-                  "Dane z formularza rezerwacji wykorzystujemy wyÄąâ€šĂ„â€¦cznie do kontaktu, wyceny oraz ustalenia terminu wizyty serwisowej.",
+                  "Dane z formularza rezerwacji wykorzystujemy wyłącznie do kontaktu, wyceny oraz ustalenia terminu wizyty serwisowej.",
                   "We use the booking form data only for contact, quotation and arranging your service appointment."
                 )}
               </p>
             </section>
 
             <section className="border border-border bg-surface p-8">
-              <h2 className="font-barlow text-[30px] font-bold uppercase text-foreground">
+              <h2 className="font-display text-[2rem] font-semibold leading-none text-foreground">
                 {t("Pliki cookie", "Cookies")}
               </h2>
-              <p className="mt-4 font-inter text-[14px] leading-relaxed text-muted-foreground">
+              <p className="mt-4 font-body text-[0.95rem] leading-relaxed text-muted-foreground">
                 {t(
-                  "Strona uÄąÄ˝ywa niezbĂ„â„˘dnych plikÄ‚Ĺ‚w cookie do poprawnego dziaÄąâ€šania. TreÄąâ€şci zewnĂ„â„˘trzne, takie jak Google Maps, uruchamiamy dopiero po zaakceptowaniu dodatkowych cookie.",
+                  "Strona używa niezbędnych plików cookie do poprawnego działania. Treści zewnętrzne, takie jak Google Maps, uruchamiamy dopiero po zaakceptowaniu dodatkowych cookie.",
                   "The site uses essential cookies for core functionality. External content such as Google Maps is loaded only after accepting additional cookies."
                 )}
               </p>
-              <p className="mt-4 font-inter text-[14px] leading-relaxed text-muted-foreground">
+              <p className="mt-4 font-body text-[0.95rem] leading-relaxed text-muted-foreground">
                 {consent === "all"
                   ? t("Aktualny status zgody: zaakceptowano wszystkie pliki cookie.", "Current consent status: all cookies accepted.")
                   : consent === "essential"
-                    ? t("Aktualny status zgody: tylko pliki niezbĂ„â„˘dne.", "Current consent status: essential cookies only.")
-                    : t("Aktualny status zgody: oczekuje na decyzjĂ„â„˘ uÄąÄ˝ytkownika.", "Current consent status: awaiting user decision.")}
+                    ? t("Aktualny status zgody: tylko pliki niezbędne.", "Current consent status: essential cookies only.")
+                    : t("Aktualny status zgody: oczekuje na decyzję użytkownika.", "Current consent status: awaiting user decision.")}
               </p>
               <button
                 type="button"
                 onClick={openSettings}
-                className="mt-6 border border-border px-5 py-3 font-barlow text-[13px] font-bold uppercase tracking-[0.16em] text-foreground transition-all duration-300 hover:bg-elevated"
+                className="mt-6 border border-border px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.1em] text-foreground transition-colors duration-200 hover:bg-surface"
               >
                 {t("USTAWIENIA COOKIE", "COOKIE SETTINGS")}
               </button>
@@ -83,12 +88,12 @@ const PrivacyPage = () => {
           </div>
 
           <section className="mt-8 border border-border bg-surface p-8">
-            <h2 className="font-barlow text-[30px] font-bold uppercase text-foreground">
+            <h2 className="font-display text-[2rem] font-semibold leading-none text-foreground">
               {t("Twoje prawa", "Your rights")}
             </h2>
-            <p className="mt-4 font-inter text-[14px] leading-relaxed text-muted-foreground">
+            <p className="mt-4 font-body text-[0.95rem] leading-relaxed text-muted-foreground">
               {t(
-                "Masz prawo do dostĂ„â„˘pu do swoich danych, ich sprostowania, ograniczenia przetwarzania, usuniĂ„â„˘cia oraz kontaktu w sprawie obsÄąâ€šugi zgÄąâ€šoszenia. W sprawach dotyczĂ„â€¦cych danych osobowych moÄąÄ˝esz pisaĂ„â€ˇ na adres kontakt@nexargarage.pl.",
+                "Masz prawo do dostępu do swoich danych, ich sprostowania, ograniczenia przetwarzania, usunięcia oraz kontaktu w sprawie obsługi zgłoszenia. W sprawach dotyczących danych osobowych możesz pisać na adres kontakt@nexargarage.pl.",
                 "You have the right to access, rectify, restrict processing or delete your data, and to contact us regarding your service request. For privacy matters you can write to kontakt@nexargarage.pl."
               )}
             </p>

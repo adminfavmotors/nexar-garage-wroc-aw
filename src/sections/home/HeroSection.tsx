@@ -1,6 +1,5 @@
 import { appRoutes, getHomeSectionPath, homeSectionIds, RouteLink } from "@/shared/navigation";
 import { useLang } from "@/features/language";
-import { useScrollReveal } from "@/shared/hooks/useScrollReveal";
 
 const heroBenefits = [
   {
@@ -17,30 +16,29 @@ const heroBenefits = [
   },
 ];
 
-const heroMetrics = [
-  { value: "15+", labelPl: "lat doświadczenia", labelEn: "years of experience" },
-  { value: "48h", labelPl: "średni czas realizacji", labelEn: "average turnaround" },
-  { value: "6", labelPl: "głównych usług", labelEn: "core services" },
-];
-
-const heroServiceHighlights = [
+const heroStandards = [
   {
-    pl: "Diagnostyka komputerowa i elektryka",
-    en: "Computer diagnostics and auto electrics",
+    valuePl: "Diagnoza",
+    valueEn: "Diagnosis",
+    labelPl: "przed decyzją o naprawie",
+    labelEn: "before the repair decision",
   },
   {
-    pl: "Naprawy mechaniczne i serwis bieżący",
-    en: "Mechanical repairs and routine service",
+    valuePl: "Wycena",
+    valueEn: "Estimate",
+    labelPl: "przed rozpoczęciem prac",
+    labelEn: "before any work starts",
   },
   {
-    pl: "Klimatyzacja, opony i geometria kół",
-    en: "Air conditioning, tyres and wheel alignment",
+    valuePl: "PL / EN",
+    valueEn: "PL / EN",
+    labelPl: "obsługa w dwóch językach",
+    labelEn: "support in two languages",
   },
 ];
 
 const HeroSection = () => {
   const { lang, t } = useLang();
-  const ref = useScrollReveal();
 
   return (
     <section
@@ -49,20 +47,20 @@ const HeroSection = () => {
     >
       <div className="site-shell pb-10 sm:pb-12 lg:pb-16">
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:items-end lg:gap-8">
-          <div ref={ref} className="py-4 sm:py-6">
+          <div className="hero-enter py-4 sm:py-6">
             <span className="eyebrow">Wrocław • est. 2009</span>
 
             <h1 className="hero-title text-balance mt-6 max-w-[11ch]">
-              <span className="block">Profesjonalny</span>
-              <span className="block text-accent">serwis</span>
-              <span className="block">samochodowy</span>
-              <span className="block text-foreground/62">we Wrocławiu</span>
+              <span className="block">{t("Profesjonalny", "Professional")}</span>
+              <span className="block text-accent">{t("serwis", "car")}</span>
+              <span className="block">{t("samochodowy", "service")}</span>
+              <span className="block text-foreground/62">{t("we Wrocławiu", "in Wroclaw")}</span>
             </h1>
 
             <p className="section-copy measure-copy mt-6 sm:text-[1.08rem]">
               {t(
-                "Diagnostyka, naprawy, klimatyzacja i serwis opon w miejscu, które ma wyglądać spokojnie, działać precyzyjnie i dawać klientowi jasny obraz kosztów.",
-                "Diagnostics, repairs, air conditioning and tyre service in a workshop that feels calm, works precisely and gives the customer a clear picture of the cost."
+                "Diagnostyka, naprawy, klimatyzacja i serwis opon. Najpierw sprawdzamy przyczynę, potem przedstawiamy zakres i koszt prac.",
+                "Diagnostics, repairs, air conditioning and tyre service. First we identify the cause, then we present the scope and cost of the work."
               )}
             </p>
 
@@ -85,17 +83,20 @@ const HeroSection = () => {
               </RouteLink>
             </div>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {heroBenefits.map((benefit) => (
-                <div key={benefit.en} className="trust-chip">
-                  {lang === "PL" ? benefit.pl : benefit.en}
+            <div className="mt-8 grid border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
+              {heroBenefits.map((benefit, index) => (
+                <div key={benefit.en} className="flex items-start gap-3 border-b border-border py-4 last:border-b-0 sm:border-b-0 sm:px-4 sm:first:pl-0 sm:last:pr-0">
+                  <span className="font-mono text-xs font-semibold text-primary">0{index + 1}</span>
+                  <p className="body-fine text-foreground/88">
+                    {lang === "PL" ? benefit.pl : benefit.en}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="grid gap-4 lg:pb-1">
-            <div className="surface-panel-strong p-5 sm:p-6">
+          <div className="hero-enter hero-enter-delay lg:pb-1">
+            <div className="border-y border-border py-6 sm:py-8 lg:border-l lg:border-y-0 lg:py-2 lg:pl-8">
               <span className="eyebrow">
                 {t("Jak pracujemy", "How we work")}
               </span>
@@ -106,48 +107,24 @@ const HeroSection = () => {
 
               <p className="body-relaxed mt-4">
                 {t(
-                  "Nie dokładamy kolejnych warstw komplikacji. Najpierw diagnoza, potem zakres prac, a dopiero na końcu decyzja o naprawie.",
-                  "We do not add more layers of complication. First the diagnosis, then the scope of work, and only then the repair decision."
+                  "Każde zlecenie zaczynamy od diagnozy. Naprawę rozpoczynamy dopiero po uzgodnieniu zakresu, części i orientacyjnego kosztu.",
+                  "Every job starts with a diagnosis. Repairs begin only after the scope, parts and estimated cost have been agreed."
                 )}
               </p>
 
-              <div className="divider-hairline mt-6 pt-6">
-                <div className="grid gap-3 sm:grid-cols-3">
-                  {heroMetrics.map((metric) => (
-                    <div key={metric.labelEn} className="stat-chip">
-                      <span className="stat-chip-value">{metric.value}</span>
+              <div className="mt-8 border-t border-border pt-6">
+                <div className="grid gap-5 sm:grid-cols-3">
+                  {heroStandards.map((standard) => (
+                    <div key={standard.labelEn}>
+                      <span className="font-display text-[1.6rem] font-semibold leading-none text-foreground">
+                        {lang === "PL" ? standard.valuePl : standard.valueEn}
+                      </span>
                       <span className="stat-chip-label">
-                        {lang === "PL" ? metric.labelPl : metric.labelEn}
+                        {lang === "PL" ? standard.labelPl : standard.labelEn}
                       </span>
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-
-            <div className="surface-panel p-5 sm:p-6">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="section-accent">
-                    {t("Zakres usług", "Service scope")}
-                  </p>
-                  <p className="section-title-compact mt-3 max-w-[10ch]">
-                    {t("Od diagnostyki po odbiór auta", "From diagnosis to handoff")}
-                  </p>
-                </div>
-                <span className="rounded-full border border-[hsl(var(--primary)/0.32)] px-3 py-1 font-inter text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
-                  PL / EN
-                </span>
-              </div>
-
-              <div className="mt-6 grid gap-3">
-                {heroServiceHighlights.map((item) => (
-                  <div key={item.en} className="surface-panel-soft px-4 py-4">
-                    <p className="font-inter text-[14px] leading-[1.6] text-foreground/88">
-                      {lang === "PL" ? item.pl : item.en}
-                    </p>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
