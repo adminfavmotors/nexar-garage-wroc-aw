@@ -54,7 +54,7 @@ const HeroSection = () => {
               <span className="block">{t("Profesjonalny", "Professional")}</span>
               <span className="block text-accent">{t("serwis", "car")}</span>
               <span className="block">{t("samochodowy", "service")}</span>
-              <span className="block text-foreground/62">{t("we Wrocławiu", "in Wroclaw")}</span>
+              <span className="block text-muted-foreground">{t("we Wrocławiu", "in Wroclaw")}</span>
             </h1>
 
             <p className="section-copy measure-copy mt-6 sm:text-[1.08rem]">
@@ -87,7 +87,7 @@ const HeroSection = () => {
               {heroBenefits.map((benefit, index) => (
                 <div key={benefit.en} className="flex items-start gap-3 border-b border-border py-4 last:border-b-0 sm:border-b-0 sm:px-4 sm:first:pl-0 sm:last:pr-0">
                   <span className="font-mono text-xs font-semibold text-primary">0{index + 1}</span>
-                  <p className="body-fine text-foreground/88">
+                  <p className="body-fine">
                     {lang === "PL" ? benefit.pl : benefit.en}
                   </p>
                 </div>

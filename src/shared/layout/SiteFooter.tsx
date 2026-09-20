@@ -14,13 +14,13 @@ const SiteFooter = () => {
   const { lang, t } = useLang();
 
   return (
-    <footer className="border-t border-border/80 py-10 sm:py-12 lg:py-14">
+    <footer className="border-t border-border bg-surface py-10 sm:py-12 lg:py-14">
       <div className="site-shell">
         <div className="surface-panel-soft grid gap-8 px-6 py-8 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
           <div className="grid gap-4">
             <span className="eyebrow">{t("Nexar Garage", "Nexar Garage")}</span>
             <div className="flex items-center gap-3 font-display">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border bg-background/60 text-[1.2rem] font-semibold text-foreground">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border bg-background text-[1.2rem] font-semibold text-foreground">
                 NG
               </span>
               <div>
@@ -56,7 +56,7 @@ const SiteFooter = () => {
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col gap-2 border-t border-border/70 pt-5 text-[0.78rem] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col gap-2 border-t border-border pt-5 text-[0.78rem] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p className="font-body">© 2025 Nexar Garage Sp. z o.o.</p>
           <p className="font-mono tabular-nums">NIP: 8992345678</p>
         </div>

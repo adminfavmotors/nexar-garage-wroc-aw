@@ -64,7 +64,7 @@ const ServiceStandardSection = () => {
     verifiedEvidence.warranty !== null;
 
   return (
-    <section id="standard" className="section-block border-b border-border/80">
+    <section id="standard" className="section-block border-b border-border">
       <div className="site-shell">
         <div className="editorial-grid items-end">
           <div>
@@ -144,7 +144,7 @@ const ServiceStandardSection = () => {
                 <div className="border-y border-border">
                   {verifiedEvidence.reviews.map((review) => (
                     <article key={`${review.author}-${review.sourceUrl}`} className="border-b border-border py-6 last:border-b-0">
-                      <blockquote className="font-body text-[1rem] leading-8 text-foreground/88">
+                      <blockquote className="font-body text-[1rem] leading-8 text-muted-foreground">
                         “{t(review.quote.pl, review.quote.en)}”
                       </blockquote>
                       <div className="mt-4 flex flex-wrap items-center justify-between gap-3">

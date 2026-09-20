@@ -11,7 +11,7 @@ const ServicesGrid = ({ activeSlug, onOpenService }: ServicesGridProps) => {
   const { t } = useLang();
 
   return (
-    <section id="uslugi" className="section-block border-b border-border/80">
+    <section id="uslugi" className="section-block border-b border-border">
       <div className="site-shell">
         <div className="editorial-grid items-end">
           <div>

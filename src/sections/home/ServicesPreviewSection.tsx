@@ -62,7 +62,7 @@ const FeaturedServiceCard = ({
         {service.scopeItems.slice(0, 3).map((item, index) => (
           <div key={item.en} className="flex gap-3 border-b border-border py-4 last:border-b-0 sm:border-b-0 sm:px-5 sm:first:pl-0 sm:last:pr-0">
             <span className="font-mono text-xs text-primary">0{index + 1}</span>
-            <p className="body-fine text-foreground/84">
+            <p className="body-fine">
               {lang === "PL" ? item.pl : item.en}
             </p>
           </div>

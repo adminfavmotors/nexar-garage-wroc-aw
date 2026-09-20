@@ -17,7 +17,7 @@ const ServiceDetailsAccordion = ({
   const { t } = useLang();
 
   return (
-    <section ref={detailsRef} className="section-block border-b border-border/80">
+    <section ref={detailsRef} className="section-block border-b border-border">
       <div className="site-shell">
         <div className="editorial-grid items-end">
           <div>
@@ -46,7 +46,7 @@ const ServiceDetailsAccordion = ({
           className="mt-10 border-y border-border"
         >
           {servicePages.map((service) => (
-            <AccordionItem key={service.slug} value={service.slug} id={service.slug} className="border-b border-border/80 last:border-b-0">
+            <AccordionItem key={service.slug} value={service.slug} id={service.slug} className="border-b border-border last:border-b-0">
               <AccordionTrigger className="min-h-[5.5rem] px-3 py-5 text-left hover:bg-[hsl(var(--surface))] hover:no-underline focus-visible:bg-[hsl(var(--surface))] sm:px-5 sm:py-6">
                 <div className="flex min-w-0 flex-1 flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-5">
                   <span className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-primary">
@@ -73,7 +73,7 @@ const ServiceDetailsAccordion = ({
                       {service.scopeItems.map((item, index) => (
                         <li key={item.pl} className="flex items-start gap-4 border-b border-border py-4 last:border-b-0">
                           <span className="pt-1 font-mono text-xs font-semibold text-primary">0{index + 1}</span>
-                          <p className="font-body text-[0.94rem] leading-7 text-foreground/90">
+                          <p className="font-body text-[0.94rem] leading-7 text-muted-foreground">
                             {t(item.pl, item.en)}
                           </p>
                         </li>
@@ -110,7 +110,7 @@ const ServiceDetailsAccordion = ({
                           <p className="font-mono text-xs font-semibold text-primary">
                             0{index + 1}
                           </p>
-                          <p className="mt-2 font-body text-[0.94rem] leading-7 text-foreground/90">
+                          <p className="mt-2 font-body text-[0.94rem] leading-7 text-muted-foreground">
                             {t(item.pl, item.en)}
                           </p>
                         </li>

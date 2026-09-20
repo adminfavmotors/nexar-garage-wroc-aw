@@ -17,7 +17,7 @@ const SiteHeader = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="site-shell pt-3 sm:pt-4">
-        <div className="flex min-h-[72px] items-center justify-between rounded-[var(--radius)] border border-border bg-[hsl(var(--background)/0.96)] px-4 sm:min-h-[84px] sm:px-6 lg:px-7">
+        <div className="flex min-h-[72px] items-center justify-between rounded-[var(--radius)] border border-border bg-background px-4 shadow-[0_10px_30px_rgba(15,23,42,0.06)] sm:min-h-[84px] sm:px-6 lg:px-7">
           <RouteLink
             to={appRoutes.home}
             onClick={() => setMobileOpen(false)}

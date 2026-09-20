@@ -35,7 +35,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="kontakt" className="section-block border-b border-border/80">
+    <section id="kontakt" className="section-block border-b border-border">
       <div className="site-shell editorial-grid">
         <div className="section-stack">
           <div className="section-intro">
@@ -66,7 +66,7 @@ const ContactSection = () => {
                   <p className="section-accent">
                     {row.label}
                   </p>
-                  <p className="body-relaxed mt-2 text-foreground/84">{row.text}</p>
+                  <p className="body-relaxed mt-2">{row.text}</p>
                 </div>
               </div>
             ))}

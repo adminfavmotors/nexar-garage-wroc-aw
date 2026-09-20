@@ -99,21 +99,21 @@
     font-family: var(--font-body);
     font-size: 1.02rem;
     line-height: 1.82;
-    color: hsl(var(--foreground) / 0.82);
+    color: hsl(var(--muted-foreground));
   }
 
   .body-relaxed {
     font-family: var(--font-body);
     font-size: 0.98rem;
     line-height: 1.78;
-    color: hsl(var(--foreground) / 0.78);
+    color: hsl(var(--muted-foreground));
   }
 
   .body-fine {
     font-family: var(--font-body);
     font-size: 0.92rem;
     line-height: 1.72;
-    color: hsl(var(--foreground) / 0.74);
+    color: hsl(var(--muted-foreground));
   }
 
   .section-accent {
@@ -125,7 +125,7 @@
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: hsl(var(--foreground) / 0.64);
+    color: hsl(var(--muted-foreground));
   }
 
   .section-accent::before {
@@ -187,7 +187,7 @@
   .field-input {
     width: 100%;
     border: 1px solid hsl(var(--input));
-    background: hsl(var(--surface-raised));
+    background: hsl(var(--background));
     border-radius: calc(var(--radius) - 0.125rem);
     padding: 0.95rem 1rem;
     font-family: var(--font-body);
@@ -201,7 +201,8 @@
   }
 
   .field-input::placeholder {
-    color: hsl(var(--muted-foreground) / 0.9);
+    color: hsl(var(--muted-foreground));
+    opacity: 0.82;
   }
 
   .field-input:hover {
@@ -218,7 +219,7 @@
     font-family: var(--font-body);
     font-size: 0.82rem;
     line-height: 1.65;
-    color: hsl(var(--foreground) / 0.74);
+    color: hsl(var(--muted-foreground));
   }
 
   .premium-button-primary {
@@ -246,9 +247,9 @@
   }
 
   .premium-button-primary:hover {
-    border-color: hsl(var(--foreground));
-    background: hsl(var(--foreground));
-    color: hsl(var(--background));
+    border-color: hsl(var(--primary-hover));
+    background: hsl(var(--primary-hover));
+    color: hsl(var(--primary-foreground));
   }
 
   .premium-button-primary:active {
@@ -289,7 +290,7 @@
 
   .premium-button-secondary:hover {
     border-color: hsl(var(--primary));
-    background: hsl(var(--surface-raised));
+    background: hsl(var(--surface));
     color: hsl(var(--primary));
   }
 
@@ -355,7 +356,7 @@
     font-size: 0.78rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: hsl(var(--foreground) / 0.72);
+    color: hsl(var(--muted-foreground));
   }
 
   .service-directory-row {

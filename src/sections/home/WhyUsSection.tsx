@@ -39,7 +39,7 @@ const WhyUsSection = () => {
   const reasons = lang === "PL" ? reasonsPl : reasonsEn;
 
   return (
-    <section id="o-nas" className="section-block border-b border-border/80">
+    <section id="o-nas" className="section-block border-b border-border">
       <div className="site-shell">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
           <div className="section-intro lg:sticky lg:top-32 lg:self-start">
@@ -64,7 +64,7 @@ const WhyUsSection = () => {
             {reasons.map((reason, index) => (
               <li key={reason} className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-4 border-b border-border py-6 last:border-b-0 sm:py-7">
                 <span className="font-mono text-sm font-semibold text-primary">0{index + 1}</span>
-                <p className="font-body text-[1rem] leading-7 text-foreground/90 sm:text-[1.05rem]">{reason}</p>
+                <p className="font-body text-[1rem] leading-7 text-muted-foreground sm:text-[1.05rem]">{reason}</p>
               </li>
             ))}
           </ol>
@@ -83,7 +83,7 @@ const WhyUsSection = () => {
                   <p className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
                     {t(item.label.pl, item.label.en)}
                   </p>
-                  <p className="body-relaxed mt-2 text-foreground/88">
+                  <p className="body-relaxed mt-2">
                     {t(item.value.pl, item.value.en)}
                   </p>
                 </div>

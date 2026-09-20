@@ -127,7 +127,7 @@ const BookingSection = () => {
 
   if (submitted) {
     return (
-      <section id="rezerwacja" className="section-block border-b border-border/80">
+      <section id="rezerwacja" className="section-block border-b border-border">
         <div className="site-shell">
           <div
             role="status"
@@ -154,7 +154,7 @@ const BookingSection = () => {
   }
 
   return (
-    <section id="rezerwacja" className="section-block border-b border-border/80">
+    <section id="rezerwacja" className="section-block border-b border-border">
       <div className="site-shell editorial-grid">
         <div className="section-stack">
           <div className="section-intro">
@@ -181,7 +181,7 @@ const BookingSection = () => {
           <div className="grid border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
             <div className="border-b border-border py-5 sm:border-b-0 sm:pr-5">
               <p className="font-mono text-sm font-semibold text-primary">01</p>
-              <p className="body-relaxed mt-2 text-foreground/84">
+              <p className="body-relaxed mt-2">
                 {t(
                   "Wysyłasz zgłoszenie z podstawowym zakresem naprawy.",
                   "You send the request with the basic repair scope.",
@@ -190,7 +190,7 @@ const BookingSection = () => {
             </div>
             <div className="border-b border-border py-5 sm:border-b-0 sm:px-5">
               <p className="font-mono text-sm font-semibold text-primary">02</p>
-              <p className="body-relaxed mt-2 text-foreground/84">
+              <p className="body-relaxed mt-2">
                 {t(
                   "Potwierdzamy termin i doprecyzowujemy szczegóły telefonicznie.",
                   "We confirm the date and clarify details by phone.",
@@ -199,7 +199,7 @@ const BookingSection = () => {
             </div>
             <div className="py-5 sm:pl-5">
               <p className="font-mono text-sm font-semibold text-primary">03</p>
-              <p className="body-relaxed mt-2 text-foreground/84">
+              <p className="body-relaxed mt-2">
                 {t(
                   "Auto trafia do serwisu z jasnym zakresem i przewidywalnym przebiegiem.",
                   "Your car arrives with a clear scope and a predictable service flow.",

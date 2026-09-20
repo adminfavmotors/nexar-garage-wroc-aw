@@ -1,7 +1,7 @@
 @layer base {
   :root {
-    --background: 60 3% 6%;
-    --foreground: 45 22% 93%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
     --shell-max-laptop: 74rem;
     --shell-max-desktop: 82rem;
@@ -18,8 +18,8 @@
     --font-body: 'IBM Plex Sans', system-ui, sans-serif;
     --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
 
-    --surface: 60 2% 9%;
-    --surface-raised: 45 3% 13%;
+    --surface: 210 40% 98%;
+    --surface-raised: 0 0% 100%;
 
     --card: var(--surface);
     --card-foreground: var(--foreground);
@@ -27,23 +27,24 @@
     --popover: var(--surface-raised);
     --popover-foreground: var(--foreground);
 
-    --primary: 13 66% 51%;
-    --primary-foreground: var(--background);
+    --primary: 224 76% 48%;
+    --primary-hover: 226 71% 40%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: var(--surface-raised);
     --secondary-foreground: var(--foreground);
 
     --muted: var(--surface-raised);
-    --muted-foreground: 45 4% 63%;
+    --muted-foreground: 215 25% 27%;
 
     --accent: var(--primary);
-    --accent-foreground: var(--background);
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 56%;
+    --destructive: 0 72% 42%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 48 5% 19%;
-    --input: 45 4% 34%;
+    --border: 214 32% 91%;
+    --input: 215 16% 47%;
     --ring: var(--primary);
 
     --radius: 0.625rem;
