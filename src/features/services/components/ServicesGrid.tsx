@@ -13,19 +13,20 @@ const ServicesGrid = ({ activeSlug, onOpenService }: ServicesGridProps) => {
   return (
     <section id="uslugi" className="section-block border-b border-border">
       <div className="site-shell">
-        <div className="editorial-grid">
-          <div>
-            <span className="eyebrow">{t("Zakres usług", "Service range")}</span>
-            <h2 className="section-title text-balance mt-5 max-w-[11ch]">
-              {t("Wybierz usługę i sprawdź zakres prac.", "Choose a service and review the scope.")}
-            </h2>
-          </div>
+        <div className="section-intro max-w-[64rem]">
+          <span className="eyebrow">{t("Zakres usług", "Service range")}</span>
+          <h2 className="section-title text-balance max-w-[15ch]">
+            {t("Wybierz usługę i sprawdź zakres prac.", "Choose a service and review the scope.")}
+          </h2>
           <p className="section-copy measure-copy-wide">
             {t(
               "Ceny mają charakter orientacyjny. Po wybraniu pozycji zobaczysz, co obejmuje usługa, ile zwykle trwa i jakie objawy warto zgłosić przy rezerwacji.",
               "Prices are estimates. Select an item to see what the service includes, how long it usually takes and which symptoms to mention when booking."
             )}
           </p>
+          <div className="max-w-[16rem]">
+            <div className="accent-rule" />
+          </div>
         </div>
 
         <div className="mt-8 border-y border-border">

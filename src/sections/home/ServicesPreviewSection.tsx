@@ -113,24 +113,19 @@ const ServicesPreviewSection = () => {
   return (
     <section id="uslugi" className="section-block section-muted border-b border-border">
       <div className="site-shell">
-        <div className="section-intro lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] lg:gap-10">
-          <div>
-            <span className="eyebrow">{t("Nasze usługi", "Our services")}</span>
-            <h2 className="section-title mt-5 max-w-[11ch]">
-              {t("Pełny zakres usług w jednym warsztacie", "Complete service under one roof")}
-            </h2>
-            <div className="mt-5 max-w-[15rem]">
-              <div className="accent-rule" />
-            </div>
-          </div>
-
-          <div>
-            <p className="section-copy measure-copy-wide">
-              {t(
-                "Od diagnostyki komputerowej i elektryki po mechanikę, klimatyzację, opony i geometrię. Przed rozpoczęciem prac potwierdzamy zakres oraz orientacyjny koszt.",
-                "From computer diagnostics and auto electrics to mechanical repairs, air conditioning, tyres and wheel alignment. We confirm the scope and estimated cost before work begins."
-              )}
-            </p>
+        <div className="section-intro max-w-[64rem]">
+          <span className="eyebrow">{t("Nasze usługi", "Our services")}</span>
+          <h2 className="section-title text-balance max-w-[15ch]">
+            {t("Pełny zakres usług w jednym warsztacie", "Complete service under one roof")}
+          </h2>
+          <p className="section-copy measure-copy-wide">
+            {t(
+              "Od diagnostyki komputerowej i elektryki po mechanikę, klimatyzację, opony i geometrię. Przed rozpoczęciem prac potwierdzamy zakres oraz orientacyjny koszt.",
+              "From computer diagnostics and auto electrics to mechanical repairs, air conditioning, tyres and wheel alignment. We confirm the scope and estimated cost before work begins."
+            )}
+          </p>
+          <div className="max-w-[15rem]">
+            <div className="accent-rule" />
           </div>
         </div>
 

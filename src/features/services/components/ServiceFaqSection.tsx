@@ -10,19 +10,20 @@ const ServiceFaqSection = ({ activeService }: ServiceFaqSectionProps) => {
 
   return (
     <div>
-      <div className="editorial-grid">
-        <div>
-          <span className="eyebrow">FAQ</span>
-          <h2 className="section-title-compact mt-5 max-w-[12ch]">
+      <div className="section-intro max-w-[56rem]">
+        <span className="eyebrow">FAQ</span>
+        <h2 className="section-title-compact max-w-[15ch]">
           {t("Najczęstsze pytania", "Frequently asked questions")}
-          </h2>
-        </div>
+        </h2>
         <p className="body-relaxed measure-copy-wide">
           {t(
             `Odpowiedzi dotyczą usługi: ${activeService.title.pl}. Jeśli objawy są nietypowe, opisz je w formularzu rezerwacji.`,
             `These answers cover ${activeService.title.en}. If the symptoms are unusual, describe them in the booking form.`
           )}
         </p>
+        <div className="max-w-[14rem]">
+          <div className="accent-rule" />
+        </div>
       </div>
       <div className="mt-8 border-y border-border">
         {activeService.faq.map((item, index) => (

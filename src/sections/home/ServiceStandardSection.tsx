@@ -66,23 +66,19 @@ const ServiceStandardSection = () => {
   return (
     <section id="standard" className="section-block border-b border-border">
       <div className="site-shell">
-        <div className="editorial-grid">
-          <div>
-            <span className="eyebrow">{t("Standard obsługi", "Service standard")}</span>
-            <h2 className="section-title text-balance mt-5 max-w-[12ch]">
-              {t("Możesz sprawdzić każdy etap zlecenia.", "Every stage of the job stays clear.")}
-            </h2>
-          </div>
-          <div>
-            <p className="section-copy measure-copy-wide">
-              {t(
-                "Zaufanie budujemy sposobem pracy: najpierw diagnoza, potem uzgodniony zakres i koszt, a na końcu jasne podsumowanie wykonanych czynności.",
-                "We build trust through the way we work: diagnosis first, then an agreed scope and cost, followed by a clear summary of completed work."
-              )}
-            </p>
-            <div className="mt-6 max-w-[16rem]">
-              <div className="accent-rule" />
-            </div>
+        <div className="section-intro max-w-[64rem]">
+          <span className="eyebrow">{t("Standard obsługi", "Service standard")}</span>
+          <h2 className="section-title text-balance max-w-[15ch]">
+            {t("Możesz sprawdzić każdy etap zlecenia.", "Every stage of the job stays clear.")}
+          </h2>
+          <p className="section-copy measure-copy-wide">
+            {t(
+              "Zaufanie budujemy sposobem pracy: najpierw diagnoza, potem uzgodniony zakres i koszt, a na końcu jasne podsumowanie wykonanych czynności.",
+              "We build trust through the way we work: diagnosis first, then an agreed scope and cost, followed by a clear summary of completed work."
+            )}
+          </p>
+          <div className="max-w-[16rem]">
+            <div className="accent-rule" />
           </div>
         </div>
 

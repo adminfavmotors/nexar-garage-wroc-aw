@@ -19,19 +19,20 @@ const ServiceDetailsAccordion = ({
   return (
     <section ref={detailsRef} className="section-block border-b border-border">
       <div className="site-shell">
-        <div className="editorial-grid">
-          <div>
-            <span className="eyebrow">{t("Szczegóły usług", "Service details")}</span>
-            <h2 className="section-title text-balance mt-5 max-w-[11ch]">
-              {t("Co dokładnie obejmuje każda usługa.", "What each service includes.")}
-            </h2>
-          </div>
+        <div className="section-intro max-w-[64rem]">
+          <span className="eyebrow">{t("Szczegóły usług", "Service details")}</span>
+          <h2 className="section-title text-balance max-w-[15ch]">
+            {t("Co dokładnie obejmuje każda usługa.", "What each service includes.")}
+          </h2>
           <p className="section-copy measure-copy-wide">
             {t(
               "Rozwiń wybraną pozycję, aby sprawdzić zakres diagnostyki lub naprawy, przewidywany czas oraz najważniejsze korzyści.",
               "Open a service to review the diagnostic or repair scope, estimated lead time and key benefits."
             )}
           </p>
+          <div className="max-w-[16rem]">
+            <div className="accent-rule" />
+          </div>
         </div>
 
         <Accordion
