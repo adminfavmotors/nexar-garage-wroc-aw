@@ -10,10 +10,12 @@ export type ServiceFaq = {
   answer: LocalizedText;
 };
 
+export type ServiceBookingValue = "diagnostics" | "repairs" | "tyres" | "electrics" | "ac" | "alignment";
+
 export type ServiceDefinition = {
   num: string;
   slug: string;
-  bookingValue: string;
+  bookingValue: ServiceBookingValue;
   title: LocalizedText;
   shortDescription: LocalizedText;
   metaTitle: string;
@@ -43,8 +45,8 @@ export const servicePages: ServiceDefinition[] = [
       en: "Computer diagnostics",
     },
     shortDescription: {
-      pl: "Profesjonalna diagnostyka z użyciem nowoczesnego sprzętu OBD2 i czytelnego raportu dla kierowcy.",
-      en: "Professional diagnostics with modern OBD2 tools and a clear report for the driver.",
+      pl: "Odczyt błędów, sprawdzenie parametrów pracy i zalecenia dotyczące naprawy.",
+      en: "Fault-code reading, live parameter checks and repair recommendations.",
     },
     metaTitle: "Diagnostyka komputerowa Wrocław | Nexar Garage",
     metaDescription:
@@ -97,8 +99,8 @@ export const servicePages: ServiceDefinition[] = [
       en: "Service and repairs",
     },
     shortDescription: {
-      pl: "Kompleksowa obsługa mechaniczna: silnik, zawieszenie, hamulce, rozrząd i codzienny serwis eksploatacyjny.",
-      en: "Comprehensive mechanical service: engine, suspension, brakes, timing kits and routine maintenance.",
+      pl: "Silnik, zawieszenie, hamulce, rozrząd oraz wymiana oleju i filtrów.",
+      en: "Engine, suspension, brakes, timing systems, oil and filter changes.",
     },
     metaTitle: "Mechanik Wrocław | Serwis i naprawy samochodowe | Nexar Garage",
     metaDescription:
@@ -151,8 +153,8 @@ export const servicePages: ServiceDefinition[] = [
       en: "Tyre service",
     },
     shortDescription: {
-      pl: "Sezonowa wymiana opon, wyważanie kół i szybka obsługa przed zimą lub latem we Wrocławiu.",
-      en: "Seasonal tyre changes, wheel balancing and fast support before winter or summer.",
+      pl: "Sezonowa wymiana opon i wyważanie kół. Kontrola stanu ogumienia.",
+      en: "Seasonal tyre changes, wheel balancing and tyre condition checks.",
     },
     metaTitle: "Wymiana opon Wrocław | Serwis opon | Nexar Garage",
     metaDescription:
@@ -313,8 +315,8 @@ export const servicePages: ServiceDefinition[] = [
       en: "Wheel alignment",
     },
     shortDescription: {
-      pl: "Precyzyjne ustawienie geometrii 3D dla stabilnej jazdy, prostego toru i równomiernego zużycia opon.",
-      en: "Precise 3D wheel alignment for stable driving, straight tracking and even tyre wear.",
+      pl: "Pomiar geometrii 3D i ustawienie kół. Kontrola zbieżności i kątów zawieszenia.",
+      en: "3D alignment measurement and adjustment. Toe and suspension angle checks.",
     },
     metaTitle: "Geometria kół Wrocław | Ustawienie zbieżności | Nexar Garage",
     metaDescription:

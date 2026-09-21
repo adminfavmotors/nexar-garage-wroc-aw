@@ -36,26 +36,17 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    letter-spacing: 0;
     color: hsl(var(--muted-foreground));
-  }
-
-  .eyebrow::before {
-    content: "";
-    display: block;
-    width: 2.75rem;
-    height: 1px;
-    background: hsl(var(--primary));
   }
 
   .section-intro {
     display: grid;
     align-items: start;
-    gap: 1.35rem;
+    gap: 1rem;
   }
 
   .editorial-grid {
@@ -72,48 +63,48 @@
 
   .section-title {
     font-family: var(--font-display);
-    font-size: clamp(2.2rem, 4.5vw, 3.9rem);
+    font-size: clamp(1.8rem, 3vw, 2.65rem);
     font-weight: 600;
     letter-spacing: -0.02em;
-    line-height: 1;
+    line-height: 1.12;
     color: hsl(var(--foreground));
   }
 
   .section-title-compact {
     font-family: var(--font-display);
-    font-size: clamp(1.9rem, 3.8vw, 3rem);
+    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
     font-weight: 600;
     letter-spacing: -0.018em;
-    line-height: 1.02;
+    line-height: 1.15;
     color: hsl(var(--foreground));
   }
 
   .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 7.2vw, 5.25rem);
+    font-size: clamp(2.25rem, 4.5vw, 4rem);
     font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 0.93;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
     color: hsl(var(--foreground));
   }
 
   .section-copy {
     font-family: var(--font-body);
     font-size: 1.02rem;
-    line-height: 1.82;
+    line-height: 1.65;
     color: hsl(var(--muted-foreground));
   }
 
   .body-relaxed {
     font-family: var(--font-body);
-    font-size: 0.98rem;
-    line-height: 1.78;
+    font-size: 1rem;
+    line-height: 1.65;
     color: hsl(var(--muted-foreground));
   }
 
   .body-fine {
     font-family: var(--font-body);
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     line-height: 1.72;
     color: hsl(var(--muted-foreground));
   }
@@ -122,26 +113,11 @@
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0;
     color: hsl(var(--muted-foreground));
-  }
-
-  .section-accent::before {
-    content: "";
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 2px;
-    background: hsl(var(--primary));
-  }
-
-  .accent-rule {
-    height: 1px;
-    width: 100%;
-    background: hsl(var(--primary));
   }
 
   .section-muted {
@@ -160,29 +136,18 @@
     border-radius: var(--radius);
   }
 
-  .surface-panel-soft {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--surface-raised));
-    border-radius: calc(var(--radius) - 0.125rem);
-  }
-
-  .divider-hairline {
-    border-top: 1px solid hsl(var(--border) / 0.82);
-  }
-
   .field-shell {
     display: grid;
+    align-content: start;
+    min-width: 0;
     gap: 0.7rem;
   }
 
   .field-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0;
     color: hsl(var(--muted-foreground));
   }
 
@@ -193,7 +158,7 @@
     border-radius: calc(var(--radius) - 0.125rem);
     padding: 0.95rem 1rem;
     font-family: var(--font-body);
-    font-size: 0.96rem;
+    font-size: 1rem;
     line-height: 1.45;
     color: hsl(var(--foreground));
     transition:
@@ -233,11 +198,10 @@
     border: 1px solid hsl(var(--primary));
     background: hsl(var(--primary));
     padding: 0.875rem 1.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.83rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0;
     color: hsl(var(--primary-foreground));
     cursor: pointer;
     touch-action: manipulation;
@@ -275,11 +239,10 @@
     border: 1px solid hsl(var(--input));
     background: transparent;
     padding: 0.875rem 1.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.83rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0;
     color: hsl(var(--foreground));
     cursor: pointer;
     touch-action: manipulation;
@@ -315,11 +278,10 @@
     align-items: center;
     gap: 0.55rem;
     border-bottom: 1px solid hsl(var(--border));
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0;
     color: hsl(var(--foreground));
     transition:
       color 0.18s ease,
@@ -340,25 +302,6 @@
   .editorial-link:focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 4px;
-  }
-
-  .stat-chip-value {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-    font-size: clamp(1.9rem, 4vw, 2.5rem);
-    line-height: 0.95;
-    color: hsl(var(--foreground));
-  }
-
-  .stat-chip-label {
-    margin-top: 0.55rem;
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: hsl(var(--muted-foreground));
   }
 
   .service-directory-row {

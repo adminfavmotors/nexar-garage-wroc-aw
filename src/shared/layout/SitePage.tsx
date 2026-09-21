@@ -25,7 +25,9 @@ const SitePage = ({
     <div className={cn("min-h-screen bg-background", className)}>
       <SiteSeo {...seo} />
       {withHeader ? <SiteHeader /> : null}
-      <main className={mainClassName}>{children}</main>
+      <main id="main-content" tabIndex={-1} className={mainClassName}>
+        {children}
+      </main>
       {withFooter ? <SiteFooter /> : null}
     </div>
   );

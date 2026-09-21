@@ -20,6 +20,7 @@ const ScrollManager = () => {
   }, []);
 
   useLayoutEffect(() => {
+    if (location.state?.preserveScroll) return;
     const scrollToLocation = () => {
       if (!location.hash) {
         scrollToTop();
@@ -38,7 +39,7 @@ const ScrollManager = () => {
 
     scrollToLocation();
     requestAnimationFrame(scrollToLocation);
-  }, [location.pathname, location.search, location.hash]);
+  }, [location.pathname, location.search, location.hash, location.state]);
 
   return null;
 };

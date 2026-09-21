@@ -1,10 +1,10 @@
+import ServiceCatalog from "@/features/services/components/ServiceCatalog";
 import { SitePage } from "@/shared/layout";
 import {
   BookingSection,
   ContactSection,
   HeroSection,
   ServiceStandardSection,
-  ServicesPreviewSection,
   WhyUsSection,
 } from "@/sections/home";
 import { getWebsiteSchema, homeAutoRepairSchema } from "@/features/services/seo";
@@ -34,7 +34,7 @@ const HomePage = () => {
       }}
     >
       <HeroSection />
-      <ServicesPreviewSection />
+      <ServiceCatalog />
       <WhyUsSection />
       <ServiceStandardSection />
       <BookingSection />

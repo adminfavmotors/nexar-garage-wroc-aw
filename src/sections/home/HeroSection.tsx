@@ -1,139 +1,145 @@
-import { appRoutes, getHomeSectionPath, homeSectionIds, RouteLink } from "@/shared/navigation";
+import { ArrowRight, Phone, MapPin, Check, Languages } from "lucide-react";
+import {
+  getHomeSectionPath,
+  homeSectionIds,
+  RouteLink,
+} from "@/shared/navigation";
 import { useLang } from "@/features/language";
 
-const heroBenefits = [
-  {
-    pl: "Diagnostyka przed wymianą części",
-    en: "Diagnostics before replacing parts",
-  },
-  {
-    pl: "Jasna wycena przed rozpoczęciem prac",
-    en: "Clear estimate before any work starts",
-  },
-  {
-    pl: "Obsługa klienta w języku polskim i angielskim",
-    en: "Customer support in Polish and English",
-  },
-];
-
-const heroStandards = [
-  {
-    valuePl: "Diagnoza",
-    valueEn: "Diagnosis",
-    labelPl: "przed decyzją o naprawie",
-    labelEn: "before the repair decision",
-  },
-  {
-    valuePl: "Wycena",
-    valueEn: "Estimate",
-    labelPl: "przed rozpoczęciem prac",
-    labelEn: "before any work starts",
-  },
-  {
-    valuePl: "PL / EN",
-    valueEn: "PL / EN",
-    labelPl: "obsługa w dwóch językach",
-    labelEn: "support in two languages",
-  },
-];
-
 const HeroSection = () => {
-  const { lang, t } = useLang();
-
+  const { t } = useLang();
   return (
-    <section
-      id="home"
-      className="hero-ambient relative overflow-hidden pt-[98px] sm:pt-[118px] lg:pt-[136px]"
-    >
-      <div className="site-shell pb-10 sm:pb-12 lg:pb-12">
-        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:gap-10">
-          <div className="hero-enter py-4 sm:py-6">
-            <span className="eyebrow">Wrocław • est. 2009</span>
-
-            <h1 className="hero-title text-balance mt-5 max-w-[11ch]">
-              <span className="block">{t("Profesjonalny", "Professional")}</span>
-              <span className="block text-accent">{t("serwis", "car")}</span>
-              <span className="block">{t("samochodowy", "service")}</span>
-              <span className="block text-muted-foreground">{t("we Wrocławiu", "in Wroclaw")}</span>
+    <section id="home" className="workshop-hero">
+      <div className="site-shell">
+        <div className="workshop-hero-grid">
+          <div className="workshop-hero-copy">
+            <p className="eyebrow">
+              <MapPin size={18} strokeWidth={1.75} aria-hidden="true" />{" "}
+              {t("Serwis samochodowy · Wrocław", "Car workshop · Wroclaw")}
+            </p>
+            <h1 className="hero-title mt-5">
+              {t("Sprawne auto.", "A car you can")}
+              <br />
+              <span className="text-primary">
+                {t("Spokojna głowa.", "count on.")}
+              </span>
             </h1>
-
-            <p className="section-copy measure-copy mt-5 sm:text-[1.08rem]">
+            <p className="section-copy mt-6 max-w-[46ch]">
               {t(
-                "Diagnostyka, naprawy, klimatyzacja i serwis opon. Najpierw sprawdzamy przyczynę, potem przedstawiamy zakres i koszt prac.",
-                "Diagnostics, repairs, air conditioning and tyre service. First we identify the cause, then we present the scope and cost of the work."
+                "Coś stuka, świeci się kontrolka albo zbliża się wymiana oleju? Zajmiemy się Twoim autem — od znalezienia usterki po naprawę.",
+                "An unusual noise, a warning light or an oil change due? We take care of your car, from finding the fault to completing the repair.",
               )}
             </p>
-
-            <div className="mt-5 max-w-[18rem]">
-              <div className="accent-rule" />
-            </div>
-
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="hero-actions mt-6 flex flex-wrap gap-3 lg:mt-8">
               <RouteLink
                 to={getHomeSectionPath(homeSectionIds.booking)}
-                className="premium-button-primary"
+                className="premium-button-primary gap-3"
               >
-                {t("Umów wizytę", "Book now")}
+                {t("Umów wizytę", "Book a visit")}
+                <ArrowRight size={20} strokeWidth={1.75} aria-hidden="true" />
               </RouteLink>
-              <RouteLink
-                to={appRoutes.services}
-                className="premium-button-secondary"
+              <a
+                href="tel:+48712345678"
+                className="premium-button-secondary gap-2"
               >
-                {t("Zobacz usługi", "Explore services")}
-              </RouteLink>
+                <Phone size={20} strokeWidth={1.75} aria-hidden="true" />
+                {t("Zadzwoń", "Call us")}
+              </a>
             </div>
-
-          </div>
-
-          <aside
-            aria-labelledby="hero-process-title"
-            className="hero-enter hero-enter-delay border-y border-border py-6 sm:py-8 lg:border-l lg:border-y-0 lg:py-6 lg:pl-8"
-          >
-            <span className="eyebrow">
-              {t("Jak pracujemy", "How we work")}
-            </span>
-
-            <h2 id="hero-process-title" className="section-title-compact mt-5 max-w-[11ch]">
-              {t("Mniej chaosu. Więcej kontroli.", "Less chaos. More control.")}
-            </h2>
-
-            <p className="body-relaxed mt-4">
+            <p className="mt-5 flex items-start gap-2 text-sm text-muted-foreground">
+              <Check
+                size={20}
+                strokeWidth={1.75}
+                className="shrink-0 text-primary"
+                aria-hidden="true"
+              />
               {t(
-                "Każde zlecenie zaczynamy od diagnozy. Naprawę rozpoczynamy dopiero po uzgodnieniu zakresu, części i orientacyjnego kosztu.",
-                "Every job starts with a diagnosis. Repairs begin only after the scope, parts and estimated cost have been agreed."
+                "Zakres i koszt naprawy poznasz przed rozpoczęciem prac.",
+                "Know the repair scope and cost before work begins.",
               )}
             </p>
-
-            <div className="mt-8 border-t border-border pt-6">
-              <div className="grid gap-5 sm:grid-cols-3">
-                {heroStandards.map((standard) => (
-                  <div key={standard.labelEn}>
-                    <span className="font-display text-[1.6rem] font-semibold leading-none text-foreground">
-                      {lang === "PL" ? standard.valuePl : standard.valueEn}
-                    </span>
-                    <span className="stat-chip-label">
-                      {lang === "PL" ? standard.labelPl : standard.labelEn}
-                    </span>
-                  </div>
-                ))}
-              </div>
+          </div>
+          <figure className="workshop-hero-photo">
+            <img
+              src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=1200&q=85"
+              srcSet="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=640&q=80 640w, https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=1200&q=85 1200w"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              alt={t(
+                "Mechanik podczas pracy przy samochodzie — zdjęcie ilustracyjne",
+                "A mechanic working on a car — illustrative stock photo",
+              )}
+              width="1200"
+              height="1000"
+              fetchPriority="high"
+            />
+            <figcaption>
+              {t("Zdjęcie ilustracyjne", "Illustrative photo")} · Kate
+              Ibragimova / Unsplash
+            </figcaption>
+            <div className="photo-note">
+              <span className="photo-note-dot" />
+              <span>
+                {t(
+                  "Diagnostyka. Naprawa. Gotowe do drogi.",
+                  "Diagnose. Repair. Back on the road.",
+                )}
+              </span>
             </div>
-          </aside>
+          </figure>
         </div>
-
-        <div className="hero-enter hero-enter-delay mt-6 grid border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
-          {heroBenefits.map((benefit, index) => (
-            <div key={benefit.en} className="flex items-start gap-3 border-b border-border py-4 last:border-b-0 sm:border-b-0 sm:px-5 sm:first:pl-0 sm:last:pr-0">
-              <span className="font-mono text-xs font-semibold text-primary">0{index + 1}</span>
-              <p className="body-fine">
-                {lang === "PL" ? benefit.pl : benefit.en}
-              </p>
-            </div>
-          ))}
+        <div className="visit-strip">
+          <div>
+            <MapPin size={24} strokeWidth={1.75} aria-hidden="true" />
+            <p>
+              <strong>Wrocław, ul. Świdnicka 18</strong>
+              <span>
+                {t(
+                  "Sprawdź dojazd do warsztatu",
+                  "Find your way to the workshop",
+                )}
+              </span>
+            </p>
+            <RouteLink
+              to={getHomeSectionPath(homeSectionIds.contact)}
+              aria-label={t("Kontakt i dojazd", "Contact and directions")}
+            >
+              <ArrowRight size={20} strokeWidth={1.75} aria-hidden="true" />
+            </RouteLink>
+          </div>
+          <div>
+            <Phone size={24} strokeWidth={1.75} aria-hidden="true" />
+            <p>
+              <a href="tel:+48712345678">
+                <strong>+48 71 234 56 78</strong>
+              </a>
+              <span>
+                {t(
+                  "Pon–Pt 8:00–18:00 · Sob 9:00–14:00",
+                  "Mon–Fri 8:00–18:00 · Sat 9:00–14:00",
+                )}
+              </span>
+            </p>
+          </div>
+          <div>
+            <Languages size={24} strokeWidth={1.75} aria-hidden="true" />
+            <p>
+              <strong>
+                {t(
+                  "Obsługa po polsku i angielsku",
+                  "We speak Polish and English",
+                )}
+              </strong>
+              <span>
+                {t(
+                  "Opowiedz nam, co dzieje się z autem",
+                  "Tell us what is happening with your car",
+                )}
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
   );
 };
-
 export default HeroSection;

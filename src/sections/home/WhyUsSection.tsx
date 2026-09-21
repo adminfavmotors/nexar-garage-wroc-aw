@@ -1,99 +1,86 @@
-import { Clock3, Globe2, MapPin } from "lucide-react";
+import { ClipboardCheck, Search, PhoneCall, ArrowRight } from "lucide-react";
 import { useLang } from "@/features/language";
+import {
+  getHomeSectionPath,
+  homeSectionIds,
+  RouteLink,
+} from "@/shared/navigation";
 
-const reasonsPl = [
-  "Diagnoza i jasny proces wyceny przed rozpoczęciem prac.",
-  "Przed naprawą ustalamy wariant części: OEM lub sprawdzone zamienniki.",
-  "Każda zmiana zakresu wymaga kontaktu przed wykonaniem dodatkowych prac.",
-  "Możliwość obsługi po polsku i po angielsku, także przy bardziej złożonych zleceniach.",
-];
-
-const reasonsEn = [
-  "Diagnostics and a clear quote process before any work starts.",
-  "Before the repair, we agree on OEM parts or trusted replacements.",
-  "Every scope change requires contact before additional work is carried out.",
-  "Support in both Polish and English, including more complex service cases.",
-];
-
-const operatingHighlights = [
-  {
-    icon: Clock3,
-    label: { pl: "Godziny pracy", en: "Opening hours" },
-    value: { pl: "Pon-Pt 8:00-18:00 | Sob 9:00-14:00", en: "Mon-Fri 8:00-18:00 | Sat 9:00-14:00" },
-  },
-  {
-    icon: Globe2,
-    label: { pl: "Obsługa klienta", en: "Customer support" },
-    value: { pl: "Polski / English", en: "Polish / English" },
-  },
-  {
-    icon: MapPin,
-    label: { pl: "Lokalizacja", en: "Location" },
-    value: { pl: "Wrocław, ul. Świdnicka 18", en: "Wroclaw, Swidnicka 18" },
-  },
-];
+const benefitIcons = [Search, PhoneCall, ClipboardCheck];
 
 const WhyUsSection = () => {
-  const { lang, t } = useLang();
-
-  const reasons = lang === "PL" ? reasonsPl : reasonsEn;
-
+  const { t } = useLang();
+  const benefits = [
+    [
+      t(
+        "Najpierw przyczyna, potem części",
+        "Find the cause before replacing parts",
+      ),
+      t(
+        "Sprawdzamy, skąd bierze się problem. Nie zaczynamy od wymiany części na chybił trafił.",
+        "We investigate the problem before recommending which parts need replacing.",
+      ),
+    ],
+    [
+      t("Ty decydujesz o naprawie", "You approve the repair"),
+      t(
+        "Omawiamy zakres, koszt i wybór części. Dodatkowe prace? Najpierw telefon do Ciebie.",
+        "We explain the work, cost and parts options. Extra work? We call you first.",
+      ),
+    ],
+    [
+      t("Wiesz, co zostało zrobione", "Know what has been done"),
+      t(
+        "Przy odbiorze wyjaśniamy wykonane prace i wskazujemy, na co zwrócić uwagę przy dalszej eksploatacji.",
+        "At collection, we explain the completed work and what to watch for as you keep driving.",
+      ),
+    ],
+  ];
   return (
-    <section id="o-nas" className="section-block border-b border-border">
-      <div className="site-shell">
-        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-10">
-          <div className="section-intro lg:self-start">
-            <span className="eyebrow">{t("Dlaczego właśnie my", "Why clients stay with us")}</span>
-            <div className="grid gap-5 lg:max-w-[42rem]">
-              <h2 className="section-title text-balance">
-                {t("Serwis, który daje więcej spokoju niż hałasu.", "A garage that gives more clarity than noise.")}
-              </h2>
-              <p className="section-copy measure-copy-wide">
-                {t(
-                  "Łączymy szybką diagnozę, zrozumiałą wycenę i jasno ustalony zakres prac. Klient wie, co naprawiamy, jakich części używamy i kiedy auto będzie gotowe.",
-                  "We combine fast diagnostics, clear estimates and a precisely agreed scope of work. You know what we are repairing, which parts we use and when the car will be ready."
-                )}
-              </p>
-              <div className="max-w-[17rem]">
-                <div className="accent-rule" />
-              </div>
-            </div>
-          </div>
-
-          <ol className="border-y border-border">
-            {reasons.map((reason, index) => (
-              <li key={reason} className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-4 border-b border-border py-5 last:border-b-0 sm:py-6">
-                <span className="font-mono text-sm font-semibold text-primary">0{index + 1}</span>
-                <p className="font-body text-[1rem] leading-7 text-muted-foreground sm:text-[1.05rem]">{reason}</p>
-              </li>
-            ))}
-          </ol>
+    <section id="o-nas" className="section-block workshop-promise">
+      <div className="site-shell grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <span className="eyebrow">
+            {t("Dlaczego Nexar Garage", "Why Nexar Garage")}
+          </span>
+          <h2 className="section-title mt-4">
+            {t(
+              "Dobra naprawa zaczyna się od dobrej diagnozy.",
+              "A proper repair starts with a proper diagnosis.",
+            )}
+          </h2>
+          <p className="mt-5 max-w-[47ch] leading-7">
+            {t(
+              "Oddajesz nam samochód, nie kontrolę nad wydatkami. Od pierwszej rozmowy do odbioru wiesz, co planujemy i za co płacisz.",
+              "You hand over your car, not control of your budget. From the first conversation to collection, you know what we plan to do and what you are paying for.",
+            )}
+          </p>
+          <RouteLink
+            to={getHomeSectionPath(homeSectionIds.booking)}
+            className="workshop-button-accent mt-7"
+          >
+            {t("Porozmawiajmy o Twoim aucie", "Tell us about your car")}
+            <ArrowRight size={20} strokeWidth={1.75} aria-hidden="true" />
+          </RouteLink>
         </div>
-
-        <div className="mt-8 grid border-y border-border md:grid-cols-3 md:divide-x md:divide-border lg:mt-10">
-          {operatingHighlights.map((item) => {
-            const Icon = item.icon;
-
+        <ul className="grid gap-7">
+          {benefits.map(([title, copy], index) => {
+            const Icon = benefitIcons[index];
             return (
-              <div key={item.label.en} className="flex gap-4 border-b border-border py-6 last:border-b-0 md:border-b-0 md:px-6 md:first:pl-0 md:last:pr-0">
-                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border text-primary">
-                  <Icon aria-hidden="true" size={18} />
+              <li key={title} className="flex gap-4">
+                <span className="promise-check">
+                  <Icon size={28} strokeWidth={1.75} aria-hidden="true" />
                 </span>
                 <div>
-                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
-                    {t(item.label.pl, item.label.en)}
-                  </p>
-                  <p className="body-relaxed mt-2">
-                    {t(item.value.pl, item.value.en)}
-                  </p>
+                  <h3 className="text-lg font-bold">{title}</h3>
+                  <p className="mt-2 leading-7">{copy}</p>
                 </div>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </section>
   );
 };
-
 export default WhyUsSection;

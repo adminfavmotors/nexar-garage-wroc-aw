@@ -14,7 +14,8 @@ type SubmitState = "idle" | "sending" | "error";
 
 const RequiredMark = () => (
   <span aria-hidden="true" className="text-primary">
-    {" "}*
+    {" "}
+    *
   </span>
 );
 
@@ -42,6 +43,7 @@ const BookingSection = () => {
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [service, setService] = useState("");
   const [date, setDate] = useState<Date | undefined>();
+  const [calendarOpen, setCalendarOpen] = useState(false);
   const [dateError, setDateError] = useState(false);
   const dateButtonRef = useRef<HTMLButtonElement>(null);
   const errorSummaryRef = useRef<HTMLDivElement>(null);
@@ -127,15 +129,21 @@ const BookingSection = () => {
 
   if (submitted) {
     return (
-      <section id="rezerwacja" className="section-block border-b border-border">
+      <section id="rezerwacja" className="section-block booking-section">
         <div className="site-shell">
           <div
             role="status"
             aria-live="polite"
             className="surface-panel mx-auto grid max-w-3xl gap-4 px-6 py-10 text-center sm:px-10"
           >
-            <span className="eyebrow mx-auto">{t("Zgłoszenie wysłane", "Request sent")}</span>
-            <h2 ref={successHeadingRef} tabIndex={-1} className="section-title text-balance focus:outline-none">
+            <span className="eyebrow mx-auto">
+              {t("Zgłoszenie wysłane", "Request sent")}
+            </span>
+            <h2
+              ref={successHeadingRef}
+              tabIndex={-1}
+              className="section-title text-balance focus:outline-none"
+            >
               {t(
                 "Dziękujemy. Potwierdzimy termin możliwie szybko.",
                 "Thank you. We will confirm the appointment shortly.",
@@ -154,76 +162,50 @@ const BookingSection = () => {
   }
 
   return (
-    <section id="rezerwacja" className="section-block border-b border-border">
+    <section id="rezerwacja" className="section-block booking-section">
       <div className="site-shell">
-        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-10">
-          <div className="section-intro">
-            <span className="eyebrow">{t("Rezerwacja wizyty", "Book an appointment")}</span>
-            <div className="grid gap-5">
-              <h2 className="section-title text-balance">
-                {t(
-                  "Zgłoś auto. Termin potwierdzimy telefonicznie.",
-                  "Tell us about your car. We will confirm the date by phone.",
-                )}
-              </h2>
-              <p className="section-copy measure-copy-wide">
-                {t(
-                  "Potrzebujemy tylko najważniejszych danych: kontaktu, auta, zakresu prac i preferowanego terminu. Resztę dopracujemy już po zgłoszeniu.",
-                  "We only need the essentials: your contact details, the car, the scope of work and a preferred date. We will refine the rest after the request is in.",
-                )}
-              </p>
-              <div className="max-w-[17rem]">
-                <div className="accent-rule" />
-              </div>
-            </div>
-          </div>
-
-          <div className="border-y border-border">
-            <div className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-3 border-b border-border py-4">
-              <p className="font-mono text-sm font-semibold text-primary">01</p>
-              <p className="body-relaxed">
-                {t(
-                  "Wysyłasz zgłoszenie z podstawowym zakresem naprawy.",
-                  "You send the request with the basic repair scope.",
-                )}
-              </p>
-            </div>
-            <div className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-3 border-b border-border py-4">
-              <p className="font-mono text-sm font-semibold text-primary">02</p>
-              <p className="body-relaxed">
-                {t(
-                  "Potwierdzamy termin i doprecyzowujemy szczegóły telefonicznie.",
-                  "We confirm the date and clarify details by phone.",
-                )}
-              </p>
-            </div>
-            <div className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-3 py-4">
-              <p className="font-mono text-sm font-semibold text-primary">03</p>
-              <p className="body-relaxed">
-                {t(
-                  "Auto trafia do serwisu z jasnym zakresem i przewidywalnym przebiegiem.",
-                  "Your car arrives with a clear scope and a predictable service flow.",
-                )}
-              </p>
-            </div>
-          </div>
+        <div className="section-intro">
+          <span className="eyebrow">{t("Rezerwacja", "Booking")}</span>
+          <h2 className="section-title">
+            {t("Umów wizytę w warsztacie", "Book a workshop visit")}
+          </h2>
+          <p className="section-copy measure-copy">
+            {t(
+              "Podaj dane auta i opisz, czego potrzebujesz. Zadzwonimy, aby ustalić szczegóły i potwierdzić termin. Wysłanie formularza nie jest potwierdzeniem rezerwacji.",
+              "Tell us about your car and what you need. We will call to discuss the details and confirm a date. Sending this form does not confirm an appointment.",
+            )}
+          </p>
         </div>
 
-        <div className="surface-panel mt-8 p-6 sm:p-7">
-          <form id="booking-form" onSubmit={handleSubmit} aria-busy={submitState === "sending"} className="grid gap-5 md:grid-cols-2">
+        <div className="surface-panel mt-8 p-4 sm:p-7">
+          <form
+            id="booking-form"
+            onSubmit={handleSubmit}
+            aria-busy={submitState === "sending"}
+            className="grid gap-5 md:grid-cols-2"
+          >
             <p className="field-note md:col-span-2">
-              <span aria-hidden="true" className="text-primary">*</span>{" "}
+              <span aria-hidden="true" className="text-primary">
+                *
+              </span>{" "}
               {t("Pole wymagane", "Required field")}
             </p>
 
-            <div className="grid gap-4 sm:grid-cols-2 md:col-span-2">
+            <fieldset className="grid min-w-0 gap-5 md:col-span-2 md:grid-cols-3">
+              <legend className="mb-4 font-semibold">
+                {t("Dane kontaktowe", "Contact details")}
+              </legend>
               <label htmlFor="booking-full-name" className="field-shell">
-                <span className="field-label">{t("Imię i nazwisko", "Full name")}<RequiredMark /></span>
+                <span className="field-label">
+                  {t("Imię i nazwisko", "Full name")}
+                  <RequiredMark />
+                </span>
                 <input
                   id="booking-full-name"
                   name="fullName"
                   type="text"
                   autoComplete="name"
+                  minLength={2}
                   maxLength={100}
                   placeholder={t("Jan Kowalski", "James Mitchell")}
                   required
@@ -231,7 +213,10 @@ const BookingSection = () => {
                 />
               </label>
               <label htmlFor="booking-phone" className="field-shell">
-                <span className="field-label">{t("Telefon", "Phone")}<RequiredMark /></span>
+                <span className="field-label">
+                  {t("Telefon", "Phone")}
+                  <RequiredMark />
+                </span>
                 <input
                   id="booking-phone"
                   name="phone"
@@ -244,48 +229,36 @@ const BookingSection = () => {
                   className="field-input"
                 />
               </label>
-            </div>
-
-            <label htmlFor="booking-email" className="field-shell">
-              <span className="field-label">{t("E-mail — opcjonalnie", "Email — optional")}</span>
-              <input
-                id="booking-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                maxLength={160}
-                placeholder="email@example.com"
-                className="field-input"
-              />
-            </label>
-
-            <label htmlFor="booking-service" className="field-shell">
-              <span className="field-label">{t("Zakres usługi", "Service scope")}<RequiredMark /></span>
-              <select
-                id="booking-service"
-                name="service"
-                required
-                value={service}
-                onChange={(event) => setService(event.target.value)}
-                className="field-input"
-              >
-                <option value="">{t("Wybierz usługę", "Select service")}</option>
-                {serviceOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {lang === "PL" ? option.pl : option.en}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            <div className="grid gap-4 sm:grid-cols-2 md:col-span-2">
+              <label htmlFor="booking-email" className="field-shell">
+                <span className="field-label">
+                  {t("E-mail — opcjonalnie", "Email — optional")}
+                </span>
+                <input
+                  id="booking-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  maxLength={160}
+                  placeholder="email@example.com"
+                  className="field-input"
+                />
+              </label>
+            </fieldset>
+            <fieldset className="grid min-w-0 gap-5 border-t border-border pt-5 md:col-span-2 md:grid-cols-2">
+              <legend className="pr-3 font-semibold">
+                {t("Samochód i wizyta", "Car and appointment")}
+              </legend>
               <label htmlFor="booking-vehicle" className="field-shell">
-                <span className="field-label">{t("Marka i model", "Make and model")}<RequiredMark /></span>
+                <span className="field-label">
+                  {t("Marka i model", "Make and model")}
+                  <RequiredMark />
+                </span>
                 <input
                   id="booking-vehicle"
                   name="vehicle"
                   type="text"
                   autoComplete="off"
+                  minLength={2}
                   maxLength={100}
                   placeholder="Audi A4"
                   required
@@ -293,7 +266,9 @@ const BookingSection = () => {
                 />
               </label>
               <label htmlFor="booking-year" className="field-shell">
-                <span className="field-label">{t("Rok produkcji", "Year")}</span>
+                <span className="field-label">
+                  {t("Rok produkcji", "Year")}
+                </span>
                 <input
                   id="booking-year"
                   name="year"
@@ -306,98 +281,158 @@ const BookingSection = () => {
                   className="field-input"
                 />
               </label>
-            </div>
-
-            {service === "other" && (
-              <label htmlFor="booking-problem" className="field-shell md:col-span-2">
-                <span className="field-label">{t("Opis problemu", "Describe the issue")}<RequiredMark /></span>
-                <textarea
-                  id="booking-problem"
-                  name="problem"
-                  rows={4}
-                  maxLength={1500}
+              <label htmlFor="booking-service" className="field-shell">
+                <span className="field-label">
+                  {t("Zakres usługi", "Service scope")}
+                  <RequiredMark />
+                </span>
+                <select
+                  id="booking-service"
+                  name="service"
                   required
-                  placeholder={t(
-                    "Opisz, jaki remont lub naprawa są potrzebne",
-                    "Describe the repair you need",
-                  )}
-                  className="field-input resize-none"
+                  value={service}
+                  onChange={(event) => setService(event.target.value)}
+                  className="field-input"
+                >
+                  <option value="">
+                    {t("Wybierz usługę", "Select service")}
+                  </option>
+                  {serviceOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {lang === "PL" ? option.pl : option.en}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <div className="field-shell self-start">
+                <span id="preferred-date-label" className="field-label">
+                  {t("Preferowany termin", "Preferred date")}
+                  <RequiredMark />
+                </span>
+                <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
+                  <PopoverTrigger asChild>
+                    <button
+                      ref={dateButtonRef}
+                      id="booking-preferred-date"
+                      type="button"
+                      aria-labelledby="preferred-date-label preferred-date-value"
+                      aria-describedby={
+                        dateError ? "preferred-date-error" : undefined
+                      }
+                      aria-invalid={dateError}
+                      className={cn(
+                        "field-input flex items-center justify-between text-left",
+                        dateError && "border-primary",
+                        !date && "text-muted-foreground",
+                      )}
+                    >
+                      <span id="preferred-date-value">
+                        {date
+                          ? format(date, "PPP", {
+                              locale: lang === "PL" ? pl : enUS,
+                            })
+                          : t("Wybierz datę", "Select date")}
+                      </span>
+                      <CalendarIcon
+                        aria-hidden="true"
+                        strokeWidth={1.75}
+                        className="h-5 w-5 shrink-0 text-muted-foreground"
+                      />
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    align="start"
+                    collisionPadding={8}
+                    className="w-[calc(100vw-1rem)] max-w-[352px] max-h-[var(--radix-popover-content-available-height)] overflow-y-auto border-border bg-background p-0"
+                  >
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={(selectedDate) => {
+                        setDate(selectedDate);
+                        if (selectedDate) {
+                          setDateError(false);
+                          setCalendarOpen(false);
+                        }
+                      }}
+                      locale={lang === "PL" ? pl : enUS}
+                      disabled={(currentDate) =>
+                        currentDate < new Date(new Date().setHours(0, 0, 0, 0))
+                      }
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
+                <input
+                  id="booking-preferred-date-value"
+                  name="preferredDate"
+                  type="hidden"
+                  value={date ? format(date, "yyyy-MM-dd") : ""}
+                />
+                {dateError && (
+                  <p
+                    id="preferred-date-error"
+                    role="alert"
+                    className="field-note text-primary"
+                  >
+                    {t("Wybierz datę wizyty.", "Select an appointment date.")}
+                  </p>
+                )}
+              </div>
+              {service === "other" && (
+                <label
+                  htmlFor="booking-problem"
+                  className="field-shell md:col-span-2"
+                >
+                  <span className="field-label">
+                    {t("Opis problemu", "Describe the issue")}
+                    <RequiredMark />
+                  </span>
+                  <textarea
+                    id="booking-problem"
+                    name="problem"
+                    minLength={5}
+                    rows={4}
+                    maxLength={1500}
+                    required
+                    placeholder={t(
+                      "Opisz, jaki remont lub naprawa są potrzebne",
+                      "Describe the repair you need",
+                    )}
+                    className="field-input resize-y"
+                  />
+                </label>
+              )}
+              <label
+                htmlFor="booking-notes"
+                className="field-shell md:col-span-2"
+              >
+                <span className="field-label">
+                  {t("Dodatkowe uwagi", "Additional notes")}
+                </span>
+                <textarea
+                  id="booking-notes"
+                  name="notes"
+                  rows={3}
+                  maxLength={1500}
+                  placeholder={t("Uwagi opcjonalne", "Optional notes")}
+                  className="field-input resize-y"
                 />
               </label>
-            )}
+            </fieldset>
 
-            <div className="field-shell self-start">
-              <span id="preferred-date-label" className="field-label">
-                {t("Preferowany termin", "Preferred date")}<RequiredMark />
-              </span>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <button
-                    ref={dateButtonRef}
-                    id="booking-preferred-date"
-                    type="button"
-                    aria-labelledby="preferred-date-label preferred-date-value"
-                    aria-describedby={dateError ? "preferred-date-error" : undefined}
-                    aria-invalid={dateError}
-                    className={cn(
-                      "field-input flex items-center justify-between text-left",
-                      dateError && "border-primary",
-                      !date && "text-muted-foreground",
-                    )}
-                  >
-                    <span id="preferred-date-value">
-                      {date
-                        ? format(date, "PPP", { locale: lang === "PL" ? pl : enUS })
-                        : t("Wybierz datę", "Select date")}
-                    </span>
-                    <CalendarIcon aria-hidden="true" className="h-4 w-4 shrink-0 text-muted-foreground" />
-                  </button>
-                </PopoverTrigger>
-                <PopoverContent
-                  align="start"
-                  className="w-[calc(100vw-2rem)] max-w-[360px] border-border bg-[hsl(var(--surface))] p-0 sm:w-auto"
-                >
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={(selectedDate) => {
-                      setDate(selectedDate);
-                      if (selectedDate) setDateError(false);
-                    }}
-                    locale={lang === "PL" ? pl : enUS}
-                    disabled={(currentDate) => currentDate < new Date(new Date().setHours(0, 0, 0, 0))}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-              <input
-                id="booking-preferred-date-value"
-                name="preferredDate"
-                type="hidden"
-                value={date ? format(date, "yyyy-MM-dd") : ""}
-              />
-              {dateError && (
-                <p id="preferred-date-error" role="alert" className="field-note text-primary">
-                  {t("Wybierz datę wizyty.", "Select an appointment date.")}
-                </p>
-              )}
-            </div>
-
-            <label htmlFor="booking-notes" className="field-shell">
-              <span className="field-label">{t("Dodatkowe uwagi", "Additional notes")}</span>
-              <textarea
-                id="booking-notes"
-                name="notes"
-                rows={4}
-                maxLength={1500}
-                placeholder={t("Uwagi opcjonalne", "Optional notes")}
-                className="field-input resize-none"
-              />
-            </label>
-
-            <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+            <div
+              aria-hidden="true"
+              className="absolute -left-[9999px] h-px w-px overflow-hidden"
+            >
               <label htmlFor="booking-company">Company</label>
-              <input id="booking-company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+              <input
+                id="booking-company"
+                name="company"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
             </div>
 
             <div className="grid gap-4 border-y border-border py-5 md:col-span-2">
@@ -408,7 +443,7 @@ const BookingSection = () => {
                   type="checkbox"
                   value="yes"
                   required
-                  className="mt-1 h-4 w-4 rounded border-border bg-background accent-[hsl(var(--primary))]"
+                  className="mt-1 h-5 w-5 shrink-0 rounded border-border bg-background accent-[hsl(var(--primary))]"
                 />
                 <div className="field-note">
                   <label htmlFor="booking-consent">
@@ -418,7 +453,10 @@ const BookingSection = () => {
                     )}
                     <RequiredMark />
                   </label>{" "}
-                  <RouteLink to={appRoutes.privacy} className="underline underline-offset-2 hover:text-foreground">
+                  <RouteLink
+                    to={appRoutes.privacy}
+                    className="underline underline-offset-2 hover:text-foreground"
+                  >
                     {t("Informacja RODO", "Privacy notice")}
                   </RouteLink>
                 </div>
@@ -439,11 +477,20 @@ const BookingSection = () => {
                 className="border border-primary px-4 py-4 focus:outline-none focus:ring-2 focus:ring-primary md:col-span-2"
               >
                 <p className="font-body font-semibold text-foreground">
-                  {t("Nie udało się wysłać zgłoszenia.", "We could not send your request.")}
+                  {t(
+                    "Nie udało się wysłać zgłoszenia.",
+                    "We could not send your request.",
+                  )}
                 </p>
                 <p className="field-note mt-2">
-                  {t("Spróbuj ponownie lub zadzwoń pod numer", "Try again or call")}{" "}
-                  <a href="tel:+48712345678" className="text-foreground underline underline-offset-2">
+                  {t(
+                    "Spróbuj ponownie lub zadzwoń pod numer",
+                    "Try again or call",
+                  )}{" "}
+                  <a
+                    href="tel:+48712345678"
+                    className="text-foreground underline underline-offset-2"
+                  >
                     +48 71 234 56 78
                   </a>
                   .

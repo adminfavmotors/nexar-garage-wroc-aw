@@ -1,8 +1,14 @@
-import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 
-type CookieConsentValue = "pending" | "essential" | "all";
+export type CookieConsentValue = "pending" | "essential" | "all";
 
-interface CookieConsentContextType {
+export interface CookieConsentContextType {
   consent: CookieConsentValue;
   isBannerOpen: boolean;
   allowThirdPartyContent: boolean;
@@ -13,21 +19,35 @@ interface CookieConsentContextType {
 
 const COOKIE_STORAGE_KEY = "nexar-cookie-consent";
 
-const CookieConsentContext = createContext<CookieConsentContextType | undefined>(undefined);
+const CookieConsentContext = createContext<
+  CookieConsentContextType | undefined
+>(undefined);
 
 const getInitialConsent = (): CookieConsentValue => {
-  const saved = localStorage.getItem(COOKIE_STORAGE_KEY);
-  if (saved === "essential" || saved === "all") return saved;
+  try {
+    const saved = localStorage.getItem(COOKIE_STORAGE_KEY);
+    if (saved === "essential" || saved === "all") return saved;
+  } catch {
+    // Keep the page usable when browser storage is unavailable.
+  }
   return "pending";
 };
 
-export const CookieConsentProvider = ({ children }: { children: ReactNode }) => {
+export const CookieConsentProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
   const [consent, setConsent] = useState<CookieConsentValue>(getInitialConsent);
   const [isBannerOpen, setIsBannerOpen] = useState(consent === "pending");
 
   const setConsentValue = (value: Exclude<CookieConsentValue, "pending">) => {
     setConsent(value);
-    localStorage.setItem(COOKIE_STORAGE_KEY, value);
+    try {
+      localStorage.setItem(COOKIE_STORAGE_KEY, value);
+    } catch {
+      // Consent still applies to the current session.
+    }
     setIsBannerOpen(false);
   };
 
@@ -40,14 +60,21 @@ export const CookieConsentProvider = ({ children }: { children: ReactNode }) => 
       acceptAll: () => setConsentValue("all"),
       openSettings: () => setIsBannerOpen(true),
     }),
-    [consent, isBannerOpen]
+    [consent, isBannerOpen],
   );
 
-  return <CookieConsentContext.Provider value={value}>{children}</CookieConsentContext.Provider>;
+  return (
+    <CookieConsentContext.Provider value={value}>
+      {children}
+    </CookieConsentContext.Provider>
+  );
 };
 
 export const useCookieConsent = () => {
   const context = useContext(CookieConsentContext);
-  if (!context) throw new Error("useCookieConsent must be used within CookieConsentProvider");
+  if (!context)
+    throw new Error(
+      "useCookieConsent must be used within CookieConsentProvider",
+    );
   return context;
 };

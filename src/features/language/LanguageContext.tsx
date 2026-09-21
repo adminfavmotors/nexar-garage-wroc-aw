@@ -1,14 +1,22 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 
 export type Lang = "PL" | "EN";
 
-interface LanguageContextType {
+export interface LanguageContextType {
   lang: Lang;
   setLang: (lang: Lang) => void;
   t: (pl: string, en: string) => string;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined,
+);
 
 const getInitialLanguage = (): Lang => {
   try {

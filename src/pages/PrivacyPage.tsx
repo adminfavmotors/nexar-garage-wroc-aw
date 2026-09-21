@@ -19,28 +19,29 @@ const PrivacyPage = () => {
         ),
         canonical: "https://www.nexargarage.pl/rodo-cookies",
         robots: "noindex, follow",
-        ogTitle: t("RODO i cookies | Nexar Garage", "Privacy and cookies | Nexar Garage"),
+        ogTitle: t(
+          "RODO i cookies | Nexar Garage",
+          "Privacy and cookies | Nexar Garage",
+        ),
       }}
-      mainClassName="pt-20 lg:pt-24"
+      mainClassName="pt-16 lg:pt-24"
     >
       <section className="border-b border-border pt-12 pb-14 lg:pt-16 lg:pb-20">
-        <div className="container mx-auto max-w-5xl px-6">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
-            RODO / COOKIES
-          </p>
-          <h1 className="mt-4 font-display text-5xl font-bold leading-[0.94] text-foreground sm:text-[72px]">
-            {t("PRYWATNOŚĆ I PLIKI COOKIE", "PRIVACY AND COOKIES")}
+        <div className="site-shell max-w-5xl">
+          <p className="eyebrow">RODO / COOKIES</p>
+          <h1 className="section-title mt-4">
+            {t("Prywatność i pliki cookie", "Privacy and cookies")}
           </h1>
           <p className="mt-6 max-w-3xl font-body text-base leading-relaxed text-muted-foreground">
             {t(
               "Tutaj znajdziesz najważniejsze informacje o przetwarzaniu danych osobowych oraz zasadach używania plików cookie i treści zewnętrznych na stronie Nexar Garage.",
-              "Here you can find the key information about personal data processing and the use of cookies and external content on the Nexar Garage website."
+              "Here you can find the key information about personal data processing and the use of cookies and external content on the Nexar Garage website.",
             )}
           </p>
 
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
-            <section className="border border-border bg-surface p-8">
-              <h2 className="font-display text-[2rem] font-semibold leading-none text-foreground">
+            <section className="border border-border bg-surface p-5 sm:p-8">
+              <h2 className="font-display text-2xl font-semibold leading-tight text-foreground">
                 {t("Administrator danych", "Data controller")}
               </h2>
               <p className="mt-4 font-body text-[0.95rem] leading-relaxed text-muted-foreground">
@@ -55,46 +56,55 @@ const PrivacyPage = () => {
               <p className="mt-4 font-body text-[0.95rem] leading-relaxed text-muted-foreground">
                 {t(
                   "Dane z formularza rezerwacji wykorzystujemy wyłącznie do kontaktu, wyceny oraz ustalenia terminu wizyty serwisowej.",
-                  "We use the booking form data only for contact, quotation and arranging your service appointment."
+                  "We use the booking form data only for contact, quotation and arranging your service appointment.",
                 )}
               </p>
             </section>
 
-            <section className="border border-border bg-surface p-8">
-              <h2 className="font-display text-[2rem] font-semibold leading-none text-foreground">
+            <section className="border border-border bg-surface p-5 sm:p-8">
+              <h2 className="font-display text-2xl font-semibold leading-tight text-foreground">
                 {t("Pliki cookie", "Cookies")}
               </h2>
               <p className="mt-4 font-body text-[0.95rem] leading-relaxed text-muted-foreground">
                 {t(
                   "Strona używa niezbędnych plików cookie do poprawnego działania. Treści zewnętrzne, takie jak Google Maps, uruchamiamy dopiero po zaakceptowaniu dodatkowych cookie.",
-                  "The site uses essential cookies for core functionality. External content such as Google Maps is loaded only after accepting additional cookies."
+                  "The site uses essential cookies for core functionality. External content such as Google Maps is loaded only after accepting additional cookies.",
                 )}
               </p>
               <p className="mt-4 font-body text-[0.95rem] leading-relaxed text-muted-foreground">
                 {consent === "all"
-                  ? t("Aktualny status zgody: zaakceptowano wszystkie pliki cookie.", "Current consent status: all cookies accepted.")
+                  ? t(
+                      "Aktualny status zgody: zaakceptowano wszystkie pliki cookie.",
+                      "Current consent status: all cookies accepted.",
+                    )
                   : consent === "essential"
-                    ? t("Aktualny status zgody: tylko pliki niezbędne.", "Current consent status: essential cookies only.")
-                    : t("Aktualny status zgody: oczekuje na decyzję użytkownika.", "Current consent status: awaiting user decision.")}
+                    ? t(
+                        "Aktualny status zgody: tylko pliki niezbędne.",
+                        "Current consent status: essential cookies only.",
+                      )
+                    : t(
+                        "Aktualny status zgody: oczekuje na decyzję użytkownika.",
+                        "Current consent status: awaiting user decision.",
+                      )}
               </p>
               <button
                 type="button"
                 onClick={openSettings}
-                className="mt-6 border border-border px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.1em] text-foreground transition-colors duration-200 hover:bg-surface"
+                className="premium-button-secondary mt-6"
               >
-                {t("USTAWIENIA COOKIE", "COOKIE SETTINGS")}
+                {t("Ustawienia cookies", "Cookie settings")}
               </button>
             </section>
           </div>
 
-          <section className="mt-8 border border-border bg-surface p-8">
-            <h2 className="font-display text-[2rem] font-semibold leading-none text-foreground">
+          <section className="mt-8 border border-border bg-surface p-5 sm:p-8">
+            <h2 className="font-display text-2xl font-semibold leading-tight text-foreground">
               {t("Twoje prawa", "Your rights")}
             </h2>
             <p className="mt-4 font-body text-[0.95rem] leading-relaxed text-muted-foreground">
               {t(
                 "Masz prawo do dostępu do swoich danych, ich sprostowania, ograniczenia przetwarzania, usunięcia oraz kontaktu w sprawie obsługi zgłoszenia. W sprawach dotyczących danych osobowych możesz pisać na adres kontakt@nexargarage.pl.",
-                "You have the right to access, rectify, restrict processing or delete your data, and to contact us regarding your service request. For privacy matters you can write to kontakt@nexargarage.pl."
+                "You have the right to access, rectify, restrict processing or delete your data, and to contact us regarding your service request. For privacy matters you can write to kontakt@nexargarage.pl.",
               )}
             </p>
           </section>
